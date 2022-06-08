@@ -1,5 +1,5 @@
 {% set name = "polars" %}
-{% set version = "0.13.37" %}
+{% set version = "0.13.44" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/polars-{{ version }}.tar.gz
-    sha256: 9eb41ed7ae6c07bd5dc9791282f2caa57f27ddab8f4230ceb49174590e22ea95
+    sha256: f36388b05e7c9dddee9207f7bc97d5a58e9e0a268c03b8d5bfec5091612cec4c
 
 build:
-  number: 1
+  number: 0
   # Todo: uncomment win skipping when fixing: https://dev.azure.com/conda-forge/feedstock-builds/_build/results?buildId=505331&view=logs&j=240f1fee-52bc-5498-a14a-8361bde76ba0&t=06d62fd2-ab49-5add-9ee5-83b6882d7d2b&l=2215
   skip: true  # [py<37 or win]
 
@@ -49,7 +49,7 @@ about:
   license_file:
     - LICENSE
     - THIRDPARTY.yml
-  summary: "Polars is a blazingly fast DataFrames library implemented in Rust using Apache Arrow(2) as memory model."
+  summary: Polars is a blazingly fast DataFrames library implemented in Rust using Apache Arrow(2) as memory model.
   doc_url: https://pola-rs.github.io/polars-book/user-guide/index.html
   dev_url: https://github.com/pola-rs/polars
 
