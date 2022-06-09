@@ -18,11 +18,10 @@ requirements:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
-#    - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - posix                               # [win]
-#    - cmake
-#    - make                                # [unix]
+    - cmake
+    - make                                # [unix]
     - cargo-bundle-licenses
   host:
     - python
