@@ -1,3 +1,5 @@
+set "PYO3_PYTHON=%PYTHON%"
+
 set "CMAKE_GENERATOR=NMake Makefiles"
 maturin build --no-sdist --release --strip --manylinux off --interpreter=%PYTHON%
 if errorlevel 1 exit 1
