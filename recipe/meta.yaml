@@ -10,14 +10,11 @@ source:
     sha256: 041970be1f70ca6d1873fd699395274690cd96f63cef8ae1f7d0e0bd15ffb47a
 
 build:
-  number: 0
-  # Todo: uncomment win skipping when fixing: https://dev.azure.com/conda-forge/feedstock-builds/_build/results?buildId=505331&view=logs&j=240f1fee-52bc-5498-a14a-8361bde76ba0&t=06d62fd2-ab49-5add-9ee5-83b6882d7d2b&l=2215
-  skip: true  # [py<37 or win]
+  number: 1
+  skip: true  # [py<37]
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
