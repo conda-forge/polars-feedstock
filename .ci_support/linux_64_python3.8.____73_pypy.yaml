@@ -18,5 +18,7 @@ python:
 - 3.8.* *_73_pypy
 rust_compiler:
 - rust
+rust_compiler_version:
+- '1.63'
 target_platform:
 - linux-64
