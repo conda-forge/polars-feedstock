@@ -19,7 +19,7 @@ requirements:
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - rust 1.65.0.dev20220819
+    - {{ compiler('rust') }}
     - posix                               # [win]
     - cmake
     - make                                # [unix]
