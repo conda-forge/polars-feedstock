@@ -13,6 +13,6 @@ python:
 rust_compiler:
 - rust
 rust_compiler_version:
-- '1.63'
+- '1.65'
 target_platform:
 - win-64
