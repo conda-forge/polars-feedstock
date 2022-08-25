@@ -4,7 +4,7 @@ c_compiler:  # [win]
 rust_compiler:
   - rust
 rust_compiler_version:
-  - 1.63
+  - 1.65
 
 channel_sources:
   - conda-forge/label/rust_dev,conda-forge
