@@ -11,9 +11,6 @@ jobs:
       osx_64_python3.10.____cpythonpython_implcpython:
         CONFIG: osx_64_python3.10.____cpythonpython_implcpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_python3.7.____cpythonpython_implcpython:
-        CONFIG: osx_64_python3.7.____cpythonpython_implcpython
-        UPLOAD_PACKAGES: 'True'
       osx_64_python3.8.____73_pypypython_implpypy:
         CONFIG: osx_64_python3.8.____73_pypypython_implpypy
         UPLOAD_PACKAGES: 'True'
