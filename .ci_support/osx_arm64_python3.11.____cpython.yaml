@@ -1,0 +1,29 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
+c_compiler:
+- clang
+c_compiler_version:
+- '14'
+channel_sources:
+- conda-forge/label/rust_dev,conda-forge
+channel_targets:
+- conda-forge main
+macos_machine:
+- arm64-apple-darwin20.0.0
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- 3.11.* *_cpython
+python_impl:
+- cpython
+rust_compiler:
+- rust
+rust_compiler_version:
+- '1.65'
+target_platform:
+- osx-arm64
+zip_keys:
+- - python
+  - python_impl

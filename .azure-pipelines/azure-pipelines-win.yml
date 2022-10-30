@@ -11,6 +11,9 @@ jobs:
       win_64_python3.10.____cpythonpython_implcpython:
         CONFIG: win_64_python3.10.____cpythonpython_implcpython
         UPLOAD_PACKAGES: 'True'
+      win_64_python3.11.____cpythonpython_implcpython:
+        CONFIG: win_64_python3.11.____cpythonpython_implcpython
+        UPLOAD_PACKAGES: 'True'
       win_64_python3.8.____cpythonpython_implcpython:
         CONFIG: win_64_python3.8.____cpythonpython_implcpython
         UPLOAD_PACKAGES: 'True'
