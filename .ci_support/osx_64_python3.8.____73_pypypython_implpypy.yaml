@@ -20,8 +20,6 @@ python_impl:
 - pypy
 rust_compiler:
 - rust
-rust_compiler_version:
-- '1.65'
 target_platform:
 - osx-64
 zip_keys:
