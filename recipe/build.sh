@@ -9,7 +9,7 @@ fi
 
 echo "${target_platform}" # For debug, will remove
 
-if [[ "${target_platform}" == "osx-64" ]]; then
+if [[ "${target_platform}" == "osx-arm64" ]]; then
   export SYSTEM_VERSION_COMPAT=0
 fi
 
