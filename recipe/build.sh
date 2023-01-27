@@ -7,10 +7,8 @@ if [[ "${target_platform}" == "linux-64" ]]; then
   export RUSTFLAGS='-C target-feature=+fxsr,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma'
 fi
 
-echo "${target_platform}" # For debug, will remove
-
 if [[ "${target_platform}" == "osx-arm64" ]]; then
-  export SYSTEM_VERSION_COMPAT=0
+  export SYSTEM_VERSION_COMPAT=1
 fi
 
 maturin build --release --strip --manylinux off --interpreter="${PYTHON}"
