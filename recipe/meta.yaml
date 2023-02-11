@@ -13,13 +13,14 @@ build:
   number: 0
   skip: true  # [py<37]
   skip: true  # [win and python_impl=="pypy"]
+  skip: true  # [osx and arm64]
 
 requirements:
   build:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
-    - maturin >=0.13,<0.14                # [build_platform != target_platform]
+    - maturin >=0.14,<0.15                # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - posix                               # [win]
@@ -29,7 +30,7 @@ requirements:
   host:
     - python
     - pip
-    - maturin >=0.13,<0.14
+    - maturin >=0.14,<0.15
   run:
     - python
     - numpy >=1.16.0
