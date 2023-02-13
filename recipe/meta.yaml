@@ -1,5 +1,5 @@
 {% set name = "polars" %}
-{% set version = "0.15.14" %}
+{% set version = "0.16.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/polars-{{ version }}.tar.gz
-    sha256: 899441090b70451c5306b5d3ff6dce5407bcfce3753922a61eca046dca26df68
+    sha256: e9128e86d3507c0772ad67817e7e8c249f8950bee3588d782a2e33fe285ca64a
 
 build:
   number: 0
@@ -19,7 +19,7 @@ requirements:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
-    - maturin >=0.13,<0.14                # [build_platform != target_platform]
+    - maturin >=0.14,<0.15                # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - posix                               # [win]
@@ -29,12 +29,12 @@ requirements:
   host:
     - python
     - pip
-    - maturin >=0.13,<0.14
+    - maturin >=0.14,<0.15
   run:
     - python
     - numpy >=1.16.0
     - backports.zoneinfo                   # [py<39]
-    - typing_extensions >=4.0.0            # [py<310]
+    - typing_extensions >=4.0.0            # [py<311]
 
 test:
   imports:

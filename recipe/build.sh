@@ -7,8 +7,8 @@ if [[ "${target_platform}" == "linux-64" ]]; then
   export RUSTFLAGS='-C target-feature=+fxsr,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma'
 fi
 
-maturin build --release --strip --manylinux off --interpreter="${PYTHON}"
-
-"${PYTHON}" -m pip install $SRC_DIR/target/wheels/polars*.whl --no-deps -vv
+# Run the maturin build via pip which works for direct and
+# cross-compiled builds.
+$PYTHON -m pip install . -vv
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
