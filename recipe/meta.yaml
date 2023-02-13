@@ -29,7 +29,7 @@ requirements:
   host:
     - python
     - pip
-    - maturin >=0.13,<0.14
+    - maturin >=0.14,<0.15
   run:
     - python
     - numpy >=1.16.0
