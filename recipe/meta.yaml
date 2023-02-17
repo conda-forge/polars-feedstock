@@ -35,6 +35,7 @@ requirements:
     - numpy >=1.16.0
     - backports.zoneinfo                   # [py<39]
     - typing_extensions >=4.0.0            # [py<311]
+    - packaging                            # [py>=310]
 
 test:
   imports:
