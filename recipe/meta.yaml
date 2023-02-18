@@ -1,5 +1,5 @@
 {% set name = "polars" %}
-{% set version = "0.16.5" %}
+{% set version = "0.16.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/polars-{{ version }}.tar.gz
-    sha256: 80893b5df9f5428787b1e5555b6a94e240ddbcc178df1a64e3d9fa61b59dd57a
+    sha256: 5abba6e55a0226737adc4291c29cf7a1ef0c3d78f0f442999fc7a98b1295d347
 
 build:
   number: 0
@@ -35,6 +35,7 @@ requirements:
     - numpy >=1.16.0
     - backports.zoneinfo                   # [py<39]
     - typing_extensions >=4.0.0            # [py<311]
+    - packaging                            # [py>=310]
 
 test:
   imports:
