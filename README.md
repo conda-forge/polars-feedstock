@@ -1,11 +1,11 @@
-About polars
-============
+About polars-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/polars-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/pola-rs/polars
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/polars-feedstock/blob/main/LICENSE.txt)
 
 Summary: Polars is a blazingly fast DataFrames library implemented in Rust using Apache Arrow(2) as memory model.
 
