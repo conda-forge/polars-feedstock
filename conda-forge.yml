@@ -1,7 +1,10 @@
 bot:
   automerge: true
 build_platform:
+  linux_aarch64: linux_aarch64
   osx_arm64: osx_64
+provider:
+  linux_aarch64: travis
 conda_forge_output_validation: true
 github:
   branch_name: main
@@ -9,3 +12,4 @@ github:
 test: native_and_emulated
 conda_build:
   pkg_format: '2'
+idle_timeout_minutes: 60

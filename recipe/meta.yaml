@@ -13,6 +13,7 @@ build:
   number: 0
   skip: true  # [py<37]
   skip: true  # [win and python_impl=="pypy"]
+  skip: true  # [linux and aarch64 and python_impl=="pypy"]
 
 requirements:
   build:
