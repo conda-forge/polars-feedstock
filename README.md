@@ -300,6 +300,7 @@ Feedstock Maintainers
 =====================
 
 * [@Maxyme](https://github.com/Maxyme/)
+* [@borchero](https://github.com/borchero/)
 * [@dhirschfeld](https://github.com/dhirschfeld/)
 * [@ritchie46](https://github.com/ritchie46/)
 * [@sugatoray](https://github.com/sugatoray/)
