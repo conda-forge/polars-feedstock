@@ -2,7 +2,7 @@ set "PYO3_PYTHON=%PYTHON%"
 
 set "CMAKE_GENERATOR=NMake Makefiles"
 set "CARGO_INCREMENTAL=0"
-set "RUSTFLAGS=-C codegen-units=1 -C debuginfo=0"
+set "RUSTFLAGS=-C codegen-units=128"
 maturin build -v --jobs 1 --release --strip --manylinux off --interpreter=%PYTHON%
 if errorlevel 1 exit 1
 
