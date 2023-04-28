@@ -1,6 +1,7 @@
+@echo on
 set "PYO3_PYTHON=%PYTHON%"
 
-sed -i "/lto = \"fat\"/lto = \"thin\"/g" Cargo.toml
+sed -i "/lto = ""fat""/lto = ""thin""/g" Cargo.toml
 if errorlevel 1 exit 1
 
 set "CMAKE_GENERATOR=NMake Makefiles"
