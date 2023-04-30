@@ -1,7 +1,11 @@
+@echo on
 set "PYO3_PYTHON=%PYTHON%"
 
+sed -i "s/lto = ""fat""/lto = ""thin""/g" Cargo.toml
+if errorlevel 1 exit 1
+
 set "CMAKE_GENERATOR=NMake Makefiles"
-set "RUSTFLAGS=-C codegen-units=4"
+@rem set "RUSTFLAGS=-C codegen-units=4"
 maturin build -v --jobs 1 --release --strip --manylinux off --interpreter=%PYTHON%
 if errorlevel 1 exit 1
 
