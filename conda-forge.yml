@@ -10,6 +10,10 @@ github:
   branch_name: main
   tooling_branch_name: main
 test: native_and_emulated
+travis:
+  linux_aarch64:
+    type: arm64-graviton2
+    size: large
 conda_build:
   pkg_format: '2'
 idle_timeout_minutes: 60
