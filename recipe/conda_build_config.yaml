@@ -3,8 +3,8 @@ channel_sources:
 channel_targets:
   - conda-forge main
 rust_std:
-  - rust-std-x86_64-unknown-linux-gnu   # [linux64]
-  - rust-std-aarch64-unknown-linux-gnu  # [aarch64]
-  - rust-std-x86_64-apple-darwin        # [osx and not arm64]
-  - rust-std-aarch64-apple-darwin       # [arm64]
-  - rust-std-x86_64-pc-windows-msvc     # [win]
+  - x86_64-unknown-linux-gnu   # [linux64]
+  - aarch64-unknown-linux-gnu  # [aarch64]
+  - x86_64-apple-darwin        # [osx and not arm64]
+  - aarch64-apple-darwin       # [arm64]
+  - x86_64-pc-windows-msvc     # [win]

@@ -24,7 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - rust =1.71.0.dev20230425
-    - {{ rust_std }} =1.71.0.dev20230425
+    - rust-std-{{ rust_std }} =1.71.0.dev20230425
     - posix                               # [win]
     - cmake
     - make                                # [unix]

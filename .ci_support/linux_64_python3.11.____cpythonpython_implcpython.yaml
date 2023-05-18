@@ -21,7 +21,7 @@ python_impl:
 rust_compiler:
 - rust
 rust_std:
-- rust-std-x86_64-unknown-linux-gnu
+- x86_64-unknown-linux-gnu
 target_platform:
 - linux-64
 zip_keys:

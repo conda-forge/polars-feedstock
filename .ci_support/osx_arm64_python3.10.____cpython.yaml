@@ -21,7 +21,7 @@ python_impl:
 rust_compiler:
 - rust
 rust_std:
-- rust-std-aarch64-apple-darwin
+- aarch64-apple-darwin
 target_platform:
 - osx-arm64
 zip_keys:
