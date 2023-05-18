@@ -1,7 +1,5 @@
 bot:
   automerge: true
-linux_aarch64:
-  enabled: true
 build_platform:
   osx_arm64: osx_64
   linux_aarch64: linux_64
