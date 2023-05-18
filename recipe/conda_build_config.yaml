@@ -2,3 +2,5 @@ channel_sources:
   - conda-forge/label/rust_dev,conda-forge
 channel_targets:
   - conda-forge main
+rust_compiler_version:
+  - 1.71.0.dev20230425
