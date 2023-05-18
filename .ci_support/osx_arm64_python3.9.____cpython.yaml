@@ -20,8 +20,8 @@ python_impl:
 - cpython
 rust_compiler:
 - rust
-rust_compiler_version:
-- 1.71.0.dev20230425
+rust_std:
+- rust-std-aarch64-apple-darwin
 target_platform:
 - osx-arm64
 zip_keys:

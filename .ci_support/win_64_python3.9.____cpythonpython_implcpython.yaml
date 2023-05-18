@@ -14,8 +14,8 @@ python_impl:
 - cpython
 rust_compiler:
 - rust
-rust_compiler_version:
-- 1.71.0.dev20230425
+rust_std:
+- rust-std-x86_64-pc-windows-msvc
 target_platform:
 - win-64
 zip_keys:
