@@ -27,6 +27,7 @@ requirements:
     - cmake
     - make                                # [unix]
     - cargo-bundle-licenses
+    - rust =1.71.0.dev20230425
   host:
     - python
     - pip
