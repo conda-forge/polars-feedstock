@@ -1,5 +1,5 @@
 {% set name = "polars" %}
-{% set version = "0.18.1" %}
+{% set version = "0.18.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/polars-{{ version }}.tar.gz
-    sha256: 0022e594569a57c17776f1e5b39bf45f43462398a10697879800e25289812379
+    sha256: de1dc24c2ff7eb9ac379161501a1b1777c5febdcad341532495c0fc1651968c0
 
 build:
   number: 0
