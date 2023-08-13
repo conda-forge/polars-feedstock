@@ -1,0 +1,56 @@
+From 7b7caf358ef0cb47cbca61e44537459202226ab4 Mon Sep 17 00:00:00 2001
+From: Tim Paine <3105306+timkpaine@users.noreply.github.com>
+Date: Sun, 13 Aug 2023 16:25:00 -0400
+Subject: [PATCH] patch bad cargo toml
+
+---
+ local_dependencies/polars-arrow/Cargo.toml | 3 +--
+ local_dependencies/polars-row/Cargo.toml   | 3 +--
+ local_dependencies/polars-time/Cargo.toml  | 3 +--
+ 3 files changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/local_dependencies/polars-arrow/Cargo.toml b/local_dependencies/polars-arrow/Cargo.toml
+index c18953a..dcb41d6 100644
+--- a/local_dependencies/polars-arrow/Cargo.toml
++++ b/local_dependencies/polars-arrow/Cargo.toml
+@@ -24,8 +24,7 @@ thiserror= "^1"
+ [build-dependencies]
+ version_check = "0.9.4"
+ 
+-[dependencies.
+-arrow]
++[dependencies.arrow]
+ package = "arrow2"
+ git = "https://github.com/jorgecarleitao/arrow2"
+ # git = "https://github.com/ritchie46/arrow2"
+diff --git a/local_dependencies/polars-row/Cargo.toml b/local_dependencies/polars-row/Cargo.toml
+index 6a27271..148bd0c 100644
+--- a/local_dependencies/polars-row/Cargo.toml
++++ b/local_dependencies/polars-row/Cargo.toml
+@@ -13,8 +13,7 @@ resolver = "2"
+ polars-error = { version = "0.31.1", path = "../polars-error" }
+ polars-utils = { version = "0.31.1", path = "../polars-utils" }
+ 
+-[dependencies.
+-arrow]
++[dependencies.arrow]
+ package = "arrow2"
+ git = "https://github.com/jorgecarleitao/arrow2"
+ # git = "https://github.com/ritchie46/arrow2"
+diff --git a/local_dependencies/polars-time/Cargo.toml b/local_dependencies/polars-time/Cargo.toml
+index aae569c..8bbcc59 100644
+--- a/local_dependencies/polars-time/Cargo.toml
++++ b/local_dependencies/polars-time/Cargo.toml
+@@ -36,8 +36,7 @@ test = ["dtype-date", "dtype-datetime", "polars-core/fmt"]
+ 
+ default = []
+ 
+-[dependencies.
+-arrow]
++[dependencies.arrow]
+ package = "arrow2"
+ git = "https://github.com/jorgecarleitao/arrow2"
+ # git = "https://github.com/ritchie46/arrow2"
+-- 
+2.41.0
+
