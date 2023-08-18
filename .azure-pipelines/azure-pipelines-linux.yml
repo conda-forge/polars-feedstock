@@ -32,6 +32,30 @@ jobs:
         CONFIG: linux_64_python3.9.____cpythonpython_implcpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_python3.10.____cpythonpython_implcpython:
+        CONFIG: linux_aarch64_python3.10.____cpythonpython_implcpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_python3.11.____cpythonpython_implcpython:
+        CONFIG: linux_aarch64_python3.11.____cpythonpython_implcpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_python3.8.____73_pypypython_implpypy:
+        CONFIG: linux_aarch64_python3.8.____73_pypypython_implpypy
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_python3.8.____cpythonpython_implcpython:
+        CONFIG: linux_aarch64_python3.8.____cpythonpython_implcpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_python3.9.____73_pypypython_implpypy:
+        CONFIG: linux_aarch64_python3.9.____73_pypypython_implpypy
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_python3.9.____cpythonpython_implcpython:
+        CONFIG: linux_aarch64_python3.9.____cpythonpython_implcpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
   timeoutInMinutes: 360
 
   steps:
