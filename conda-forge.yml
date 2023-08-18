@@ -10,3 +10,5 @@ github:
 test: native_and_emulated
 conda_build:
   pkg_format: '2'
+azure:
+  swapfile_size: "10GiB"
