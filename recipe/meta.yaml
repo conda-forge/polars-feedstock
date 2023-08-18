@@ -19,7 +19,7 @@ requirements:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
-    - maturin >=0.14,<0.15                # [build_platform != target_platform]
+    - maturin >=1.2.1,<2                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - rust 1.73.0.dev20230713
@@ -30,7 +30,7 @@ requirements:
   host:
     - python
     - pip
-    - maturin >=0.14,<0.15
+    - maturin >=1.2.1,<2
   run:
     - python
     - numpy >=1.16.0
