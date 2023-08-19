@@ -3,18 +3,19 @@
 set -ex
 
 if [[ "${target_platform}" == "linux-64" ]]; then
-  # similar to settings upstream in polars
-  export RUSTFLAGS='-C target-feature=+fxsr,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma'
+    # similar to settings upstream in polars
+    export RUSTFLAGS='-C target-feature=+fxsr,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma'
 fi
 
-
-# Use mold as the linker
-mkdir -p .cargo
+if [[ "${target_platform}" == "linux-64" ]] || [[ "${target_platform}" == "linux-aarch64" ]]; then
+    export CARGO_BUILD_TARGET=x86_64-unknown-linux-gnu
+    # Use mold as the linker
+    mkdir -p .cargo
 cat <<EOF > .cargo/config
-[target.${rustc_target}]
-linker = "clang"
-rustflags = ["-C", "link-arg=-fuse-ld=${$PREFIX}/bin/mold"]
+[target.$CARGO_BUILD_TARGET]
+rustflags = ["-C", "link-arg=-fuse-ld=mold"]
 EOF
+fi
 
 # Run the maturin build via pip which works for direct and
 # cross-compiled builds.
