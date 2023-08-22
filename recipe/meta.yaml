@@ -30,6 +30,8 @@ requirements:
     - python
     - pip
     - maturin >=1.2.1,<2
+    - libgit2
+    - libiconv        # [osx]
   run:
     - python
     - numpy >=1.16.0
