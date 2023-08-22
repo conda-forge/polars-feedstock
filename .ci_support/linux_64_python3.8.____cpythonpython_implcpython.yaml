@@ -20,6 +20,8 @@ python_impl:
 - cpython
 rust_compiler:
 - rust
+rust_compiler_version:
+- 1.72.0
 target_platform:
 - linux-64
 zip_keys:
