@@ -9,6 +9,7 @@ fi
 
 export LIBGIT2_NO_VENDOR=1
 export CARGO_BUILD_RUSTFLAGS="${CARGO_BUILD_RUSTFLAGS} -C link-arg=-Wl,-L$PREFIX/lib"
+export RUST_LOG="warn,maturin=debug"
 
 # Run the maturin build via pip which works for direct and
 # cross-compiled builds.
