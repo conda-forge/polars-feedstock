@@ -1,6 +1,6 @@
 migrator_ts: 1695046563
 __migrator:
-    migration_number: 1
+    migration_number: 2
     operation: key_add
     primary_key: python
     ordering:
@@ -34,7 +34,7 @@ __migrator:
 python:
   - 3.12.* *_cpython
 channel_sources:
-  - conda-forge/label/python_rc,conda-forge
+  - conda-forge/label/rust_dev,conda-forge/label/python_rc,conda-forge
 # additional entries to add for zip_keys
 numpy:
   - 1.26
