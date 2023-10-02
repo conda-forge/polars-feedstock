@@ -9,7 +9,7 @@ cdt_arch:
 cdt_name:
 - cos7
 channel_sources:
-- conda-forge/label/python_rc,conda-forge
+- conda-forge/label/rust_dev,conda-forge/label/python_rc,conda-forge
 channel_targets:
 - conda-forge main
 docker_image:
