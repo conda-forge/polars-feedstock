@@ -31,3 +31,4 @@ target_platform:
 zip_keys:
 - - python
   - python_impl
+  - channel_sources
