@@ -13,4 +13,7 @@ echo rustc --version
 # cross-compiled builds.
 $PYTHON -m pip install . -vv
 
-cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+# The root level Cargo.toml is part of an incomplete workspace
+# we need to use the manifest inside the py-polars
+cd py-polars
+cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml

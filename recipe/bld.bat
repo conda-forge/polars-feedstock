@@ -13,4 +13,7 @@ FOR /F "delims=" %%i IN ('dir /s /b target\wheels\*.whl') DO set polars_wheel=%%
 %PYTHON% -m pip install --ignore-installed --no-deps %polars_wheel% -vv
 if errorlevel 1 exit 1
 
-cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+REM The root level Cargo.toml is part of an incomplete workspace
+REM we need to use the manifest inside the py-polars
+cd py-polars
+cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
