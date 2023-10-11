@@ -3,4 +3,4 @@ channel_sources:
 channel_targets:
   - conda-forge main
 rust_compiler_version:
-  - 1.72.0
+  - 1.75.0
