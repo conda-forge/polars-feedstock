@@ -11,8 +11,6 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
-  skip: true  # [py<37]
   skip: true  # [win and python_impl=="pypy"]
 
 requirements:
@@ -21,16 +19,19 @@ requirements:
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
     - maturin >=1.2.1,<2                  # [build_platform != target_platform]
-    - {{ compiler('c') }}
+    - {{ compiler('c') }}                 # [not (build_platform == "linux-64" and target_platform == "win-64")]
     - {{ compiler('rust') }}
-    - posix                               # [win]
+    - ninja                               # [build_platform == "linux-64" and target_platform == "win-64"]
+    - pkg-config                          # [build_platform == "linux-64" and target_platform == "win-64"]
+    - posix                               # [win and not (build_platform == "linux-64" and target_platform == "win-64")]
     - cmake
     - make                                # [unix]
     - cargo-bundle-licenses
   host:
-    - python
-    - pip
-    - maturin >=1.2.1,<2
+    # this is a hacky way to do cross-compilation from linux to windows
+    - python              # [not (build_platform == "linux-64" and target_platform == "win-64")]
+    - pip                 # [not (build_platform == "linux-64" and target_platform == "win-64")]
+    - maturin >=1.2.1,<2  # [not (build_platform == "linux-64" and target_platform == "win-64")]
   run:
     - python
     - numpy >=1.16.0
