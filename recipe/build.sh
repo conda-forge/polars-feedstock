@@ -12,7 +12,7 @@ echo rustc --version
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
   # in a linux -> windows cross-compilation setting we cannot use python in host
   # because otherwise conda-build would try to do prefix replacement which is not possible on Windows
-  export PYTHON="$BUILD_PREFIX/bin/python"
+  export PYTHON="$BUILD_PREFIX/bin/c"
   # there are dependencies of polars that need a linux gnu c compiler at buildtime
   # thus we need to create custom cflags since the default ones are for clang
   export CFLAGS_x86_64_unknown_linux_gnu=""
@@ -23,6 +23,8 @@ if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]
       --manifest-path py-polars/Cargo.toml \
       --features "abi3-py38,extension-module,multiple-pymethods,generate-import-lib"
   maturin build -i "$PYTHON"
+  pip install py-polars/target/wheels/polars*.whl --prefix $PREFIX
+
 else
   # Run the maturin build via pip which works for direct and
   # cross-compiled builds.
