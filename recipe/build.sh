@@ -9,7 +9,7 @@ fi
 
 echo rustc --version
 
-if [[ ! ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
+if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
   # in a linux -> windows cross-compilation setting we cannot use python in host
   # because otherwise conda-build would try to do prefix replacement which is not possible on Windows
   export PYTHON="$BUILD_PREFIX/bin/python"
