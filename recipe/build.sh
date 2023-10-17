@@ -22,7 +22,7 @@ if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]
   cargo add pyo3 \
       --manifest-path py-polars/Cargo.toml \
       --features "abi3-py38,extension-module,multiple-pymethods,generate-import-lib"
-  maturin build -i "$PYTHON"
+  maturin build -i "$PYTHON" --target x86_64-pc-windows-msvc
   mkdir -p $PREFIX/lib/python$PY_VER/site-packages
   pip install py-polars/target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
 else
