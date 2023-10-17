@@ -24,7 +24,7 @@ if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]
       --features "abi3-py38,extension-module,multiple-pymethods,generate-import-lib"
   maturin build -i "$PYTHON"
   mkdir -p $PREFIX/lib/python$PY_VER/site-packages
-  pip install py-polars/target/wheels/polars*.whl --target $PREFIX/lib/python$PY_VER/site-packages --platform win_amd64
+  pip install py-polars/target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
 else
   # Run the maturin build via pip which works for direct and
   # cross-compiled builds.
