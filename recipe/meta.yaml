@@ -21,16 +21,11 @@ requirements:
     - crossenv                            # [build_platform != target_platform]
     - maturin >=1.2.1,<2                  # [build_platform != target_platform]
     - {{ compiler('c') }}                 # [not (build_platform == "linux-64" and target_platform == "win-64")]
-    - {{ compiler('rust') }}              # [not (build_platform == "linux-64" and target_platform == "win-64")]
+    - {{ compiler('rust') }}
     - posix                               # [win and not (build_platform == "linux-64" and target_platform == "win-64")]
     - cmake
     - make                                # [unix]
     - cargo-bundle-licenses
-    # maturin uses cargo-xwin together with a vendored winsdk for windows cross compiles
-    - rust {{ rust_compiler_version }}.*  # [build_platform == "linux-64" and target_platform == "win-64"]
-    - rust-std-x86_64-pc-windows-msvc {{ rust_compiler_version }}.*  # [build_platform == "linux-64" and target_platform == "win-64"]
-    - ninja                               # [build_platform == "linux-64" and target_platform == "win-64"]
-    - pkg-config                          # [build_platform == "linux-64" and target_platform == "win-64"]
   host:
     # this is a hacky way to do cross-compilation from linux to windows
     - python              # [not (build_platform == "linux-64" and target_platform == "win-64")]
