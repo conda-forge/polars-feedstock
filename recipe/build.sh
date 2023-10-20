@@ -10,16 +10,13 @@ fi
 echo rustc --version
 
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
-  # in a linux -> windows cross-compilation setting we cannot use python in host
-  # because otherwise conda-build would try to do prefix replacement which is not possible on Windows
-  export PYTHON="$BUILD_PREFIX/bin/python"
   # we need to add the generate-import-lib feature since otherwise
   # maturin will expect libpython DSOs at PYO3_CROSS_LIB_DIR
   # which we don't have since we are not able to add python as a host dependency
   cargo add pyo3 \
       --manifest-path py-polars/Cargo.toml \
       --features "abi3-py38,extension-module,multiple-pymethods,generate-import-lib"
-  maturin build -i "$PYTHON" --release --strip
+  maturin build --release --strip
   pip install py-polars/target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
 else
   # Run the maturin build via pip which works for direct and
