@@ -16,12 +16,13 @@ build:
 requirements:
   build:
     - python                              # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}  # [build_platform != target_platform and not (build_platform == "linux-64" and target_platform == "win-64")]
+    # there is no cross-python for linux-64 -> win-64
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform and not target_platform == "win-64"]
     - crossenv                            # [build_platform != target_platform]
     - maturin >=1.2.1,<2                  # [build_platform != target_platform]
     - {{ compiler('c') }}                 # [not (build_platform == "linux-64" and target_platform == "win-64")]
     - {{ compiler('rust') }}
-    - posix                               # [win and not (build_platform == "linux-64" and target_platform == "win-64")]
+    - posix                               # [build_platform == "win-64"]
     - cmake
     - make                                # [unix]
     - cargo-bundle-licenses
