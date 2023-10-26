@@ -1,17 +1,21 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
 c_compiler:
-- vs2019
+- clang
+c_compiler_version:
+- '16'
 channel_sources:
 - conda-forge/label/rust_dev,conda-forge
 channel_targets:
 - conda-forge main
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+macos_machine:
+- arm64-apple-darwin20.0.0
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.9.* *_cpython
+- 3.10.* *_cpython
 python_impl:
 - cpython
 rust_compiler:
@@ -19,7 +23,7 @@ rust_compiler:
 rust_compiler_version:
 - 1.75.0
 target_platform:
-- win-64
+- osx-arm64
 zip_keys:
 - - python
   - python_impl

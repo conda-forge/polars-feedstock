@@ -1,7 +1,7 @@
 c_compiler:
 - vs2019
 channel_sources:
-- conda-forge/label/rust_dev,conda-forge,https://repo.prefix.dev/test-polars
+- conda-forge/label/rust_dev,conda-forge
 channel_targets:
 - conda-forge main
 docker_image:

@@ -1,5 +1,9 @@
 c_compiler:
-- vs2019
+- gcc
+c_compiler_version:
+- '12'
+cdt_name:
+- cos6
 channel_sources:
 - conda-forge/label/rust_dev,conda-forge
 channel_targets:
@@ -19,7 +23,7 @@ rust_compiler:
 rust_compiler_version:
 - 1.75.0
 target_platform:
-- win-64
+- linux-64
 zip_keys:
 - - python
   - python_impl
