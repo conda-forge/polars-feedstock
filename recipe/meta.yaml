@@ -20,6 +20,7 @@ requirements:
     - cross-python_{{ target_platform }}  # [build_platform != target_platform and not target_platform == "win-64"]
     - crossenv                            # [build_platform != target_platform]
     - maturin >=1.2.1,<2                  # [build_platform != target_platform]
+    - {{ compiler('c') }}
     - {{ compiler('rust') }}
     - posix                               # [build_platform == "win-64"]
     - cmake
