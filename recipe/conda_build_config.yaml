@@ -4,5 +4,3 @@ channel_targets:
   - conda-forge main
 rust_compiler_version:
   - 1.75.0
-CONDA_BUILD_WINSDK:
-  - "/opt"
