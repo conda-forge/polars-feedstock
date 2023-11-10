@@ -8,3 +8,5 @@ c_compiler:
   - clang  # [win]
 c_compiler_version:
   - 17  # [win]
+MACOSX_DEPLOYMENT_TARGET:
+  - 10.12  # [osx and x86_64]
