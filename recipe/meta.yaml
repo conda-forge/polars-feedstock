@@ -10,7 +10,7 @@ source:
     sha256: 8562bffe602b131036e996e0161d96ea7ba1c004e513e49cbec55debc8b5fada
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and python_impl=="pypy"]
 
 requirements:
@@ -43,6 +43,7 @@ test:
     - polars
   commands:
     - pip check
+    - python -c "from polars import DataFrame"
   requires:
     - pip
 
