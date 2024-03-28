@@ -4,6 +4,10 @@ c_compiler:
 - gcc
 c_compiler_version:
 - '12'
+c_stdlib:
+- sysroot
+c_stdlib_version:
+- '2.17'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -29,6 +33,8 @@ rust_compiler_version:
 target_platform:
 - linux-aarch64
 zip_keys:
+- - c_stdlib_version
+  - cdt_name
 - - python
   - python_impl
   - channel_sources
