@@ -25,7 +25,7 @@ requirements:
     - posix                               # [build_platform == "win-64"]
     - cmake
     - make                                # [unix]
-    - cargo-feature                       # [build_platform != target_platform and not target_platform == "win-64"]
+    - cargo-feature                       # [build_platform != target_platform and target_platform == "win-64"]
     - cargo-bundle-licenses
   host:
     # this is a hacky way to do cross-compilation from linux to windows
