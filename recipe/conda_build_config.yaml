@@ -9,7 +9,7 @@ c_compiler:
 c_compiler_version:
   - 17  # [win]
 cxx_compiler:
-  - clang  # [win]
+  - clangxx  # [win]
 cxx_compiler_version:
   - 17  # [win]
 c_stdlib_version:        
