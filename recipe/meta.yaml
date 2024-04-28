@@ -21,7 +21,9 @@ requirements:
     - crossenv                            # [build_platform != target_platform]
     - maturin >=1.2.1,<2                  # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ compiler('cxx') }}               # [win]
+    # clang_win-64 already adds all required run_exports for the windows build
+    - {{ stdlib("c") }}  # [not (build_platform == "linux-64" and target_platform == "win-64")]
     - {{ compiler('rust') }}
     - posix                               # [build_platform == "win-64"]
     - cmake
