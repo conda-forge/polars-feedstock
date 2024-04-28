@@ -1,5 +1,5 @@
 {% set name = "polars" %}
-{% set version = "0.20.21" %}
+{% set version = "0.20.23" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/polars-{{ version }}.tar.gz
-    sha256: 1ef8c44dc1a0dd79f3c1a6f73677cddac6e5aca3093cc9fb666f2e098f9b3bef
+    sha256: 4503c446c7771d5b52d5bff4f2dbf2e999a87a1cc3c89931db255cff43218436
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and python_impl=="pypy"]
 
 requirements:
@@ -21,6 +21,7 @@ requirements:
     - crossenv                            # [build_platform != target_platform]
     - maturin >=1.2.1,<2                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('rust') }}
     - posix                               # [build_platform == "win-64"]
     - cmake
