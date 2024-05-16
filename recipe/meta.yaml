@@ -10,7 +10,7 @@ source:
     sha256: fa83d130562a5180a47f8763a7bb9f408dbbf51eafc1380e8a2951be8ce05a2c
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and python_impl=="pypy"]
 
 requirements:
@@ -31,10 +31,9 @@ requirements:
     - cargo-feature                       # [build_platform != target_platform and target_platform == "win-64"]
     - cargo-bundle-licenses
   host:
-    # this is a hacky way to do cross-compilation from linux to windows
-    - python              # [not (build_platform == "linux-64" and target_platform == "win-64")]
-    - pip                 # [not (build_platform == "linux-64" and target_platform == "win-64")]
-    - maturin >=1.2.1,<2  # [not (build_platform == "linux-64" and target_platform == "win-64")]
+    - python
+    - pip
+    - maturin >=1.2.1,<2
   run:
     - python
     - numpy >=1.16.0
