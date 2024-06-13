@@ -18,7 +18,7 @@ source:
     sha256: 139794161c5f54ee8fabc6e4e0ee4f5ec4dad4f783000b0015f0b0b9c0b26879 # [name == "polars-u64-idx"]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and python_impl=="pypy"]
 
 requirements:
