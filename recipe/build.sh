@@ -12,14 +12,6 @@ case "${target_platform}" in
 esac
 
 cpu_check_module="py-polars/polars/_cpu_check.py"
-
-# OSX expects an extension to the -i flag
-if [[ -n "${OSX_ARCH}" ]]; then
-  sed_inplace="-i ''"
-else
-  sed_inplace="-i"
-fi
-
 features=""
 
 if [[ ${arch} == "x86_64" ]]; then
@@ -37,11 +29,11 @@ if [[ ${arch} == "x86_64" ]]; then
 fi
 
 if [[ "${PKG_NAME}" == "polars-lts-cpu" ]]; then
-    sed $sed_inplace 's/^_LTS_CPU = False$/_LTS_CPU = True/g' $cpu_check_module
+    sed -i.bak "s/^_LTS_CPU = False$/_LTS_CPU = True/g" $cpu_check_module
 fi
 
-sed $sed_inplace "s/^_POLARS_ARCH = \"unknown\"$/_POLARS_ARCH = \"$arch\"/g" $cpu_check_module
-sed $sed_inplace "s/^_POLARS_FEATURE_FLAGS = \"\"$/_POLARS_FEATURE_FLAGS = \"$features\"/g" $cpu_check_module
+sed -i.bak "s/^_POLARS_ARCH = \"unknown\"$/_POLARS_ARCH = \"$arch\"/g" $cpu_check_module
+sed -i.bak "s/^_POLARS_FEATURE_FLAGS = \"\"$/_POLARS_FEATURE_FLAGS = \"$features\"/g" $cpu_check_module
 
 # Use jemalloc on linux-aarch64
 if [[ "${target_platform}" == "linux-aarch64" ]]; then
