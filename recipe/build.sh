@@ -2,12 +2,53 @@
 
 set -ex
 
-if [[ "${target_platform}" == "linux-64" ]]; then
-  # similar to settings upstream in polars
-  export RUSTFLAGS='-C target-feature=+fxsr,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma'
+case "${target_platform}" in
+  linux-aarch64|osx-arm64)
+    arch="aarch64"
+    ;;
+  *)
+    arch="x86_64"
+    ;;
+esac
+
+cpu_check_module="py-polars/polars/_cpu_check.py"
+
+# OSX expects an extension to the -i flag
+if [[ -n "${OSX_ARCH}" ]]; then
+  sed_inplace="-i ''"
+else
+  sed_inplace="-i"
 fi
 
-echo rustc --version
+features=""
+
+if [[ ${arch} == "x86_64" ]]; then
+  cfg=""
+  if [[ "${PKG_NAME}" == "polars-lts-cpu" ]]; then
+    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt
+    cfg="--cfg allocator=\"default\""
+  elif [[ -n "${OSX_ARCH}" ]]; then
+    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma,+pclmulqdq
+  else
+    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+avx2,+fma,+bmi1,+bmi2,+lzcnt,+pclmulqdq
+  fi
+
+  export RUSTFLAGS="-C target-feature=$features $cfg"
+fi
+
+if [[ "${PKG_NAME}" == "polars-lts-cpu" ]]; then
+    sed $sed_inplace 's/^_LTS_CPU = False$/_LTS_CPU = True/g' $cpu_check_module
+fi
+
+sed $sed_inplace "s/^_POLARS_ARCH = \"unknown\"$/_POLARS_ARCH = \"$arch\"/g" $cpu_check_module
+sed $sed_inplace "s/^_POLARS_FEATURE_FLAGS = \"\"$/_POLARS_FEATURE_FLAGS = \"$features\"/g" $cpu_check_module
+
+# Use jemalloc on linux-aarch64
+if [[ "${target_platform}" == "linux-aarch64" ]]; then
+  export JEMALLOC_SYS_WITH_LG_PAGE=16
+fi
+
+rustc --version
 
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
   # we need to add the generate-import-lib feature since otherwise
