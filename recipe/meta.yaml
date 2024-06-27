@@ -20,7 +20,6 @@ source:
 build:
   number: 1
   skip: true  # [win and python_impl=="pypy"]
-  skip: true  # [py<312]
 
 requirements:
   build:
