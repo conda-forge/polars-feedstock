@@ -1,16 +1,24 @@
-{% set name = "polars" %}
+{% if polars_variant == "polars-lts-cpu" %}
+  {% set name = "polars-lts-cpu" %}
+{% elif polars_variant == "polars-u64-idx" %}
+  {% set name = "polars-u64-idx" %}
+{% else %}
+  {% set name = "polars" %}
+{% endif %}
 {% set version = "0.20.31" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/polars-{{ version }}.tar.gz
-    sha256: 00f62dec6bf43a4e2a5db58b99bf0e79699fe761c80ae665868eaea5168f3bbb
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace("-", "_") }}-{{ version }}.tar.gz
+    sha256: 00f62dec6bf43a4e2a5db58b99bf0e79699fe761c80ae665868eaea5168f3bbb  # [name == "polars"]
+    sha256: 367633ef523e9ed717bc56f30a6d4bc5be1a5403bd4974bca12286f83fc36435  # [name == "polars-lts-cpu"]
+    sha256: 139794161c5f54ee8fabc6e4e0ee4f5ec4dad4f783000b0015f0b0b9c0b26879  # [name == "polars-u64-idx"]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and python_impl=="pypy"]
 
 requirements:

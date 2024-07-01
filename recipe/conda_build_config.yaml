@@ -12,5 +12,8 @@ cxx_compiler:
   - clangxx  # [win]
 cxx_compiler_version:
   - 17  # [win]
-c_stdlib_version:        
-  - 10.12  # [osx and x86_64]
+  
+polars_variant:
+  - polars
+  - polars-lts-cpu
+  - polars-u64-idx
