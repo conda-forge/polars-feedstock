@@ -14,6 +14,8 @@ package:
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace("-", "_") }}-{{ version }}.tar.gz
     sha256: 144a63d6d61dc5d675304673c4261ceccf4cfc75277431389d4afe9a5be0f70b  # [name == "polars"]
+    sha256: e4c3d203d398bd2914fe191544385950a0cd559051af6b2f6b431b837e357d8e  # [name == "polars-lts-cpu"]
+    sha256: e2fd9758a4381aef4f3bee0ba62b80c7125983445751579b0d95288e39c94d9f  # [name == "polars-u64-idx"]
 
 
 build:
