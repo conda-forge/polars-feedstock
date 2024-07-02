@@ -239,7 +239,7 @@ jobs:
          df -h
     displayName: Manage disk space
   - script: |
-         sudo fallocate -l 10GiB /swapfile || true
+         sudo fallocate -l 15GiB /swapfile || true
          sudo chmod 600 /swapfile || true
          sudo mkswap /swapfile || true
          sudo swapon /swapfile || true
