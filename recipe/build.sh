@@ -48,8 +48,8 @@ if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]
   # which we don't have since we are not able to add python as a host dependency
   cargo feature pyo3 +generate-import-lib --manifest-path py-polars/Cargo.toml
 
-  # cc-rs hardcodes ml64.exe as the masm assembler for x86_64-pc-windows-msvc
-  # we want to use the llvms masm assembler instead
+  # cc-rs hardcodes ml64.exe as the MASM assembler for x86_64-pc-windows-msvc
+  # We want to use LLVM's MASM assembler instead
   # https://github.com/rust-lang/cc-rs/issues/1022
   mkdir -p $PREFIX/bin
   cat > $PREFIX/bin/ml64.exe <<"EOF"
