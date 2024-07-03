@@ -51,13 +51,13 @@ if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]
   # cc-rs hardcodes ml64.exe as the MASM assembler for x86_64-pc-windows-msvc
   # We want to use LLVM's MASM assembler instead
   # https://github.com/rust-lang/cc-rs/issues/1022
-  mkdir -p $PREFIX/bin
-  cat > $PREFIX/bin/ml64.exe <<"EOF"
+  mkdir -p $BUILD_PREFIX/bin
+  cat > $BUILD_PREFIX/bin/ml64.exe <<"EOF"
 #!/usr/bin/env bash
 llvm-ml -m64 $@
 EOF
 
-  chmod +x $PREFIX/bin/ml64.exe
+  chmod +x $BUILD_PREFIX/bin/ml64.exe
 
   maturin build --release --strip
   pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
