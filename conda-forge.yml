@@ -1,7 +1,7 @@
 azure:
   free_disk_space: true
   settings_linux:
-    swapfile_size: 10GiB
+    swapfile_size: 15GiB
   max_parallel: 25
 bot:
   automerge: true
