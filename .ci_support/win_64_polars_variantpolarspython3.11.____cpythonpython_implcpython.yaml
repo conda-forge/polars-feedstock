@@ -27,7 +27,7 @@ python_impl:
 rust_compiler:
 - rust
 rust_compiler_version:
-- 1.78.0
+- 1.81.0
 target_platform:
 - win-64
 zip_keys:
