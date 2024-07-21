@@ -2,8 +2,6 @@
 
 set -ex
 
-export PYO3_PRINT_CONFIG=1
-
 case "${target_platform}" in
   linux-aarch64|osx-arm64)
     arch="aarch64"
