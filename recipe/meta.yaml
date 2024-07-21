@@ -5,7 +5,7 @@
 {% else %}
   {% set name = "polars" %}
 {% endif %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name }}
@@ -13,14 +13,15 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace("-", "_") }}-{{ version }}.tar.gz
-    sha256: 75fe824243006ada0f2dd30c8aba0ec03595d9087b29c3ca8f106ef1a975b9cb  # [name == "polars"]
-    sha256: a9add68d6cf992f8d8bb79c5b8bd73549af504108b8774c5e5d2fc6c751ea48c  # [name == "polars-lts-cpu"]
-    sha256: ecbfe1bab9367270399490780dd1700d824a9255fd509d22497095029c19ae6b  # [name == "polars-u64-idx"]
+    sha256: a46aba51acce7ecf85151f72d25ef2a3eeb5735d55f4b7cc69ec4a596e9fbefd  # [name == "polars"]
+    sha256: 5717d606c7de5eccac29ef59067e8066a3a134ab0fc5c5b4b5f956460010f183  # [name == "polars-lts-cpu"]
+    sha256: 13e9e3dac166ea1166239bcfd1757967495aa12048fbad78a01bdb181b5d691e  # [name == "polars-u64-idx"]
 
 
 build:
   number: 0
   skip: true  # [win and python_impl=="pypy"]
+  skip: true  # [aarch64 and python_impl=="pypy"]
 
 requirements:
   build:
