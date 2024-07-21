@@ -1,5 +1,3 @@
-BUILD:
-- aarch64-conda_cos7-linux-gnu
 c_compiler:
 - gcc
 c_compiler_version:
@@ -8,8 +6,6 @@ c_stdlib:
 - sysroot
 c_stdlib_version:
 - '2.17'
-cdt_arch:
-- aarch64
 cdt_name:
 - cos7
 channel_sources:
@@ -23,7 +19,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 polars_variant:
-- polars-lts-cpu
+- polars-u64-idx
 python:
 - 3.9.* *_73_pypy
 python_impl:
@@ -33,7 +29,7 @@ rust_compiler:
 rust_compiler_version:
 - 1.81.0
 target_platform:
-- linux-aarch64
+- linux-64
 zip_keys:
 - - c_stdlib_version
   - cdt_name
