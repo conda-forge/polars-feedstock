@@ -1,21 +1,18 @@
-{% if polars_variant == "polars-lts-cpu" %}
-  {% set name = "polars-lts-cpu" %}
-{% elif polars_variant == "polars-u64-idx" %}
-  {% set name = "polars-u64-idx" %}
-{% else %}
-  {% set name = "polars" %}
-{% endif %}
 {% set version = "1.2.1" %}
 
 package:
-  name: {{ name }}
+  name: polars-split
   version: {{ version }}
 
+# Note: This is specifically designed to work well with the autotick bot.
+# Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
 source:
-  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace("-", "_") }}-{{ version }}.tar.gz
-    sha256: a46aba51acce7ecf85151f72d25ef2a3eeb5735d55f4b7cc69ec4a596e9fbefd  # [name == "polars"]
-    sha256: 5717d606c7de5eccac29ef59067e8066a3a134ab0fc5c5b4b5f956460010f183  # [name == "polars-lts-cpu"]
-    sha256: 13e9e3dac166ea1166239bcfd1757967495aa12048fbad78a01bdb181b5d691e  # [name == "polars-u64-idx"]
+  - url: https://pypi.io/packages/source/p/polars/polars-{{ version }}.tar.gz  # [polars_variant == "polars"]
+    sha256: a46aba51acce7ecf85151f72d25ef2a3eeb5735d55f4b7cc69ec4a596e9fbefd  # [polars_variant == "polars"]
+  - url: https://pypi.io/packages/source/p/polars-lts-cpu/polars_lts_cpu-{{ version }}.tar.gz  # [polars_variant == "polars-lts-cpu"]
+    sha256: 5717d606c7de5eccac29ef59067e8066a3a134ab0fc5c5b4b5f956460010f183  # [polars_variant == "polars-lts-cpu"]
+  - url: https://pypi.io/packages/source/p/polars-u64-idx/polars_u64_idx-{{ version }}.tar.gz  # [polars_variant == "polars-u64-idx"]
+    sha256: 13e9e3dac166ea1166239bcfd1757967495aa12048fbad78a01bdb181b5d691e  # [polars_variant == "polars-u64-idx"]
 
 
 build:
