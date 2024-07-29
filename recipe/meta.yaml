@@ -1,11 +1,11 @@
 {% set version = "1.2.1" %}
 
+# Note: This recipe is specifically designed to work well with the autotick bot.
+# Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
 package:
-  name: polars-split
+  name: {{ polars_variant }}
   version: {{ version }}
 
-# Note: This is specifically designed to work well with the autotick bot.
-# Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
 source:
   - url: https://pypi.io/packages/source/p/polars/polars-{{ version }}.tar.gz  # [polars_variant == "polars"]
     sha256: a46aba51acce7ecf85151f72d25ef2a3eeb5735d55f4b7cc69ec4a596e9fbefd  # [polars_variant == "polars"]
