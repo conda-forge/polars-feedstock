@@ -12,6 +12,9 @@ cxx_compiler:
   - clangxx  # [win]
 cxx_compiler_version:
   - 17  # [win]
+
+MACOSX_DEPLOYMENT_TARGET:
+  - 12.0  # [osx]
   
 polars_variant:
   - polars
