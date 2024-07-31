@@ -13,7 +13,7 @@ cxx_compiler:
 cxx_compiler_version:
   - 17  # [win]
 
-MACOSX_SDK_VERSION:
+c_stdlib_version:
   - 12.3  # [osx]
   
 polars_variant:
