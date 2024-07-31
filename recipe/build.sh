@@ -41,6 +41,7 @@ if [[ "${target_platform}" == "linux-aarch64" ]]; then
 fi
 
 rustc --version
+$CC --version
 
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
   # we need to add the generate-import-lib feature since otherwise
