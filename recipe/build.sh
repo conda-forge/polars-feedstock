@@ -42,8 +42,6 @@ fi
 
 rustc --version
 
-export RUSTFLAGS="${RUSTFLAGS} -Clink-args=-v"
-
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
   # we need to add the generate-import-lib feature since otherwise
   # maturin will expect libpython DSOs at PYO3_CROSS_LIB_DIR
@@ -63,8 +61,9 @@ EOF
   maturin build --release --strip
   pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
 else
-  maturin build --release --strip --verbose
-  pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages
+  # Run the maturin build via pip which works for direct and
+  # cross-compiled builds.
+  $PYTHON -m pip install . -vv
 fi
 
 # The root level Cargo.toml is part of an incomplete workspace
