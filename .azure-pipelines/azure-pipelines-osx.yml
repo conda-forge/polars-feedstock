@@ -107,7 +107,7 @@ jobs:
       osx_arm64_polars_variantpolarspython3.9.____cpython:
         CONFIG: osx_arm64_polars_variantpolarspython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-    maxParallel: 10
+    maxParallel: 25
   timeoutInMinutes: 360
   variables: {}
 
