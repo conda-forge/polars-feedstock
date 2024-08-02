@@ -200,7 +200,7 @@ jobs:
         CONFIG: win_64_polars_variantpolarspython3.9.____cpythonpython_implcpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-    maxParallel: 15
+    maxParallel: 25
   timeoutInMinutes: 360
   variables: {}
 
