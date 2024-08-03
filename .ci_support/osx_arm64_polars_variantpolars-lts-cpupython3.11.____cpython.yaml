@@ -14,6 +14,8 @@ channel_sources:
 - conda-forge/label/rust_dev,conda-forge
 channel_targets:
 - conda-forge main
+docker_image:
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 macos_machine:
 - arm64-apple-darwin20.0.0
 pin_run_as_build:
