@@ -79,6 +79,8 @@ elif [[ ("${target_platform}" == "osx-64" && "${build_platform}" == "linux-64") 
   # Setup CMake Toolchain
   # export CMAKE_GENERATOR=Ninja
 
+  $CC_x86_64_apple_darwin -print-search-dirs
+
   maturin build
 else
   # Run the maturin build via pip which works for direct and
