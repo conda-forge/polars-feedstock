@@ -42,6 +42,7 @@ fi
 
 rustc --version
 $CC --version
+env | sort
 
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
   # we need to add the generate-import-lib feature since otherwise
