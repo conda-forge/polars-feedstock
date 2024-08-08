@@ -65,8 +65,19 @@ EOF
 elif [[ ("${target_platform}" == "osx-64" && "${build_platform}" == "linux-64") ]]; then
   export CARGO_TARGET_X86_64_APPLE_DARWIN_LINKER=${CONDA_PREFIX}/bin/lld-link
 
-  export CC_x86_64_apple_darwin=$CONDA_PREFIX/bin/clang-cl
-  export CXX_x86_64_apple_darwin=$CONDA_PREFIX/bin/clang-cl
+  # some rust crates need a linux gnu c compiler at buildtime
+  # thus we need to create custom cflags since the default ones are for clang
+  export AR_x86_64_unknown_linux_gnu="${AR}"
+  export AR_x86_64_apple_darwin=$CONDA_PREFIX/bin/llvm-lib
+
+  export CFLAGS_x86_64_unknown_linux_gnu=""
+  export CFLAGS_x86_64_apple_darwin="${CFLAGS}"
+
+  export CPPFLAGS_x86_64_apple_darwin="${CPPFLAGS}"
+  export CPPFLAGS_x86_64_unknown_linux_gnu=""
+
+  export CXXFLAGS_x86_64_apple_darwin="${CXXFLAGS}"
+  export CXXFLAGS_x86_64_unknown_linux_gnu="" 
 
   # Setup CMake Toolchain
   export CMAKE_GENERATOR=Ninja
