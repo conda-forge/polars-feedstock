@@ -77,7 +77,7 @@ elif [[ ("${target_platform}" == "osx-64" && "${build_platform}" == "linux-64") 
   export CXXFLAGS_x86_64_unknown_linux_gnu="" 
 
   # Setup CMake Toolchain
-  export CMAKE_GENERATOR=Ninja
+  # export CMAKE_GENERATOR=Ninja
 
   maturin build
 else
