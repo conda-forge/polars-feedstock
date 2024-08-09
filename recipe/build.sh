@@ -62,26 +62,26 @@ EOF
 
   maturin build --release --strip
   pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
-elif [[ ("${target_platform}" == "osx-64" && "${build_platform}" == "linux-64") ]]; then
-  export CARGO_TARGET_X86_64_APPLE_DARWIN_LINKER=${CONDA_PREFIX}/bin/lld-link
+# elif [[ ("${target_platform}" == "osx-64" && "${build_platform}" == "linux-64") ]]; then
+#   export CARGO_TARGET_X86_64_APPLE_DARWIN_LINKER=${CONDA_PREFIX}/bin/lld-link
 
-  # some rust crates need a linux gnu c compiler at buildtime
-  # thus we need to create custom cflags since the default ones are for clang
-  export CFLAGS_x86_64_unknown_linux_gnu=""
-  export CFLAGS_x86_64_apple_darwin="${CFLAGS}"
+#   # some rust crates need a linux gnu c compiler at buildtime
+#   # thus we need to create custom cflags since the default ones are for clang
+#   export CFLAGS_x86_64_unknown_linux_gnu=""
+#   export CFLAGS_x86_64_apple_darwin="${CFLAGS}"
 
-  export CPPFLAGS_x86_64_apple_darwin="${CPPFLAGS}"
-  export CPPFLAGS_x86_64_unknown_linux_gnu=""
+#   export CPPFLAGS_x86_64_apple_darwin="${CPPFLAGS}"
+#   export CPPFLAGS_x86_64_unknown_linux_gnu=""
 
-  export CXXFLAGS_x86_64_apple_darwin="${CXXFLAGS}"
-  export CXXFLAGS_x86_64_unknown_linux_gnu="" 
+#   export CXXFLAGS_x86_64_apple_darwin="${CXXFLAGS}"
+#   export CXXFLAGS_x86_64_unknown_linux_gnu="" 
 
-  # Setup CMake Toolchain
-  # export CMAKE_GENERATOR=Ninja
+#   # Setup CMake Toolchain
+#   # export CMAKE_GENERATOR=Ninja
 
-  $CC -print-search-dirs
+#   $CC -print-search-dirs
 
-  maturin build
+#   maturin build
 else
   # Run the maturin build via pip which works for direct and
   # cross-compiled builds.
