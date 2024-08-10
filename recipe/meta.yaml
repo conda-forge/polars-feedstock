@@ -19,7 +19,6 @@ build:
   number: 0
   skip: true  # [win and python_impl=="pypy"]
   skip: true  # [aarch64 and python_impl=="pypy"]
-  skip: true  # [not (osx and x86 and polars_variant == "polars")]
 
 requirements:
   build:
@@ -29,7 +28,7 @@ requirements:
     - crossenv                            # [build_platform != target_platform]
     - maturin >=1.3.2,<2                  # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}               # [win or osx]
+    - {{ compiler('cxx') }}               # [win]
     # clang_win-64 already adds all required run_exports for the windows build
     - {{ stdlib("c") }}  # [not (build_platform == "linux-64" and target_platform == "win-64")]
     - {{ compiler('rust') }}

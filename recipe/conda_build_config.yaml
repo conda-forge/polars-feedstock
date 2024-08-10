@@ -12,9 +12,6 @@ cxx_compiler:
   - clangxx  # [win]
 cxx_compiler_version:
   - 17  # [win]
-
-c_stdlib_version:
-  - 12.3  # [osx]
   
 polars_variant:
   - polars
