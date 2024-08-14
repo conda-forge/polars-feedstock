@@ -8,10 +8,15 @@ c_compiler:
   - clang  # [win]
 c_compiler_version:
   - 17  # [win]
+  - 18  # [osx]
 cxx_compiler:
   - clangxx  # [win]
 cxx_compiler_version:
   - 17  # [win]
+c_stdlib:
+- macosx_deployment_target # [osx]
+c_stdlib_version:
+- '13.3' # [osx]
   
 polars_variant:
   - polars
