@@ -1,4 +1,4 @@
-{% set version = "1.2.1" %}
+{% set version = "1.3.0" %}
 
 # Note: This recipe is specifically designed to work well with the autotick bot.
 # Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/p/polars/polars-{{ version }}.tar.gz  # [polars_variant == "polars"]
-    sha256: a46aba51acce7ecf85151f72d25ef2a3eeb5735d55f4b7cc69ec4a596e9fbefd  # [polars_variant == "polars"]
+    sha256: c7812d6c72ffdc9e70aaa8f9aa6378db80b393e7ecbe7005ad84b150c17c71cb  # [polars_variant == "polars"]
   - url: https://pypi.io/packages/source/p/polars-lts-cpu/polars_lts_cpu-{{ version }}.tar.gz  # [polars_variant == "polars-lts-cpu"]
     sha256: 8cdac488ebc231795c0c247446633bb7c8df344e4d5f5eb22d30b5faf8d9c136  # [polars_variant == "polars-lts-cpu"]
   - url: https://pypi.io/packages/source/p/polars-u64-idx/polars_u64_idx-{{ version }}.tar.gz  # [polars_variant == "polars-u64-idx"]
