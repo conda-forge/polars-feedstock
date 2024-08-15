@@ -21,7 +21,6 @@ build:
   number: 0
   skip: true  # [win and python_impl=="pypy"]
   skip: true  # [aarch64 and python_impl=="pypy"]
-  skip: true  # [not (osx and polars_variant == "polars")]
 
 requirements:
   build:
