@@ -12,7 +12,7 @@ cxx_compiler:
   - clangxx  # [win]
 cxx_compiler_version:
   - 17  # [win]
-  
+
 polars_variant:
   - polars
   - polars-lts-cpu
