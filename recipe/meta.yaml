@@ -13,13 +13,14 @@ source:
     sha256: 28800eb674493cc3ed2c5d4f85cab38e36b4fa1c6b19d6468586ecfc00290e1b  # [polars_variant == "polars-lts-cpu"]
   - url: https://pypi.io/packages/source/p/polars-u64-idx/polars_u64_idx-{{ version }}.tar.gz  # [polars_variant == "polars-u64-idx"]
     sha256: 0339ad9e483a331b502322802a5a6a11de245ae0418a27ec2315bbc9faaa0fb8  # [polars_variant == "polars-u64-idx"]
+    patches:
+      - patches/syn-to-2.0.74.patch
 
 
 build:
   number: 0
   skip: true  # [win and python_impl=="pypy"]
   skip: true  # [aarch64 and python_impl=="pypy"]
-  skip: true  # [osx]
 
 requirements:
   build:
