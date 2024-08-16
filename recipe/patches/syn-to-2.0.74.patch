@@ -1,0 +1,28 @@
+From 1cb7f88320c5a4833ee7ffa570e5481c8a391ae5 Mon Sep 17 00:00:00 2001
+From: Bela Stoyan <bela.stoyan@gmail.com>
+Date: Thu, 15 Aug 2024 11:29:57 +0200
+Subject: [PATCH] patch `syn` to `2.0.74`
+
+---
+ Cargo.lock | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Cargo.lock b/Cargo.lock
+index 626ab52988..2ce684f46f 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -4530,9 +4530,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "syn"
+-version = "2.0.72"
++version = "2.0.74"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "dc4b9b9bf2add8093d3f2c0204471e951b2285580335de42f9d2534f3ae7a8af"
++checksum = "1fceb41e3d546d0bd83421d3409b1460cc7444cd389341a4c880fe7a042cb3d7"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+-- 
+2.46.0
+
