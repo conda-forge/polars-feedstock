@@ -8,59 +8,41 @@ jobs:
     vmImage: macOS-12
   strategy:
     matrix:
-      osx_64_polars_variantpolars-lts-cpupython3.10.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.10.____cpythonpython_implcpython
+      osx_64_polars_variantpolars-lts-cpupython3.10.____cpython:
+        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-lts-cpupython3.11.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.11.____cpythonpython_implcpython
+      osx_64_polars_variantpolars-lts-cpupython3.11.____cpython:
+        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-lts-cpupython3.12.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.12.____cpythonpython_implcpython
+      osx_64_polars_variantpolars-lts-cpupython3.12.____cpython:
+        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-lts-cpupython3.8.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.8.____cpythonpython_implcpython
+      osx_64_polars_variantpolars-lts-cpupython3.9.____cpython:
+        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-lts-cpupython3.9.____73_pypypython_implpypy:
-        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.9.____73_pypypython_implpypy
+      osx_64_polars_variantpolars-u64-idxpython3.10.____cpython:
+        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-lts-cpupython3.9.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-lts-cpupython3.9.____cpythonpython_implcpython
+      osx_64_polars_variantpolars-u64-idxpython3.11.____cpython:
+        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-u64-idxpython3.10.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.10.____cpythonpython_implcpython
+      osx_64_polars_variantpolars-u64-idxpython3.12.____cpython:
+        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-u64-idxpython3.11.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.11.____cpythonpython_implcpython
+      osx_64_polars_variantpolars-u64-idxpython3.9.____cpython:
+        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-u64-idxpython3.12.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.12.____cpythonpython_implcpython
+      osx_64_polars_variantpolarspython3.10.____cpython:
+        CONFIG: osx_64_polars_variantpolarspython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-u64-idxpython3.8.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.8.____cpythonpython_implcpython
+      osx_64_polars_variantpolarspython3.11.____cpython:
+        CONFIG: osx_64_polars_variantpolarspython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-u64-idxpython3.9.____73_pypypython_implpypy:
-        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.9.____73_pypypython_implpypy
+      osx_64_polars_variantpolarspython3.12.____cpython:
+        CONFIG: osx_64_polars_variantpolarspython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolars-u64-idxpython3.9.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolars-u64-idxpython3.9.____cpythonpython_implcpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolarspython3.10.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolarspython3.10.____cpythonpython_implcpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolarspython3.11.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolarspython3.11.____cpythonpython_implcpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolarspython3.12.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolarspython3.12.____cpythonpython_implcpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolarspython3.8.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolarspython3.8.____cpythonpython_implcpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolarspython3.9.____73_pypypython_implpypy:
-        CONFIG: osx_64_polars_variantpolarspython3.9.____73_pypypython_implpypy
-        UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolarspython3.9.____cpythonpython_implcpython:
-        CONFIG: osx_64_polars_variantpolarspython3.9.____cpythonpython_implcpython
+      osx_64_polars_variantpolarspython3.9.____cpython:
+        CONFIG: osx_64_polars_variantpolarspython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
       osx_arm64_polars_variantpolars-lts-cpupython3.10.____cpython:
         CONFIG: osx_arm64_polars_variantpolars-lts-cpupython3.10.____cpython
@@ -70,9 +52,6 @@ jobs:
         UPLOAD_PACKAGES: 'True'
       osx_arm64_polars_variantpolars-lts-cpupython3.12.____cpython:
         CONFIG: osx_arm64_polars_variantpolars-lts-cpupython3.12.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_arm64_polars_variantpolars-lts-cpupython3.8.____cpython:
-        CONFIG: osx_arm64_polars_variantpolars-lts-cpupython3.8.____cpython
         UPLOAD_PACKAGES: 'True'
       osx_arm64_polars_variantpolars-lts-cpupython3.9.____cpython:
         CONFIG: osx_arm64_polars_variantpolars-lts-cpupython3.9.____cpython
@@ -86,9 +65,6 @@ jobs:
       osx_arm64_polars_variantpolars-u64-idxpython3.12.____cpython:
         CONFIG: osx_arm64_polars_variantpolars-u64-idxpython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_polars_variantpolars-u64-idxpython3.8.____cpython:
-        CONFIG: osx_arm64_polars_variantpolars-u64-idxpython3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
       osx_arm64_polars_variantpolars-u64-idxpython3.9.____cpython:
         CONFIG: osx_arm64_polars_variantpolars-u64-idxpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -100,9 +76,6 @@ jobs:
         UPLOAD_PACKAGES: 'True'
       osx_arm64_polars_variantpolarspython3.12.____cpython:
         CONFIG: osx_arm64_polars_variantpolarspython3.12.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_arm64_polars_variantpolarspython3.8.____cpython:
-        CONFIG: osx_arm64_polars_variantpolarspython3.8.____cpython
         UPLOAD_PACKAGES: 'True'
       osx_arm64_polars_variantpolarspython3.9.____cpython:
         CONFIG: osx_arm64_polars_variantpolarspython3.9.____cpython
