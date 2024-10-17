@@ -14,6 +14,6 @@ cxx_compiler_version:
   - 17  # [win]
   
 polars_variant:
-  - polars
+  - polars  # [not ppc64le]
   - polars-lts-cpu
-  - polars-u64-idx
+  - polars-u64-idx  # [not ppc64le]
