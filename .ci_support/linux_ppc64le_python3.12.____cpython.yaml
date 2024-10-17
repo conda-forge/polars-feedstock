@@ -22,8 +22,6 @@ polars_variant:
 - polars-lts-cpu
 python:
 - 3.12.* *_cpython
-python_impl:
-- cpython
 rust_compiler:
 - rust
 rust_compiler_version:
@@ -33,5 +31,3 @@ target_platform:
 zip_keys:
 - - c_stdlib_version
   - cdt_name
-- - python
-  - python_impl
