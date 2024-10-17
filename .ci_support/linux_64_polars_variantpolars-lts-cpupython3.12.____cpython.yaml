@@ -29,7 +29,7 @@ rust_compiler:
 rust_compiler_version:
 - 1.83.0
 target_platform:
-- linux-ppc64le
+- linux-64
 zip_keys:
 - - c_stdlib_version
   - cdt_name

@@ -1,27 +1,29 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
+MACOSX_SDK_VERSION:
+- '11.0'
 c_compiler:
-- gcc
+- clang
 c_compiler_version:
-- '13'
+- '17'
 c_stdlib:
-- sysroot
+- macosx_deployment_target
 c_stdlib_version:
-- '2.17'
-cdt_name:
-- cos7
+- '11.0'
 channel_sources:
 - conda-forge/label/rust_dev,conda-forge
 channel_targets:
 - conda-forge main
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+macos_machine:
+- arm64-apple-darwin20.0.0
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 polars_variant:
-- polars-lts-cpu
+- polars-u64-idx
 python:
-- 3.12.* *_cpython
+- 3.10.* *_cpython
 python_impl:
 - cpython
 rust_compiler:
@@ -29,9 +31,7 @@ rust_compiler:
 rust_compiler_version:
 - 1.83.0
 target_platform:
-- linux-ppc64le
+- osx-arm64
 zip_keys:
-- - c_stdlib_version
-  - cdt_name
 - - python
   - python_impl

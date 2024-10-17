@@ -19,9 +19,9 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 polars_variant:
-- polars-lts-cpu
+- polars
 python:
-- 3.12.* *_cpython
+- 3.11.* *_cpython
 python_impl:
 - cpython
 rust_compiler:
@@ -29,7 +29,7 @@ rust_compiler:
 rust_compiler_version:
 - 1.83.0
 target_platform:
-- linux-ppc64le
+- linux-64
 zip_keys:
 - - c_stdlib_version
   - cdt_name
