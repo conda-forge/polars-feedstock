@@ -17,7 +17,7 @@ source:
 
 build:
   number: 1
-  skip: true # [not ppc64le]
+  skip: true  # [not ppc64le]
   # skip: true  # [win and python_impl=="pypy"]
   # skip: true  # [aarch64 and python_impl=="pypy"]
 
