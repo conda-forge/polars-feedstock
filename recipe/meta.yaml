@@ -41,7 +41,6 @@ requirements:
     - python
     - pip
     - maturin >=1.3.2,<2
-    - zlib  # [win]
   run:
     - python
     - numpy >=1.16.0

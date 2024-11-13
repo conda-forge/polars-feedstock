@@ -58,6 +58,13 @@ EOF
 
   chmod +x $BUILD_PREFIX/bin/ml64.exe
 
+  # before:
+  # export CXXFLAGS_x86_64_pc_windows_msvc='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fstack-protector-strong -O2 -ffunction-sections -pipe -D_CRT_SECURE_NO_WARNINGS --target=x86_64-pc-windows-msvc19.41.34120 -nostdlib -fms-runtime-lib=dll -fuse-ld=lld -fno-aligned-allocation -Xclang -ivfsoverlay -Xclang /opt/winsdk-10.0.22621.0/winsdk_vfs_overlay.yaml'
+  export CXXFLAGS_x86_64_pc_windows_msvc='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -O2 -D_CRT_SECURE_NO_WARNINGS --target=x86_64-pc-windows-msvc19.41.34120 -fms-runtime-lib=dll -fuse-ld=lld -Xclang -ivfsoverlay -Xclang /opt/winsdk-10.0.22621.0/winsdk_vfs_overlay.yaml'
+  # before:
+  # export CFLAGS_x86_64_pc_windows_msvc='-march=nocona -mtune=haswell -ftree-vectorize -fstack-protector-strong -O2 -ffunction-sections -pipe -D_CRT_SECURE_NO_WARNINGS --target=x86_64-pc-windows-msvc19.41.34120 -nostdlib -fms-runtime-lib=dll -fuse-ld=lld -fno-aligned-allocation -Xclang -ivfsoverlay -Xclang /opt/winsdk-10.0.22621.0/winsdk_vfs_overlay.yaml'
+  export CFLAGS_x86_64_pc_windows_msvc='-march=nocona -O2 -D_CRT_SECURE_NO_WARNINGS --target=x86_64-pc-windows-msvc19.41.34120 -fms-runtime-lib=dll -fuse-ld=lld -Xclang -ivfsoverlay -Xclang /opt/winsdk-10.0.22621.0/winsdk_vfs_overlay.yaml'
+
   maturin build --release --strip
   pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
 else
