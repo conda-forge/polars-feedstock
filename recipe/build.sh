@@ -43,6 +43,8 @@ fi
 rustc --version
 
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
+  cat /opt/winsdk-10.0.22621.0/winsdk_vfs_overlay.yaml
+
   # we need to add the generate-import-lib feature since otherwise
   # maturin will expect libpython DSOs at PYO3_CROSS_LIB_DIR
   # which we don't have since we are not able to add python as a host dependency
