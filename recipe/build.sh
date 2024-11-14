@@ -43,6 +43,10 @@ fi
 rustc --version
 
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
+  ls -la /opt
+
+  ls -la /opt/winsdk-10.0.22621.0
+
   cat /opt/winsdk-10.0.22621.0/winsdk_vfs_overlay.yaml
 
   # we need to add the generate-import-lib feature since otherwise
