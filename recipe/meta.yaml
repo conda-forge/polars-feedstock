@@ -16,9 +16,7 @@ source:
 
 
 build:
-  number: 0
-  skip: true  # [win and python_impl=="pypy"]
-  skip: true  # [aarch64 and python_impl=="pypy"]
+  number: 1
 
 requirements:
   build:
