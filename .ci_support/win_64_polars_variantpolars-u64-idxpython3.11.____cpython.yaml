@@ -22,14 +22,9 @@ polars_variant:
 - polars-u64-idx
 python:
 - 3.11.* *_cpython
-python_impl:
-- cpython
 rust_compiler:
 - rust
 rust_compiler_version:
 - 1.83.0
 target_platform:
 - win-64
-zip_keys:
-- - python
-  - python_impl
