@@ -17,7 +17,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [not (win and polars_variant == "polars" and py=311)]
+  skip: true  # [not (win and polars_variant == "polars" and py==311)]
 
 requirements:
   build:

@@ -11,6 +11,8 @@ case "${target_platform}" in
     ;;
 esac
 
+export
+
 cpu_check_module="py-polars/polars/_cpu_check.py"
 features=""
 
