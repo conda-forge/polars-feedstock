@@ -60,6 +60,9 @@ EOF
 
   chmod +x $BUILD_PREFIX/bin/ml64.exe
 
+  export CC_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/clang"
+  export CXX_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/clang++"
+
   maturin build --release --strip
   pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
 else
