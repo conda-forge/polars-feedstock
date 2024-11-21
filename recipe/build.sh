@@ -62,6 +62,7 @@ EOF
 
   export CC_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/clang"
   export CXX_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/clang++"
+  export LD_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/lld-link"
 
   maturin build --release --strip
   pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
