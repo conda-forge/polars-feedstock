@@ -45,6 +45,8 @@ fi
 rustc --version
 
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" != "win-64") ]]; then
+  cargo patch
+
   # we need to add the generate-import-lib feature since otherwise
   # maturin will expect libpython DSOs at PYO3_CROSS_LIB_DIR
   # which we don't have since we are not able to add python as a host dependency
@@ -65,7 +67,6 @@ EOF
   export LD_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/lld-link"
   export LDFLAGS=${LDFLAGS/-manifest:no/}
 
-  cargo patch
   maturin build --release --strip
   pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
 else
