@@ -1,5 +1,5 @@
 channel_sources:
-  - conda-forge/label/rust_dev,conda-forge
+  - conda-forge/label/rust_dev,conda-forge/label/cargo-patch-dev,conda-forge
 channel_targets:
   - conda-forge main
 rust_compiler_version:

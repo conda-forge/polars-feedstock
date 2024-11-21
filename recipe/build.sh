@@ -11,6 +11,8 @@ case "${target_platform}" in
     ;;
 esac
 
+export
+
 cpu_check_module="py-polars/polars/_cpu_check.py"
 features=""
 
@@ -42,7 +44,11 @@ fi
 
 rustc --version
 
-if [[ ("${target_platform}" == "win-64" && "${build_platform}" == "linux-64") ]]; then
+if [[ ("${target_platform}" == "win-64" && "${build_platform}" != "win-64") ]]; then
+  pushd py-polars
+    cargo patch
+  popd
+
   # we need to add the generate-import-lib feature since otherwise
   # maturin will expect libpython DSOs at PYO3_CROSS_LIB_DIR
   # which we don't have since we are not able to add python as a host dependency
@@ -57,6 +63,11 @@ llvm-ml -m64 $@
 EOF
 
   chmod +x $BUILD_PREFIX/bin/ml64.exe
+
+  export CC_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/clang"
+  export CXX_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/clang++"
+  export LD_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/lld-link"
+  export LDFLAGS=${LDFLAGS/-manifest:no/}
 
   maturin build --release --strip
   pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
