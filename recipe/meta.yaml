@@ -13,6 +13,8 @@ source:
     sha256: 32638cb45bb9b66efc981f203f43ff4510335348b144f61ac0357b695e43f04e  # [polars_variant == "polars-lts-cpu"]
   - url: https://pypi.io/packages/source/p/polars-u64-idx/polars_u64_idx-{{ version }}.tar.gz  # [polars_variant == "polars-u64-idx"]
     sha256: a6a0491f920ffcc227377665c7e6cfe8f3fc68893ce809c76536473bdee3d651  # [polars_variant == "polars-u64-idx"]
+    patches:
+      - 0001-Patch-libz-ng-sys.patch  # [win]
 
 
 build:
@@ -35,6 +37,7 @@ requirements:
     - cmake
     - make                                # [unix]
     - cargo-feature                       # [build_platform != target_platform and target_platform == "win-64"]
+    - cargo-patch                         # [build_platform != target_platform and target_platform == "win-64"]
     - cargo-bundle-licenses
   host:
     - python
