@@ -14,7 +14,7 @@ source:
   - url: https://pypi.io/packages/source/p/polars-u64-idx/polars_u64_idx-{{ version }}.tar.gz  # [polars_variant == "polars-u64-idx"]
     sha256: a6a0491f920ffcc227377665c7e6cfe8f3fc68893ce809c76536473bdee3d651  # [polars_variant == "polars-u64-idx"]
     patches:
-      - 0001-Patch-libz-ng-sys.patch  # [win]
+      - 0001-Patch-libz-ng-sys.patch  # [target_platform == "win-64"]
 
 
 build:

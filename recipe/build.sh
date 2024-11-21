@@ -45,7 +45,9 @@ fi
 rustc --version
 
 if [[ ("${target_platform}" == "win-64" && "${build_platform}" != "win-64") ]]; then
-  cargo patch
+  pushd py-polars
+    cargo patch
+  popd
 
   # we need to add the generate-import-lib feature since otherwise
   # maturin will expect libpython DSOs at PYO3_CROSS_LIB_DIR
