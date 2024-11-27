@@ -2,6 +2,8 @@
 
 set -ex
 
+export CARGO_PROFILE_RELEASE_STRIP=symbols
+
 case "${target_platform}" in
   linux-aarch64|osx-arm64)
     arch="aarch64"
