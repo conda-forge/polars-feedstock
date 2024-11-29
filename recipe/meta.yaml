@@ -1,4 +1,4 @@
-{% set version = "1.15.0" %}
+{% set version = "1.16.0" %}
 
 # Note: This recipe is specifically designed to work well with the autotick bot.
 # Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
@@ -8,17 +8,17 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/p/polars/polars-{{ version }}.tar.gz  # [polars_variant == "polars"]
-    sha256: 4f60a64ceb2e56fd0f9f403d4b6734e033876904d04cb9a29c43653c6b2b2d43  # [polars_variant == "polars"]
+    sha256: dd99808b833872babe02434a809fd45c1cffe66a3d57123cdc5e447c7753d328  # [polars_variant == "polars"]
   - url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-{{ version }}.tar.gz  # [polars_variant == "polars-lts-cpu"]
-    sha256: 0a1108675521871e6d30e4c1941a0a9962a0af979da7d68fc41fdb1a07efd8d7  # [polars_variant == "polars-lts-cpu"]
+    sha256: c8175468b7354fb0a5dd78822ff1f5839182062e326e4080e330534670e21cb7  # [polars_variant == "polars-lts-cpu"]
   - url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-{{ version }}.tar.gz  # [polars_variant == "polars-u64-idx"]
-    sha256: dcdc15a8bc4df13b054ab8fd3a0bbb524cce7a12afe2977b9aa305a2befd1f60  # [polars_variant == "polars-u64-idx"]
+    sha256: 8da188a71987bf5dae2c6425a4e384f20befd99b82b8bbd1c0c3a97b1484a64f  # [polars_variant == "polars-u64-idx"]
     patches:
       - 0001-Patch-libz-ng-sys.patch  # [target_platform == "win-64"]
 
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
