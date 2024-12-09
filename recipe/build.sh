@@ -71,7 +71,7 @@ EOF
   export LD_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/lld-link"
   export LDFLAGS=${LDFLAGS/-manifest:no/}
 
-  maturin build --release --strip
+  maturin build --release --strip --interpreter $RECIPE_DIR/mock-win-python.sh
   pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
 else
   # Run the maturin build via pip which works for direct and
