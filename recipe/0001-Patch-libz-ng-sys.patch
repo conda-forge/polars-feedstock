@@ -1,32 +1,8 @@
-From c06f2b5b00b4eaf7bdfa1d359cd33d4225794701 Mon Sep 17 00:00:00 2001
-From: "Uwe L. Korn" <uwe.korn@quantco.com>
-Date: Thu, 21 Nov 2024 14:02:42 +0100
-Subject: [PATCH] Patch libz-ng-sys
-
----
- Cargo.toml                     |  1 +
- py-polars/0001-not-mingw.patch | 18 ++++++++++++++++++
- py-polars/Cargo.toml           |  7 +++++++
- 3 files changed, 26 insertions(+)
- create mode 100644 py-polars/0001-not-mingw.patch
-
-diff --git a/Cargo.toml b/Cargo.toml
-index cd37103..1a09b4d 100644
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -132,6 +132,7 @@ features = [
- [patch.crates-io]
- # packed_simd_2 = { git = "https://github.com/rust-lang/packed_simd", rev = "e57c7ba11386147e6d2cbad7c88f376aab4bdc86" }
- # simd-json = { git = "https://github.com/ritchie46/simd-json", branch = "alignment" }
-+libz-ng-sys = { path = './py-polars/target/patch/libz-ng-sys-1.1.20/' }
- 
- [profile.mindebug-dev]
- inherits = "dev"
-diff --git a/py-polars/0001-not-mingw.patch b/py-polars/0001-not-mingw.patch
+diff --git a/0001-not-mingw.patch b/0001-not-mingw.patch
 new file mode 100644
 index 0000000..c194eda
 --- /dev/null
-+++ b/py-polars/0001-not-mingw.patch
++++ b/0001-not-mingw.patch
 @@ -0,0 +1,18 @@
 +--- a/src/zlib-ng/CMakeLists.txt
 ++++ b/src/zlib-ng/CMakeLists.txt
@@ -46,12 +22,24 @@ index 0000000..c194eda
 +             set_target_properties(zlib PROPERTIES OUTPUT_NAME zlibstatic${SUFFIX})
 +         else()
 +             set_target_properties(zlib PROPERTIES OUTPUT_NAME z${SUFFIX})
+diff --git a/Cargo.toml b/Cargo.toml
+index 88ee7d5..204f966 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -132,6 +132,7 @@ features = [
+ [patch.crates-io]
+ # packed_simd_2 = { git = "https://github.com/rust-lang/packed_simd", rev = "e57c7ba11386147e6d2cbad7c88f376aab4bdc86" }
+ # simd-json = { git = "https://github.com/ritchie46/simd-json", branch = "alignment" }
++libz-ng-sys = { path = './py-polars/target/patch/libz-ng-sys-1.1.20/' }
+ pyo3 = { git = "https://github.com/bschoenmaeckers/pyo3.git", branch = "release-0.23" }
+ pyo3-ffi = { git = "https://github.com/bschoenmaeckers/pyo3.git", branch = "release-0.23" }
+ 
 diff --git a/py-polars/Cargo.toml b/py-polars/Cargo.toml
-index 7c40174..443a02f 100644
+index 7628df0..9b5c889 100644
 --- a/py-polars/Cargo.toml
 +++ b/py-polars/Cargo.toml
-@@ -3,6 +3,13 @@ name = "py-polars"
- version = "1.14.0"
+@@ -3,6 +3,12 @@ name = "py-polars"
+ version = "1.18.0"
  edition = "2021"
  
 +[package.metadata.patch.libz-ng-sys]
@@ -59,7 +47,6 @@ index 7c40174..443a02f 100644
 +patches = [
 +    { path = "0001-not-mingw.patch", source = "GithubPrDiff" }
 +]
-+
 +
  [lib]
  name = "polars"
