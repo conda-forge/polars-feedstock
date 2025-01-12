@@ -14,14 +14,12 @@ diff --git a/Cargo.toml b/Cargo.toml
 index cd37103..1a09b4d 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
-@@ -132,6 +132,7 @@ features = [
+@@ -131,4 +131,5 @@ features = [
+ 
  [patch.crates-io]
++libz-ng-sys = { path = './py-polars/target/patch/libz-ng-sys-1.1.20/' }
  # packed_simd_2 = { git = "https://github.com/rust-lang/packed_simd", rev = "e57c7ba11386147e6d2cbad7c88f376aab4bdc86" }
  # simd-json = { git = "https://github.com/ritchie46/simd-json", branch = "alignment" }
-+libz-ng-sys = { path = './py-polars/target/patch/libz-ng-sys-1.1.20/' }
- 
- [profile.mindebug-dev]
- inherits = "dev"
 diff --git a/py-polars/0001-not-mingw.patch b/py-polars/0001-not-mingw.patch
 new file mode 100644
 index 0000000..c194eda
