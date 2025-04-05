@@ -19,3 +19,4 @@ github:
   branch_name: main
   tooling_branch_name: main
 test: native_and_emulated
+conda_build_tool: rattler-build
