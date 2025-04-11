@@ -148,67 +148,7 @@ jobs:
         CONFIG: linux_ppc64le_python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-lts-cpupython3.10.____cpython:
-        CONFIG: win_64_polars_variantpolars-lts-cpupython3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-lts-cpupython3.11.____cpython:
-        CONFIG: win_64_polars_variantpolars-lts-cpupython3.11.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-lts-cpupython3.12.____cpython:
-        CONFIG: win_64_polars_variantpolars-lts-cpupython3.12.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-lts-cpupython3.13.____cp313:
-        CONFIG: win_64_polars_variantpolars-lts-cpupython3.13.____cp313
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-lts-cpupython3.9.____cpython:
-        CONFIG: win_64_polars_variantpolars-lts-cpupython3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-u64-idxpython3.10.____cpython:
-        CONFIG: win_64_polars_variantpolars-u64-idxpython3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-u64-idxpython3.11.____cpython:
-        CONFIG: win_64_polars_variantpolars-u64-idxpython3.11.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-u64-idxpython3.12.____cpython:
-        CONFIG: win_64_polars_variantpolars-u64-idxpython3.12.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-u64-idxpython3.13.____cp313:
-        CONFIG: win_64_polars_variantpolars-u64-idxpython3.13.____cp313
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolars-u64-idxpython3.9.____cpython:
-        CONFIG: win_64_polars_variantpolars-u64-idxpython3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolarspython3.10.____cpython:
-        CONFIG: win_64_polars_variantpolarspython3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolarspython3.11.____cpython:
-        CONFIG: win_64_polars_variantpolarspython3.11.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolarspython3.12.____cpython:
-        CONFIG: win_64_polars_variantpolarspython3.12.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolarspython3.13.____cp313:
-        CONFIG: win_64_polars_variantpolarspython3.13.____cp313
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      win_64_polars_variantpolarspython3.9.____cpython:
-        CONFIG: win_64_polars_variantpolarspython3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-    maxParallel: 16
+    maxParallel: 11
   timeoutInMinutes: 360
   variables: {}
 
