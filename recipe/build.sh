@@ -10,6 +10,9 @@ case "${target_platform}" in
   linux-aarch64|osx-arm64)
     arch="aarch64"
     ;;
+  linux-ppc64le)
+    arch="powerpc64le"
+    ;;
   *)
     arch="x86_64"
     ;;
