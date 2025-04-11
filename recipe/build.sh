@@ -25,9 +25,6 @@ if [[ ${arch} == "x86_64" ]]; then
     features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+cmpxchg16b
     cc_features="-msse3 -mssse3 -msse4.1 -msse4.2 -mpopcnt -mcx16"
     cfg="--cfg allocator=\"default\""
-  # elif [[ -n "${OSX_ARCH}" ]]; then
-  #   features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+cmpxchg16b,+avx,+fma,+pclmulqdq
-  #   cc_features="-msse3 -mssse3 -msse4.1 -msse4.2 -mpopcnt -mavx -mfma"
   else
     features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+cmpxchg16b,+avx,+avx2,+fma,+bmi1,+bmi2,+lzcnt,+pclmulqdq,+movbe
     cc_features="-msse3 -mssse3 -msse4.1 -msse4.2 -mpopcnt -mcx16 -mavx -mavx2 -mfma -mbmi -mbmi2 -mlzcnt -mpclmul -mmovbe"
