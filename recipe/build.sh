@@ -4,6 +4,8 @@ set -euxo pipefail
 
 export CARGO_PROFILE_RELEASE_STRIP=symbols
 
+# see .github/workflows/release-python.yml in the polars repository
+
 case "${target_platform}" in
   linux-aarch64|osx-arm64)
     arch="aarch64"
@@ -14,10 +16,8 @@ case "${target_platform}" in
 esac
 
 export
-
 cpu_check_module="py-polars/polars/_cpu_check.py"
 
-# see .github/workflows/release-python.yml in the polars repository
 if [[ ${arch} == "x86_64" ]]; then
   cfg=""
   if [[ "${PKG_NAME}" == "polars-lts-cpu" ]]; then
@@ -50,7 +50,6 @@ fi
 
 cat $cpu_check_module
 
-rustc --version
 $PYTHON -m pip install . -vv
 
 # The root level Cargo.toml is part of an incomplete workspace

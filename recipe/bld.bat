@@ -1,8 +1,6 @@
-set arch=x86_64
-
 rem see .github\workflows\release-python.yml in the polars repository
 
-
+set arch=x86_64
 set cpu_check_module=py-polars\polars\_cpu_check.py
 
 if "%arch%"=="x86_64" (
@@ -36,7 +34,6 @@ if "%PKG_NAME%"=="polars-lts-cpu" (
 )
 
 type %cpu_check_module%
-
 
 %PYTHON% -m pip install . -vv
 
