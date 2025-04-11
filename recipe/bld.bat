@@ -1,4 +1,4 @@
-rem see .github\workflows\release-python.yml in the polars repository
+rem see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 
 set arch=x86_64
 set cpu_check_module=py-polars\polars\_cpu_check.py

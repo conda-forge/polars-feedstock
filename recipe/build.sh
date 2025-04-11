@@ -4,7 +4,7 @@ set -euxo pipefail
 
 export CARGO_PROFILE_RELEASE_STRIP=symbols
 
-# see .github/workflows/release-python.yml in the polars repository
+# see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 
 case "${target_platform}" in
   linux-aarch64|osx-arm64)
