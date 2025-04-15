@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 
-set -ex
+set -euxo pipefail
 
 export CARGO_PROFILE_RELEASE_STRIP=symbols
+
+# see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 
 case "${target_platform}" in
   linux-aarch64|osx-arm64)
     arch="aarch64"
+    ;;
+  linux-ppc64le)
+    arch="powerpc64le"
     ;;
   *)
     arch="x86_64"
@@ -14,70 +19,42 @@ case "${target_platform}" in
 esac
 
 export
-
 cpu_check_module="py-polars/polars/_cpu_check.py"
 features=""
 
 if [[ ${arch} == "x86_64" ]]; then
   cfg=""
   if [[ "${PKG_NAME}" == "polars-lts-cpu" ]]; then
-    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt
+    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+cmpxchg16b
+    cc_features="-msse3 -mssse3 -msse4.1 -msse4.2 -mpopcnt -mcx16"
     cfg="--cfg allocator=\"default\""
-  elif [[ -n "${OSX_ARCH}" ]]; then
-    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma,+pclmulqdq
   else
-    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+avx2,+fma,+bmi1,+bmi2,+lzcnt,+pclmulqdq
+    features=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+cmpxchg16b,+avx,+avx2,+fma,+bmi1,+bmi2,+lzcnt,+pclmulqdq,+movbe
+    cc_features="-msse3 -mssse3 -msse4.1 -msse4.2 -mpopcnt -mcx16 -mavx -mavx2 -mfma -mbmi -mbmi2 -mlzcnt -mpclmul -mmovbe"
   fi
 
   export RUSTFLAGS="-C target-feature=$features $cfg"
-fi
-
-if [[ "${PKG_NAME}" == "polars-lts-cpu" ]]; then
-    sed -i.bak "s/^_LTS_CPU = False$/_LTS_CPU = True/g" $cpu_check_module
+  export CFLAGS="$CFLAGS $cc_features"
+elif [[ ${arch} == "powerpc64le" ]]; then
+  cfg="--cfg allocator=\"default\""
+  export RUSTFLAGS="$cfg"
 fi
 
 sed -i.bak "s/^_POLARS_ARCH = \"unknown\"$/_POLARS_ARCH = \"$arch\"/g" $cpu_check_module
 sed -i.bak "s/^_POLARS_FEATURE_FLAGS = \"\"$/_POLARS_FEATURE_FLAGS = \"$features\"/g" $cpu_check_module
+
+if [[ "${PKG_NAME}" == "polars-lts-cpu" ]]; then
+    sed -i.bak "s/^_POLARS_LTS_CPU = False$/_POLARS_LTS_CPU = True/g" $cpu_check_module
+fi
 
 # Use jemalloc on linux-aarch64
 if [[ "${target_platform}" == "linux-aarch64" ]]; then
   export JEMALLOC_SYS_WITH_LG_PAGE=16
 fi
 
-rustc --version
+cat $cpu_check_module
 
-if [[ ("${target_platform}" == "win-64" && "${build_platform}" != "win-64") ]]; then
-  pushd py-polars
-    cargo patch
-  popd
-
-  # we need to add the generate-import-lib feature since otherwise
-  # maturin will expect libpython DSOs at PYO3_CROSS_LIB_DIR
-  # which we don't have since we are not able to add python as a host dependency
-  cargo feature pyo3 +generate-import-lib --manifest-path py-polars/Cargo.toml
-
-  # cc-rs hardcodes ml64.exe as the MASM assembler for x86_64-pc-windows-msvc
-  # We want to use LLVM's MASM assembler instead
-  # https://github.com/rust-lang/cc-rs/issues/1022
-  cat > $BUILD_PREFIX/bin/ml64.exe <<"EOF"
-#!/usr/bin/env bash
-llvm-ml -m64 $@
-EOF
-
-  chmod +x $BUILD_PREFIX/bin/ml64.exe
-
-  export CC_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/clang"
-  export CXX_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/clang++"
-  export LD_x86_64_pc_windows_msvc="$BUILD_PREFIX/bin/lld-link"
-  export LDFLAGS=${LDFLAGS/-manifest:no/}
-
-  maturin build --release --strip --interpreter $RECIPE_DIR/mock-win-python.sh
-  pip install target/wheels/polars*.whl --target $PREFIX/lib/site-packages --platform win_amd64
-else
-  # Run the maturin build via pip which works for direct and
-  # cross-compiled builds.
-  $PYTHON -m pip install . -vv
-fi
+$PYTHON -m pip install . -vv
 
 # The root level Cargo.toml is part of an incomplete workspace
 # we need to use the manifest inside the py-polars
