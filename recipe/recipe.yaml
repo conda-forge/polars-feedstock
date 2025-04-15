@@ -1,0 +1,97 @@
+context:
+  version: '1.27.1'
+
+# Note: This recipe is specifically designed to work well with the autotick bot.
+# Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
+package:
+  name: ${{ polars_variant }}
+  version: ${{ version }}
+
+source:
+  - if: polars_variant == 'polars'
+    then:
+      url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
+      sha256: 94fcb0216b56cd0594aa777db1760a41ad0dfffed90d2ca446cf9294d2e97f02
+  - if: polars_variant == 'polars-lts-cpu'
+    then:
+      url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
+      sha256: ee4a39e875400ea908a207c02636c8ad0fa14736cc5ff26cffec5d9de55e1f9f
+  - if: polars_variant == 'polars-u64-idx'
+    then:
+      url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
+      sha256: 3f8397b7fc77581fb39be465fe99ca584e2e8e94b4554ec1b1e5daeddafe4ed0
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - crossenv
+        - maturin >=1.3.2,<2
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('rust') }}
+    - if: build_platform == 'win-64'
+      then:
+        - posix
+    - cmake
+    - if: unix
+      then:
+        - make
+    - cargo-bundle-licenses
+  host:
+    - python
+    - pip
+    - maturin >=1.3.2,<2
+  run:
+    - python
+    - numpy >=1.16.0
+    - if: python <3.11
+      then:
+        - typing_extensions >=4.0.0
+    - if: python >=3.10
+      then:
+        - packaging
+
+tests:
+  - python:
+      pip_check: true
+      imports:
+        - polars
+  - script:
+      - python -c "from polars import DataFrame"
+  - package_contents:
+      site_packages:
+        - if: unix
+          then: polars/polars.abi3.so
+          else: polars/polars.pyd
+        - polars/dataframe/__init__.py
+        - ${{ polars_variant | replace('-', '_') }}-${{ version }}.dist-info/*
+
+about:
+  homepage: https://github.com/pola-rs/polars
+  license: MIT
+  license_file:
+    - LICENSE
+    - THIRDPARTY.yml
+  summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
+  description: Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
+  documentation: https://docs.pola.rs
+  repository: https://github.com/pola-rs/polars
+
+extra:
+  recipe-maintainers:
+    - borchero
+    - Maxyme
+    - timkpaine
+    - ritchie46
+    - sugatoray
+    - xhochy
+    - dhirschfeld
+    - pavelzw
+    - '0xbe7a'
