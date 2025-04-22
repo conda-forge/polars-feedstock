@@ -13,36 +13,46 @@
 setlocal enableextensions enabledelayedexpansion
 
 FOR %%A IN ("%~dp0.") DO SET "REPO_ROOT=%%~dpA"
-if "%MINIFORGE_HOME%"=="" set "MINIFORGE_HOME=%USERPROFILE%\Miniforge3"
+if "%MINIFORGE_HOME%"=="" (
+    set "MINIFORGE_HOME=%REPO_ROOT%\.pixi\envs\default"
+) else (
+    set "PIXI_CACHE_DIR=%MINIFORGE_HOME%"
+)
 :: Remove trailing backslash, if present
 if "%MINIFORGE_HOME:~-1%"=="\" set "MINIFORGE_HOME=%MINIFORGE_HOME:~0,-1%"
-call :start_group "Provisioning base env with micromamba"
-set "MAMBA_ROOT_PREFIX=%MINIFORGE_HOME%-micromamba-%RANDOM%"
-set "MICROMAMBA_VERSION=1.5.10-0"
-set "MICROMAMBA_URL=https://github.com/mamba-org/micromamba-releases/releases/download/%MICROMAMBA_VERSION%/micromamba-win-64"
-set "MICROMAMBA_TMPDIR=%TMP%\micromamba-%RANDOM%"
-set "MICROMAMBA_EXE=%MICROMAMBA_TMPDIR%\micromamba.exe"
-
-echo Downloading micromamba %MICROMAMBA_VERSION%
-if not exist "%MICROMAMBA_TMPDIR%" mkdir "%MICROMAMBA_TMPDIR%"
-certutil -urlcache -split -f "%MICROMAMBA_URL%" "%MICROMAMBA_EXE%"
+call :start_group "Provisioning base env with pixi"
+echo Installing pixi
+powershell -NoProfile -ExecutionPolicy unrestricted -Command "iwr -useb https://pixi.sh/install.ps1 | iex"
 if !errorlevel! neq 0 exit /b !errorlevel!
-
-echo Creating environment
-call "%MICROMAMBA_EXE%" create --yes --root-prefix "%MAMBA_ROOT_PREFIX%" --prefix "%MINIFORGE_HOME%" ^
-    --channel conda-forge ^
-    pip rattler-build conda-forge-ci-setup=4 "conda-build>=24.1"
+set "PATH=%USERPROFILE%\.pixi\bin;%PATH%"
+echo Installing environment
+if "%PIXI_CACHE_DIR%"=="%MINIFORGE_HOME%" (
+    mkdir "%MINIFORGE_HOME%"
+    copy /Y pixi.toml "%MINIFORGE_HOME%"
+    pushd "%MINIFORGE_HOME%"
+) else (
+    pushd "%REPO_ROOT%"
+)
+move /y pixi.toml pixi.toml.bak
+set "arch=64"
+if "%PROCESSOR_ARCHITECTURE%"=="ARM64" set "arch=arm64"
+powershell -NoProfile -ExecutionPolicy unrestricted -Command "(Get-Content pixi.toml.bak -Encoding UTF8) -replace 'platforms = .*', 'platforms = [''win-%arch%'']' | Out-File pixi.toml -Encoding UTF8"
+pixi install
 if !errorlevel! neq 0 exit /b !errorlevel!
-echo Removing %MAMBA_ROOT_PREFIX%
-del /S /Q "%MAMBA_ROOT_PREFIX%" >nul
-del /S /Q "%MICROMAMBA_TMPDIR%" >nul
+pixi list
+if !errorlevel! neq 0 exit /b !errorlevel!
+set "ACTIVATE_PIXI=%TMP%\pixi-activate-%RANDOM%.bat"
+pixi shell-hook > "%ACTIVATE_PIXI%"
+if !errorlevel! neq 0 exit /b !errorlevel!
+call "%ACTIVATE_PIXI%"
+if !errorlevel! neq 0 exit /b !errorlevel!
+move /y pixi.toml.bak pixi.toml
+popd
 call :end_group
 
 call :start_group "Configuring conda"
 
 :: Activate the base conda environment
-echo Activating environment
-call "%MINIFORGE_HOME%\Scripts\activate.bat"
 :: Configure the solver
 set "CONDA_SOLVER=libmamba"
 if !errorlevel! neq 0 exit /b !errorlevel!
@@ -76,7 +86,7 @@ call :end_group
 
 :: Build the recipe
 echo Building recipe
-rattler-build.exe build --recipe "recipe" -m .ci_support\%CONFIG%.yaml %EXTRA_CB_OPTIONS% --target-platform %HOST_PLATFORM% -c conda-forge/label/rust_dev -c conda-forge
+rattler-build.exe build --recipe "recipe" -m .ci_support\%CONFIG%.yaml %EXTRA_CB_OPTIONS% --target-platform %HOST_PLATFORM%
 if !errorlevel! neq 0 exit /b !errorlevel!
 
 call :start_group "Inspecting artifacts"
