@@ -25,6 +25,8 @@ source:
 build:
   number: 3
   skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
+  python:
+    version_independent: true
 
 requirements:
   build:
