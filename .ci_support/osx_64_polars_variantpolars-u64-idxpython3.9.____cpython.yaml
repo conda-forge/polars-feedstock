@@ -18,6 +18,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '18'
+is_abi3:
+- 'true'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:
@@ -28,6 +30,8 @@ polars_variant:
 - polars-u64-idx
 python:
 - 3.9.* *_cpython
+python_min:
+- '3.9'
 rust_compiler:
 - rust
 target_platform:
