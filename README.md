@@ -7,11 +7,13 @@ Home: https://github.com/pola-rs/polars
 
 Package license: MIT
 
-Summary: Polars is a blazingly fast DataFrames library implemented in Rust using Apache Arrow(2) as memory model.
+Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
 
 Development: https://github.com/pola-rs/polars
 
-Documentation: https://pola-rs.github.io/polars-book/user-guide/index.html
+Documentation: https://docs.pola.rs/
+
+Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
 
 Current build status
 ====================
