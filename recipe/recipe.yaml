@@ -1,7 +1,7 @@
 context:
   version: "1.27.1"
   python_min: "3.9"
-  build: 3
+  build: 4
 # # Note: This recipe is specifically designed to work well with the autotick bot.
 # # Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
 # package:
