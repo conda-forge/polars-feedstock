@@ -30,7 +30,7 @@ outputs:
         down_prioritize_variant: ${{ polars_variant != 'polars'}}
     requirements:
       run:
-        - ${{ pin_suppackage('polars', exact=True) }}
+        - ${{ pin_subpackage('polars', exact=True) }}
 
   - package:
       name: ${{ polars_variant }}
