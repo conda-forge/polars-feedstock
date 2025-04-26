@@ -14,8 +14,8 @@ jobs:
       osx_64_polars_variantpolars-u64-idxpython3.9.____cpython:
         CONFIG: osx_64_polars_variantpolars-u64-idxpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantpolarspython3.9.____cpython:
-        CONFIG: osx_64_polars_variantpolarspython3.9.____cpython
+      osx_64_polars_variantpolars-defaultpython3.9.____cpython:
+        CONFIG: osx_64_polars_variantpolars-defaultpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
       osx_arm64_polars_variantpolars-lts-cpupython3.9.____cpython:
         CONFIG: osx_arm64_polars_variantpolars-lts-cpupython3.9.____cpython
@@ -23,8 +23,8 @@ jobs:
       osx_arm64_polars_variantpolars-u64-idxpython3.9.____cpython:
         CONFIG: osx_arm64_polars_variantpolars-u64-idxpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_polars_variantpolarspython3.9.____cpython:
-        CONFIG: osx_arm64_polars_variantpolarspython3.9.____cpython
+      osx_arm64_polars_variantpolars-defaultpython3.9.____cpython:
+        CONFIG: osx_arm64_polars_variantpolars-defaultpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables: {}

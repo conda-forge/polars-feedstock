@@ -16,8 +16,8 @@ jobs:
         CONFIG: linux_64_polars_variantpolars-u64-idxpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_polars_variantpolarspython3.9.____cpython:
-        CONFIG: linux_64_polars_variantpolarspython3.9.____cpython
+      linux_64_polars_variantpolars-defaultpython3.9.____cpython:
+        CONFIG: linux_64_polars_variantpolars-defaultpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_aarch64_polars_variantpolars-lts-cpupython3.9.____cpython:
@@ -28,8 +28,8 @@ jobs:
         CONFIG: linux_aarch64_polars_variantpolars-u64-idxpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_polars_variantpolarspython3.9.____cpython:
-        CONFIG: linux_aarch64_polars_variantpolarspython3.9.____cpython
+      linux_aarch64_polars_variantpolars-defaultpython3.9.____cpython:
+        CONFIG: linux_aarch64_polars_variantpolars-defaultpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_ppc64le_python3.9.____cpython:

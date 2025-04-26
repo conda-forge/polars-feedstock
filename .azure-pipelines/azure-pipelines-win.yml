@@ -14,8 +14,8 @@ jobs:
       win_64_polars_variantpolars-u64-idxpython3.9.____cpython:
         CONFIG: win_64_polars_variantpolars-u64-idxpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_polars_variantpolarspython3.9.____cpython:
-        CONFIG: win_64_polars_variantpolarspython3.9.____cpython
+      win_64_polars_variantpolars-defaultpython3.9.____cpython:
+        CONFIG: win_64_polars_variantpolars-defaultpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:
