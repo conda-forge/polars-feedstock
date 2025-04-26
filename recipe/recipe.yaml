@@ -27,7 +27,7 @@ outputs:
       python:
         version_independent: true
       variant:
-        down_prioritize_variant: ${{ polars_variant != 'polars'}}
+        down_prioritize_variant: ${{ 0 if polars_variant == 'polars-default' else 1}}
     requirements:
       run:
         - ${{ pin_subpackage('polars', exact=True) }}
