@@ -8,15 +8,52 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
+      win_64_polars_variantpolars-lts-cpupython3.10.____cpython:
+        CONFIG: win_64_polars_variantpolars-lts-cpupython3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolars-lts-cpupython3.11.____cpython:
+        CONFIG: win_64_polars_variantpolars-lts-cpupython3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolars-lts-cpupython3.12.____cpython:
+        CONFIG: win_64_polars_variantpolars-lts-cpupython3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolars-lts-cpupython3.13.____cp313:
+        CONFIG: win_64_polars_variantpolars-lts-cpupython3.13.____cp313
+        UPLOAD_PACKAGES: 'True'
       win_64_polars_variantpolars-lts-cpupython3.9.____cpython:
         CONFIG: win_64_polars_variantpolars-lts-cpupython3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolars-u64-idxpython3.10.____cpython:
+        CONFIG: win_64_polars_variantpolars-u64-idxpython3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolars-u64-idxpython3.11.____cpython:
+        CONFIG: win_64_polars_variantpolars-u64-idxpython3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolars-u64-idxpython3.12.____cpython:
+        CONFIG: win_64_polars_variantpolars-u64-idxpython3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolars-u64-idxpython3.13.____cp313:
+        CONFIG: win_64_polars_variantpolars-u64-idxpython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
       win_64_polars_variantpolars-u64-idxpython3.9.____cpython:
         CONFIG: win_64_polars_variantpolars-u64-idxpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_polars_variantpolars-defaultpython3.9.____cpython:
-        CONFIG: win_64_polars_variantpolars-defaultpython3.9.____cpython
+      win_64_polars_variantpolarspython3.10.____cpython:
+        CONFIG: win_64_polars_variantpolarspython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolarspython3.11.____cpython:
+        CONFIG: win_64_polars_variantpolarspython3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolarspython3.12.____cpython:
+        CONFIG: win_64_polars_variantpolarspython3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolarspython3.13.____cp313:
+        CONFIG: win_64_polars_variantpolarspython3.13.____cp313
+        UPLOAD_PACKAGES: 'True'
+      win_64_polars_variantpolarspython3.9.____cpython:
+        CONFIG: win_64_polars_variantpolarspython3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+    maxParallel: 5
   timeoutInMinutes: 360
   variables:
     CONDA_BLD_PATH: D:\\bld\\
