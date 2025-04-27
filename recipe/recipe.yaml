@@ -34,7 +34,7 @@ outputs:
       host:
         - python ${{ python_min }}.*
       run:
-        - python >=${{ python_min}}
+        - python >=${{ python_min }}
         - ${{ pin_subpackage(polars_variant, exact=True) }}
 
   - package:
