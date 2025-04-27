@@ -31,12 +31,20 @@ outputs:
       variant:
         down_prioritize_variant: ${{ 0 if polars_variant == 'polars-default' else 1 }}
     requirements:
+      host:
+        - python ${{ python_min }}.*
       run:
+        - python >=${{ python_min}}
         - ${{ pin_subpackage(polars_variant, exact=True) }}
 
   - package:
       name: ${{ polars_variant }}
       version: ${{ version }}
+    build:
+      number: ${{ build }}
+      skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
+      python:
+        version_independent: true
     requirements:
       build:
         - if: build_platform != target_platform
