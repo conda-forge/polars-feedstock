@@ -13,7 +13,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 polars_variant:
-- polars
+- polars-default
 python:
 - 3.13.* *_cp313
 python_min:
