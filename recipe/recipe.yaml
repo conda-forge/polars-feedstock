@@ -1,5 +1,5 @@
 context:
-  version: '1.27.1'
+  version: "1.28.1"
   python_min: '3.9'
 
 # Note: This recipe is specifically designed to work well with the autotick bot.
@@ -12,18 +12,18 @@ source:
   - if: polars_variant == 'polars'
     then:
       url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-      sha256: 94fcb0216b56cd0594aa777db1760a41ad0dfffed90d2ca446cf9294d2e97f02
+      sha256: cdc0a62a1452e2daf1777e36fcf9351424cba2a588827cc32550fe0fa79dec82
   - if: polars_variant == 'polars-lts-cpu'
     then:
       url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
-      sha256: ee4a39e875400ea908a207c02636c8ad0fa14736cc5ff26cffec5d9de55e1f9f
+      sha256: 701cde57af879ae8da5c1123a23adf311cf69255828532c9c6bcc2ecb9a14792
   - if: polars_variant == 'polars-u64-idx'
     then:
       url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
-      sha256: 3f8397b7fc77581fb39be465fe99ca584e2e8e94b4554ec1b1e5daeddafe4ed0
+      sha256: e1d35ff5c8eb25f81a8eeab96a6b38ac2d507f6f59bcb5225e8a39684e6263b6
 
 build:
-  number: 3
+  number: 0
   skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
   python:
     version_independent: true
