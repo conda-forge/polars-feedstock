@@ -4,6 +4,6 @@ channel_targets:
   - conda-forge main
 
 polars_variant:
-  - polars  # [not ppc64le]
+  - polars-default # [not ppc64le]
   - polars-lts-cpu
-  - polars-u64-idx  # [not ppc64le]
+  - polars-u64-idx # [not ppc64le]
