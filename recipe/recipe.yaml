@@ -24,13 +24,15 @@ outputs:
     build:
       number: ${{ build }}
       skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
+      noarch: python
+      string: ${{ polars_variant | replace('-', '_') }}
       python:
         version_independent: true
       variant:
-        down_prioritize_variant: ${{ 0 if polars_variant == 'polars-default' else 1}}
+        down_prioritize_variant: ${{ 0 if polars_variant == 'polars-default' else 1 }}
     requirements:
       run:
-        - ${{ pin_subpackage('polars', exact=True) }}
+        - ${{ pin_subpackage(polars_variant, exact=True) }}
 
   - package:
       name: ${{ polars_variant }}
