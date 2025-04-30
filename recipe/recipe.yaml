@@ -23,7 +23,7 @@ source:
       sha256: 3f8397b7fc77581fb39be465fe99ca584e2e8e94b4554ec1b1e5daeddafe4ed0
 
 build:
-  number: 3
+  number: 4
   skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
   python:
     version_independent: true
@@ -71,7 +71,7 @@ tests:
       pip_check: true
       imports:
         - polars
-      python_version: ${{ python_min }}
+      python_version: ${{ python_min }}.*
   - script:
       - python -c "from polars import DataFrame"
   - package_contents:
