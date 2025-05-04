@@ -3,20 +3,6 @@ context:
   python_min: "3.9"
   build: 4
 
-source:
-  - if: polars_variant == 'polars-default'
-    then:
-      url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-      sha256: 94fcb0216b56cd0594aa777db1760a41ad0dfffed90d2ca446cf9294d2e97f02
-  - if: polars_variant == 'polars-lts-cpu'
-    then:
-      url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
-      sha256: ee4a39e875400ea908a207c02636c8ad0fa14736cc5ff26cffec5d9de55e1f9f
-  - if: polars_variant == 'polars-u64-idx'
-    then:
-      url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
-      sha256: 3f8397b7fc77581fb39be465fe99ca584e2e8e94b4554ec1b1e5daeddafe4ed0
-
 outputs:
   - package:
       name: polars
@@ -24,22 +10,30 @@ outputs:
     build:
       number: ${{ build }}
       skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
-      noarch: python
+      noarch: generic
       string: ${{ polars_variant | replace('-', '_') }}
-      python:
-        version_independent: true
       variant:
         down_prioritize_variant: ${{ 0 if polars_variant == 'polars-default' else 1 }}
     requirements:
-      host:
-        - python ${{ python_min }}.*
       run:
-        - python >=${{ python_min }}
         - ${{ pin_subpackage(polars_variant, exact=True) }}
 
   - package:
       name: ${{ polars_variant }}
       version: ${{ version }}
+    source:
+      - if: polars_variant == 'polars-default'
+        then:
+          url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
+          sha256: 94fcb0216b56cd0594aa777db1760a41ad0dfffed90d2ca446cf9294d2e97f02
+      - if: polars_variant == 'polars-lts-cpu'
+        then:
+          url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
+          sha256: ee4a39e875400ea908a207c02636c8ad0fa14736cc5ff26cffec5d9de55e1f9f
+      - if: polars_variant == 'polars-u64-idx'
+        then:
+          url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
+          sha256: 3f8397b7fc77581fb39be465fe99ca584e2e8e94b4554ec1b1e5daeddafe4ed0
     build:
       number: ${{ build }}
       skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
