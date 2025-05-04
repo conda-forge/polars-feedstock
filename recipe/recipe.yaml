@@ -9,7 +9,9 @@ outputs:
       version: ${{ version }}
     build:
       number: ${{ build }}
-      skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
+      skip: not (match(python, python_min ~ ".*") and is_abi3)
+      python:
+        version_independent: true
       noarch: generic
       string: ${{ polars_variant | replace('-', '_') }}
       variant:
@@ -36,7 +38,7 @@ outputs:
           sha256: 3f8397b7fc77581fb39be465fe99ca584e2e8e94b4554ec1b1e5daeddafe4ed0
     build:
       number: ${{ build }}
-      skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
+      skip: not (match(python, python_min ~ ".*") and is_abi3)
       python:
         version_independent: true
     requirements:
