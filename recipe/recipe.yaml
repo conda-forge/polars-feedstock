@@ -71,7 +71,7 @@ tests:
       pip_check: true
       imports:
         - polars
-      python_version: ${{ python_min }}
+      python_version: ${{ python_min }}.*
   - script:
       - python -c "from polars import DataFrame"
   - package_contents:
