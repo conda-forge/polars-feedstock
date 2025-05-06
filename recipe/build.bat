@@ -1,5 +1,7 @@
 rem see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 
+wmic logicaldisk get deviceid,size,freespace,caption
+
 set arch=x86_64
 set cpu_check_module=py-polars\polars\_cpu_check.py
 
