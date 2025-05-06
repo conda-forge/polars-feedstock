@@ -13,6 +13,8 @@ source:
     then:
       url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
       sha256: d2acb71fce1ff0ea76db5f648abd91a7a6c460fafabce9a2e8175184efa00d02
+      # patches:
+      #   - cargo-use-argminmax-fork.patch
   - if: polars_variant == 'polars-lts-cpu'
     then:
       url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
@@ -21,6 +23,13 @@ source:
     then:
       url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
       sha256: 4f51c6095c3e229894af6ed14231240e82d3f352914ae09320a28a26dcb1fd22
+  - if: target_platform == 'linux-64'
+    then:
+      url: https://github.com/jvdd/argminmax/archive/refs/tags/v0.6.2.tar.gz
+      sha256: c5d115216f715b68b479a6e8e982ab5a46437b24ab04b3e319f17600454441d6
+      target_directory: argminmax
+      patches:
+        - fix-argminmax.patch
 
 build:
   number: 0
@@ -48,6 +57,7 @@ requirements:
       then:
         - make
     - cargo-bundle-licenses
+    - sed
   host:
     - python
     - python-abi3
