@@ -36,9 +36,12 @@ if "%PKG_NAME%"=="polars-lts-cpu" (
 type %cpu_check_module%
 
 sed -i '/tikv-jemallocator = { git/a argminmax = { path = "./argminmax" }' Cargo.toml
+if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
 maturin build
+if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 %PYTHON% -m pip install target/wheels/polars.whl -vv
+if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
 cd py-polars
 cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
