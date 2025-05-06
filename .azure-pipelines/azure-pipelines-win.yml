@@ -6,8 +6,6 @@ jobs:
 - job: win
   pool:
     vmImage: windows-2022
-  workspace:
-    clean: all
   strategy:
     matrix:
       win_64_polars_variantpolars-lts-cpupython3.9.____cpython:
