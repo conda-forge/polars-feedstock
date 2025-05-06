@@ -6,6 +6,7 @@ azure:
   settings_win:
     variables:
       SET_PAGEFILE: 'True'
+      CONDA_BLD_PATH: C:\\bld\\
 bot:
   automerge: true
 build_platform:
