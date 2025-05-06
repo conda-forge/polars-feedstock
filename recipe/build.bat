@@ -41,7 +41,7 @@ type %cpu_check_module%
 sed -i '/tikv-jemallocator = { git/a argminmax = { path = "./argminmax" }' Cargo.toml
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
-maturin build --release --locked
+maturin build --release
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 %PYTHON% -m pip install --find-links=target\wheels %PKG_NAME%
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
