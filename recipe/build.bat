@@ -42,7 +42,7 @@ if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
 maturin build
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
-%PYTHON% -m pip install target/wheels/polars.whl -vv
+for %f in (target\wheels\polars*.whl) do %PYTHON% -m pip install %f
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
 cd py-polars
