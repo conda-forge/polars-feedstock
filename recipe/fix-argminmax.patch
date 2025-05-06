@@ -1,3 +1,44 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 86c6f29..78a991b 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -15,7 +15,6 @@ exclude = [".git*", "dev_utils/**/*", "tests/**/*"]
+
+ [dependencies]
+ num-traits = { version = "0.2", default-features = false }
+-half = { version = "2.3.1", default-features = false, features=["num-traits"], optional = true }
+ ndarray = { version = "0.15.6", default-features = false, optional = true }
+ arrow = { version = ">0", default-features = false, optional = true }
+ arrow2 = { version = ">0.0", default-features = false, optional = true }
+@@ -25,7 +24,6 @@ arrow2 = { version = ">0.0", default-features = false, optional = true }
+ default = ["nightly_simd", "float"]
+ nightly_simd = []
+ float = []
+-half = ["dep:half"]
+ ndarray = ["dep:ndarray"]
+ arrow = ["dep:arrow"]
+ arrow2 = ["dep:arrow2"]
+@@ -38,20 +36,6 @@ codspeed-criterion-compat = "2.3.3"
+ criterion = "0.5.1"
+ dev_utils = { path = "dev_utils" }
+
+-[dev-dependencies.half]
+-features = ["rand_distr"]
+-
+-
+-[[bench]]
+-name = "bench_f16_return_nan"
+-harness = false
+-required-features = ["half"]
+-
+-[[bench]]
+-name = "bench_f16_ignore_nan"
+-harness = false
+-required-features = ["half"]
+-
+ [[bench]]
+ name = "bench_f32_return_nan"
+ harness = false
 diff --git a/src/simd/simd_f32_return_nan.rs b/src/simd/simd_f32_return_nan.rs
 index 2cde245..7a89a81 100644
 --- a/src/simd/simd_f32_return_nan.rs
