@@ -7,7 +7,9 @@ export CARGO_PROFILE_RELEASE_STRIP=symbols
 # see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 
 # PATCH
-sed -i '/tikv-jemallocator = { git/a argminmax = { path = "./argminmax" }' Cargo.toml
+if [[ "${target_platform}" == "linux-64" ]]; then
+  sed -i '/tikv-jemallocator = { git/a argminmax = { path = "./argminmax" }' Cargo.toml
+fi
 
 case "${target_platform}" in
   linux-aarch64|osx-arm64)

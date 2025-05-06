@@ -57,7 +57,12 @@ requirements:
       then:
         - make
     - cargo-bundle-licenses
-    - sed
+    - if: target_platform == 'linux-64'
+      then:
+        - sed
+    - if: target_platform == 'win-64'
+      then:
+        - m2-sed
   host:
     - python
     - python-abi3
