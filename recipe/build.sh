@@ -7,6 +7,7 @@ export CARGO_PROFILE_RELEASE_STRIP=symbols
 # see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 
 # PATCH
+# https://github.com/prefix-dev/rattler-build/issues/1000
 if [[ "${target_platform}" == "linux-64" ]]; then
   sed -i '/tikv-jemallocator = { git/a argminmax = { path = "./argminmax" }' Cargo.toml
 fi

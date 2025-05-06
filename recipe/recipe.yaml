@@ -13,8 +13,10 @@ source:
     then:
       url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
       sha256: d2acb71fce1ff0ea76db5f648abd91a7a6c460fafabce9a2e8175184efa00d02
+      # https://github.com/prefix-dev/rattler-build/issues/1000
       # patches:
-      #   - cargo-use-argminmax-fork.patch
+      #   - if: target_platform == 'linux-64' or target_platform == 'win-64'
+      #     then: cargo-use-argminmax-fork.patch
   - if: polars_variant == 'polars-lts-cpu'
     then:
       url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
@@ -57,6 +59,7 @@ requirements:
       then:
         - make
     - cargo-bundle-licenses
+    # TODO: remove once https://github.com/prefix-dev/rattler-build/issues/1000 is resolved
     - if: target_platform == 'linux-64'
       then:
         - sed
