@@ -18,6 +18,9 @@ conda-build = ">=24.1"
 conda-forge-ci-setup = "4.*"
 rattler-build = "*"
 
+[target.osx.dependencies]
+rattler-build = "<0.41"
+
 [tasks]
 [tasks.inspect-all]
 cmd = "inspect_artifacts --all-packages"
