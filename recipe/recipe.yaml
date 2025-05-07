@@ -4,15 +4,15 @@ context:
   build: 1
 
 source:
-  - if: polars_variant == 'polars-default'
+  - if: polars_variant == 'default'
     then:
       url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
       sha256: d2acb71fce1ff0ea76db5f648abd91a7a6c460fafabce9a2e8175184efa00d02
-  - if: polars_variant == 'polars-lts-cpu'
+  - if: polars_variant == 'lts-cpu'
     then:
       url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
       sha256: 550ad6cd436df93f4078e7f7e8f0fc0a4f4f415742361743ee18f8cff896dc39
-  - if: polars_variant == 'polars-u64-idx'
+  - if: polars_variant == 'u64-idx'
     then:
       url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
       sha256: 4f51c6095c3e229894af6ed14231240e82d3f352914ae09320a28a26dcb1fd22
@@ -37,13 +37,13 @@ outputs:
       noarch: generic
       string: ${{ polars_variant | replace('-', '_') }}
       variant:
-        down_prioritize_variant: ${{ 0 if polars_variant == 'polars-default' else 1 }}
+        down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
     requirements:
       run:
         - ${{ pin_subpackage(polars_variant, exact=True) }}
 
   - package:
-      name: ${{ polars_variant }}
+      name: polars-${{ polars_variant }}
       version: ${{ version }}
     build:
       number: ${{ build }}
@@ -109,7 +109,7 @@ outputs:
               then: polars/polars.abi3.so
               else: polars/polars.pyd
             - polars/dataframe/__init__.py
-            - ${{ polars_variant | replace ('-default', '') | replace('-', '_') }}-${{ version }}.dist-info/*
+            - polars-${{ polars_variant | replace ('default', '') | replace('-', '_') }}-${{ version }}.dist-info/*
 
 about:
   homepage: https://github.com/pola-rs/polars
