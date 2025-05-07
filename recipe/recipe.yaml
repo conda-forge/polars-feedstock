@@ -34,7 +34,6 @@ outputs:
       skip: not (match(python, python_min ~ ".*") and is_abi3)
       python:
         version_independent: true
-      noarch: generic
       string: ${{ polars_variant | replace('-', '_') }}
       variant:
         down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
