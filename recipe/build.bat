@@ -1,5 +1,7 @@
 rem see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 
+wmic logicaldisk get deviceid,size,freespace,caption
+
 set arch=x86_64
 set cpu_check_module=py-polars\polars\_cpu_check.py
 
@@ -35,7 +37,14 @@ if "%PKG_NAME%"=="polars-lts-cpu" (
 
 type %cpu_check_module%
 
-%PYTHON% -m pip install . -vv
+@REM https://github.com/prefix-dev/rattler-build/issues/1000
+sed -i '/tikv-jemallocator = { git/a argminmax = { path = "./argminmax" }' Cargo.toml
+if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
+
+maturin build --release
+if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
+%PYTHON% -m pip install --find-links=target\wheels %PKG_NAME%
+if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
 cd py-polars
 cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
