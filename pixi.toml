@@ -18,6 +18,7 @@ conda-build = ">=24.1"
 conda-forge-ci-setup = "4.*"
 rattler-build = "*"
 
+# https://github.com/prefix-dev/rattler-build/issues/1608
 [target.osx.dependencies]
 rattler-build = "<0.41"
 

@@ -8,7 +8,7 @@ export CARGO_PROFILE_RELEASE_STRIP=symbols
 
 # PATCH
 # https://github.com/prefix-dev/rattler-build/issues/1000
-if [[ "${target_platform}" == "linux-64" ]]; then
+if [[ "${target_platform}" == "linux-64" || "${target_platform}" == "osx-64" ]]; then
   sed -i '/tikv-jemallocator = { git/a argminmax = { path = "./argminmax" }' Cargo.toml
 fi
 
