@@ -109,7 +109,7 @@ outputs:
               then: polars/polars.abi3.so
               else: polars/polars.pyd
             - polars/dataframe/__init__.py
-            - polars-${{ polars_variant | replace ('default', '') | replace('-', '_') }}-${{ version }}.dist-info/*
+            - polars${{ ('_' ~ polars_variant) | replace('_default', '') | replace('-', '_') }}-${{ version }}.dist-info/*
 
 about:
   homepage: https://github.com/pola-rs/polars
