@@ -60,7 +60,7 @@ requirements:
         - make
     - cargo-bundle-licenses
     # TODO: remove once https://github.com/prefix-dev/rattler-build/issues/1000 is resolved
-    - if: target_platform == 'linux-64'
+    - if: target_platform == 'linux-64' or target_platform == 'osx-64'
       then:
         - sed
     - if: target_platform == 'win-64'
