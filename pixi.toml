@@ -7,7 +7,7 @@
 
 [project]
 name = "polars-feedstock"
-version = "3.47.2"  # conda-smithy version used to generate this file
+version = "3.48.1"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/polars-feedstock"
 authors = ["@conda-forge/polars"]
 channels = ["conda-forge"]
@@ -17,6 +17,10 @@ platforms = ["linux-64", "osx-64", "win-64"]
 conda-build = ">=24.1"
 conda-forge-ci-setup = "4.*"
 rattler-build = "*"
+
+# https://github.com/prefix-dev/rattler-build/issues/1608
+[target.osx.dependencies]
+rattler-build = "<0.41"
 
 [tasks]
 [tasks.inspect-all]

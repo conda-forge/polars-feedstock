@@ -1,5 +1,5 @@
 context:
-  version: '1.27.1'
+  version: "1.29.0"
   python_min: '3.9'
 
 # Note: This recipe is specifically designed to work well with the autotick bot.
@@ -12,19 +12,33 @@ source:
   - if: polars_variant == 'polars'
     then:
       url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-      sha256: 94fcb0216b56cd0594aa777db1760a41ad0dfffed90d2ca446cf9294d2e97f02
+      sha256: d2acb71fce1ff0ea76db5f648abd91a7a6c460fafabce9a2e8175184efa00d02
+      # https://github.com/prefix-dev/rattler-build/issues/1000
+      # patches:
+      #   - if: target_platform == 'linux-64' or target_platform == 'win-64'
+      #     then: cargo-use-argminmax-fork.patch
   - if: polars_variant == 'polars-lts-cpu'
     then:
       url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
-      sha256: ee4a39e875400ea908a207c02636c8ad0fa14736cc5ff26cffec5d9de55e1f9f
+      sha256: 550ad6cd436df93f4078e7f7e8f0fc0a4f4f415742361743ee18f8cff896dc39
   - if: polars_variant == 'polars-u64-idx'
     then:
       url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
-      sha256: 3f8397b7fc77581fb39be465fe99ca584e2e8e94b4554ec1b1e5daeddafe4ed0
+      sha256: 4f51c6095c3e229894af6ed14231240e82d3f352914ae09320a28a26dcb1fd22
+  # https://github.com/jvdd/argminmax/issues/74
+  # https://github.com/jvdd/argminmax/pull/73
+  # https://github.com/pola-rs/polars/issues/22604
+  - if: target_platform == 'linux-64' or target_platform == 'win-64' or target_platform == 'osx-64'
+    then:
+      url: https://github.com/jvdd/argminmax/archive/refs/tags/v0.6.2.tar.gz
+      sha256: c5d115216f715b68b479a6e8e982ab5a46437b24ab04b3e319f17600454441d6
+      target_directory: argminmax
+      patches:
+        - fix-argminmax.patch
 
 build:
-  number: 3
-  skip: not (match(python, python_min ~ ".*") and is_abi3 == 'true')
+  number: 0
+  skip: not (match(python, python_min ~ ".*") and is_abi3)
   python:
     version_independent: true
 
@@ -48,6 +62,13 @@ requirements:
       then:
         - make
     - cargo-bundle-licenses
+    # TODO: remove once https://github.com/prefix-dev/rattler-build/issues/1000 is resolved
+    - if: target_platform == 'linux-64' or target_platform == 'osx-64'
+      then:
+        - sed
+    - if: target_platform == 'win-64'
+      then:
+        - m2-sed
   host:
     - python
     - python-abi3
@@ -71,7 +92,7 @@ tests:
       pip_check: true
       imports:
         - polars
-      python_version: ${{ python_min }}
+      python_version: ${{ python_min }}.*
   - script:
       - python -c "from polars import DataFrame"
   - package_contents:
