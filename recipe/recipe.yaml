@@ -29,6 +29,7 @@ outputs:
       name: polars
       version: ${{ version }}
     build:
+      script: echo "No build step is needed"
       number: ${{ build }}
       skip: not (match(python, python_min ~ ".*") and is_abi3)
       python:
