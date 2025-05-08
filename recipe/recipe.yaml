@@ -31,9 +31,12 @@ outputs:
     build:
       script: echo "No build step is needed"
       number: ${{ build }}
-      skip: not (match(python, python_min ~ ".*") and is_abi3)
+      # Since this meta package is noarch: generic, we only need to build it
+      # for one target platform (does not matter which one)
+      skip: (target_platform != 'linux-64') or not (match(python, python_min ~ ".*") and is_abi3)
       python:
         version_independent: true
+      noarch: generic
       string: ${{ polars_variant | replace('-', '_') }}
       variant:
         down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
