@@ -24,13 +24,15 @@ source:
       patches:
         - fix-argminmax.patch
 
+build:
+  number: ${{ build }}
+
 outputs:
   - package:
       name: polars
       version: ${{ version }}
     build:
       script: echo "No build step is needed"
-      number: ${{ build }}
       # Since this meta package is noarch: generic, we only need to build it
       # for one target platform (does not matter which one)
       skip: (target_platform != 'linux-64') or not (match(python, python_min ~ ".*") and is_abi3)
@@ -48,7 +50,6 @@ outputs:
       name: polars-${{ polars_variant }}
       version: ${{ version }}
     build:
-      number: ${{ build }}
       skip: not (match(python, python_min ~ ".*") and is_abi3)
       python:
         version_independent: true
