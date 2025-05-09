@@ -3,6 +3,10 @@ context:
   python_min: "3.9"
   build: 1
 
+recipe:
+  name: polars
+  version: ${{ version }}
+
 source:
   - if: polars_variant == 'default'
     then:
@@ -30,7 +34,6 @@ build:
 outputs:
   - package:
       name: polars
-      version: ${{ version }}
     build:
       script: echo "No build step is needed"
       # Since this meta package is noarch: generic, we only need to build it
@@ -45,10 +48,12 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage('polars-' ~ polars_variant, exact=True) }}
+    tests:
+      - script:
+          - echo "This is a meta package. No test step is needed."
 
   - package:
       name: polars-${{ polars_variant }}
-      version: ${{ version }}
     build:
       skip: not (match(python, python_min ~ ".*") and is_abi3)
       python:
