@@ -49,7 +49,7 @@ outputs:
         down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
     requirements:
       run:
-        - ${{ pin_subpackage('polars-' ~ polars_variant, lower_bound='x.x.x', upper_bound='x.x.x') }}
+        - ${{ 'polars-' ~ polars_variant }} ${{ version }}
     tests:
       - python:
           pip_check: true
