@@ -44,12 +44,12 @@ outputs:
       # for one target platform (does not matter which one)
       skip: target_platform != 'linux-64'
       noarch: generic
-      string: py${{ python | version_to_buildstring }}h${{ hash }}_${{ polars_variant | replace('-', '_') }}_${{ build }}
+      string: h${{ hash }}_${{ polars_variant | replace('-', '_') }}_${{ build }}
       variant:
         down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
     requirements:
       run:
-        - ${{ pin_subpackage('polars-' ~ polars_variant, lower_bound=version, upper_bound=version) }}
+        - ${{ pin_subpackage('polars-' ~ polars_variant, lower_bound='x.x.x', upper_bound='x.x.x') }}
     tests:
       - python:
           pip_check: true
