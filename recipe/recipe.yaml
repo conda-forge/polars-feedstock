@@ -1,12 +1,13 @@
 context:
   version: "1.29.0"
   python_min: "3.9"
-  build: 1
 
 recipe:
   name: polars
   version: ${{ version }}
 
+# Note: This recipe is specifically designed to work well with the autotick bot.
+# Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
 source:
   - if: polars_variant == 'default'
     then:
@@ -32,7 +33,7 @@ source:
         - fix-argminmax.patch
 
 build:
-  number: ${{ build }}
+  number: 1
 
 outputs:
   - package:
@@ -41,20 +42,22 @@ outputs:
       script: echo "No build step is needed"
       # Since this meta package is noarch: generic, we only need to build it
       # for one target platform (does not matter which one)
-      skip: (target_platform != 'linux-64') or not (match(python, python_min ~ ".*") and is_abi3)
-      python:
-        version_independent: true
+      skip: target_platform != 'linux-64'
       noarch: generic
-      string: ${{ polars_variant | replace('-', '_') }}
+      string: py${{ python | version_to_buildstring }}h${{ hash }}_${{ polars_variant | replace('-', '_') }}_${{ build }}
       variant:
         down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
     requirements:
       run:
-        - ${{ pin_subpackage('polars-' ~ polars_variant, exact=True) }}
+        - ${{ pin_subpackage('polars-' ~ polars_variant, lower_bound=version, upper_bound=version) }}
     tests:
+      - python:
+          pip_check: true
+          imports:
+            - polars
+          python_version: ${{ python_min }}.*
       - script:
-          - echo "This is a meta package. No test step is needed."
-
+          - python -c "from polars import DataFrame"
   - package:
       name: polars-${{ polars_variant }}
     build:
