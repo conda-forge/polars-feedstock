@@ -1,6 +1,7 @@
 context:
   version: "1.29.0"
   python_min: "3.9"
+  build_number: 1
 
 recipe:
   name: polars
@@ -33,7 +34,7 @@ source:
         - fix-argminmax.patch
 
 build:
-  number: 1
+  number: ${{  build_number }}
 
 outputs:
   - package:
@@ -44,7 +45,7 @@ outputs:
       # for one target platform (does not matter which one)
       skip: target_platform != 'linux-64'
       noarch: generic
-      string: h${{ hash }}_${{ polars_variant | replace('-', '_') }}_${{ build }}
+      string: h${{ hash }}_${{ polars_variant | replace('-', '_') }}_${{ build_number }}
       variant:
         down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
     requirements:
