@@ -25,7 +25,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 polars_variant:
-- polars-u64-idx
+- u64-idx
 python:
 - 3.9.* *_cpython
 python_min:

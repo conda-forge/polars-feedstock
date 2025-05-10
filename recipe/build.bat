@@ -43,7 +43,7 @@ if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
 maturin build --release
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
-%PYTHON% -m pip install --find-links=target\wheels %PKG_NAME%
+%PYTHON% -m pip install --find-links=target\wheels %PKG_NAME:-default=%
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
 cd py-polars
