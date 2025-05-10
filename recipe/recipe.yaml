@@ -34,7 +34,7 @@ source:
         - fix-argminmax.patch
 
 build:
-  number: ${{  build_number }}
+  number: ${{ build_number }}
 
 outputs:
   - package:
