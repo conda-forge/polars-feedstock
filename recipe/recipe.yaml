@@ -41,16 +41,14 @@ outputs:
       name: polars
     build:
       script: echo "No build step is needed"
-      # Since this meta package is noarch: generic, we only need to build it
-      # for one target platform (does not matter which one)
-      skip: target_platform != 'linux-64'
-      noarch: generic
       string: h${{ hash }}_${{ polars_variant | replace('-', '_') }}_${{ build_number }}
+      python:
+        version_independent: true
       variant:
         down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
     requirements:
       run:
-        - ${{ 'polars-' ~ polars_variant }}==${{ version }}
+        - ${{ pin_subpackage('polars-' ~ polars_variant, exact=True) }}
     tests:
       - python:
           pip_check: true
