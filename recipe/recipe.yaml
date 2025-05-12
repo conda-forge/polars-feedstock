@@ -41,7 +41,7 @@ outputs:
       name: polars
     build:
       script: echo "No build step is needed"
-      string: h${{ hash }}_${{ polars_variant | replace('-', '_') }}_${{ build_number }}
+      string: ${{ polars_variant | replace('-', '_') }}_h${{ hash }}_${{ build_number }}
       python:
         version_independent: true
       variant:
