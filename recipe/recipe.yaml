@@ -1,5 +1,5 @@
 context:
-  version: "1.29.0"
+  version: "1.30.0"
   python_min: "3.9"
   build_number: 1
 
@@ -13,15 +13,15 @@ source:
   - if: polars_variant == 'default'
     then:
       url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-      sha256: d2acb71fce1ff0ea76db5f648abd91a7a6c460fafabce9a2e8175184efa00d02
+      sha256: dfe94ae84a5efd9ba74e616e3e125b24ca155494a931890a8f17480737c4db45
   - if: polars_variant == 'lts-cpu'
     then:
       url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
-      sha256: 550ad6cd436df93f4078e7f7e8f0fc0a4f4f415742361743ee18f8cff896dc39
+      sha256: b5149368fcf40dc00d3c8ea830eb0eee4ec98e6b5f47ee648c8f997a435e2830
   - if: polars_variant == 'u64-idx'
     then:
       url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
-      sha256: 4f51c6095c3e229894af6ed14231240e82d3f352914ae09320a28a26dcb1fd22
+      sha256: 22a3b90b066cd97a22736b0e094d59e60f0bf97537d9740f4bc2529e3ba48490
   # https://github.com/jvdd/argminmax/issues/74
   # https://github.com/jvdd/argminmax/pull/73
   # https://github.com/pola-rs/polars/issues/22604
