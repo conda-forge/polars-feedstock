@@ -8,14 +8,14 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
-      win_64_polars_variantdefault:
-        CONFIG: win_64_polars_variantdefault
+      win_64_polars_variantdefaultpython3.9.____cpython:
+        CONFIG: win_64_polars_variantdefaultpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_polars_variantlts-cpu:
-        CONFIG: win_64_polars_variantlts-cpu
+      win_64_polars_variantlts-cpupython3.9.____cpython:
+        CONFIG: win_64_polars_variantlts-cpupython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_polars_variantu64-idx:
-        CONFIG: win_64_polars_variantu64-idx
+      win_64_polars_variantu64-idxpython3.9.____cpython:
+        CONFIG: win_64_polars_variantu64-idxpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:
