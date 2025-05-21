@@ -1,7 +1,7 @@
 context:
-  version: "1.29.0"
+  version: "1.30.0"
   python_min: "3.9"
-  build_number: 1
+  build_number: 0
 
 recipe:
   name: polars
@@ -13,25 +13,15 @@ source:
   - if: polars_variant == 'default'
     then:
       url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-      sha256: d2acb71fce1ff0ea76db5f648abd91a7a6c460fafabce9a2e8175184efa00d02
+      sha256: dfe94ae84a5efd9ba74e616e3e125b24ca155494a931890a8f17480737c4db45
   - if: polars_variant == 'lts-cpu'
     then:
       url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
-      sha256: 550ad6cd436df93f4078e7f7e8f0fc0a4f4f415742361743ee18f8cff896dc39
+      sha256: b5149368fcf40dc00d3c8ea830eb0eee4ec98e6b5f47ee648c8f997a435e2830
   - if: polars_variant == 'u64-idx'
     then:
       url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
-      sha256: 4f51c6095c3e229894af6ed14231240e82d3f352914ae09320a28a26dcb1fd22
-  # https://github.com/jvdd/argminmax/issues/74
-  # https://github.com/jvdd/argminmax/pull/73
-  # https://github.com/pola-rs/polars/issues/22604
-  - if: target_platform == 'linux-64' or target_platform == 'win-64' or target_platform == 'osx-64'
-    then:
-      url: https://github.com/jvdd/argminmax/archive/refs/tags/v0.6.2.tar.gz
-      sha256: c5d115216f715b68b479a6e8e982ab5a46437b24ab04b3e319f17600454441d6
-      target_directory: argminmax
-      patches:
-        - fix-argminmax.patch
+      sha256: 22a3b90b066cd97a22736b0e094d59e60f0bf97537d9740f4bc2529e3ba48490
 
 build:
   number: ${{ build_number }}
@@ -44,6 +34,8 @@ outputs:
       string: ${{ polars_variant | replace('-', '_') }}_h${{ hash }}_${{ build_number }}
       variant:
         down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
+      # otherwise conda-smithy will create incorrect variant files
+      skip: not (match(python, python_min ~ ".*") and is_abi3)
     requirements:
       run:
         - ${{ pin_subpackage('polars-' ~ polars_variant, exact=true) }}
@@ -81,13 +73,6 @@ outputs:
           then:
             - make
         - cargo-bundle-licenses
-        # TODO: remove once https://github.com/prefix-dev/rattler-build/issues/1000 is resolved
-        - if: target_platform == 'linux-64' or target_platform == 'osx-64'
-          then:
-            - sed
-        - if: target_platform == 'win-64'
-          then:
-            - m2-sed
       host:
         - python
         - python-abi3
