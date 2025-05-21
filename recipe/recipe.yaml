@@ -22,16 +22,6 @@ source:
     then:
       url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
       sha256: 22a3b90b066cd97a22736b0e094d59e60f0bf97537d9740f4bc2529e3ba48490
-  # https://github.com/jvdd/argminmax/issues/74
-  # https://github.com/jvdd/argminmax/pull/73
-  # https://github.com/pola-rs/polars/issues/22604
-  - if: target_platform == 'linux-64' or target_platform == 'win-64' or target_platform == 'osx-64'
-    then:
-      url: https://github.com/jvdd/argminmax/archive/refs/tags/v0.6.2.tar.gz
-      sha256: c5d115216f715b68b479a6e8e982ab5a46437b24ab04b3e319f17600454441d6
-      target_directory: argminmax
-      patches:
-        - fix-argminmax.patch
 
 build:
   number: ${{ build_number }}
@@ -81,13 +71,6 @@ outputs:
           then:
             - make
         - cargo-bundle-licenses
-        # TODO: remove once https://github.com/prefix-dev/rattler-build/issues/1000 is resolved
-        - if: target_platform == 'linux-64' or target_platform == 'osx-64'
-          then:
-            - sed
-        - if: target_platform == 'win-64'
-          then:
-            - m2-sed
       host:
         - python
         - python-abi3

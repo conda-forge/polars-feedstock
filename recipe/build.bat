@@ -37,10 +37,6 @@ if "%PKG_NAME%"=="polars-lts-cpu" (
 
 type %cpu_check_module%
 
-@REM https://github.com/prefix-dev/rattler-build/issues/1000
-sed -i '/tikv-jemallocator = { git/a argminmax = { path = "./argminmax" }' Cargo.toml
-if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
-
 maturin build --release
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 %PYTHON% -m pip install --find-links=target\wheels %PKG_NAME:-default=%
