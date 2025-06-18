@@ -7,7 +7,7 @@
 
 [project]
 name = "polars-feedstock"
-version = "3.48.1"  # conda-smithy version used to generate this file
+version = "3.50.1"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/polars-feedstock"
 authors = ["@conda-forge/polars"]
 channels = ["conda-forge"]
