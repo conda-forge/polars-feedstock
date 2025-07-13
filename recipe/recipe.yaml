@@ -82,6 +82,15 @@ outputs:
         - python
       run_constraints:
         - numpy >=1.16.0
+        - pyarrow >=7.0.0
+        - fastexcel >=0.9
+        - openpyxl >=3.0.0
+        - xlsx2csv >=0.8.0
+        - connectorx >=0.3.2
+        - deltalake >=1.0.0
+        - pyiceberg >=0.7.1
+        - altair >=5.4.0
+        - great_tables >=0.8.0
       ignore_run_exports:
         from_package:
           - cross-python_${{ target_platform }}
