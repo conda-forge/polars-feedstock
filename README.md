@@ -3,6 +3,55 @@ About polars-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/polars-feedstock/blob/main/LICENSE.txt)
 
+
+About polars
+------------
+
+Home: https://github.com/pola-rs/polars
+
+Package license: MIT
+
+Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
+
+Development: https://github.com/pola-rs/polars
+
+Documentation: https://docs.pola.rs/
+
+Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
+
+About polars-default
+--------------------
+
+Home: https://github.com/pola-rs/polars
+
+Package license: MIT
+
+Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
+
+Development: https://github.com/pola-rs/polars
+
+Documentation: https://docs.pola.rs/
+
+Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
+
+About polars-lts-cpu
+--------------------
+
+Home: https://github.com/pola-rs/polars
+
+Package license: MIT
+
+Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
+
+Development: https://github.com/pola-rs/polars
+
+Documentation: https://docs.pola.rs/
+
+Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
+
+About polars-u64-idx
+--------------------
+
 Home: https://github.com/pola-rs/polars
 
 Package license: MIT
