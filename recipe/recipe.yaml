@@ -47,6 +47,8 @@ outputs:
           python_version: ${{ python_min }}.*
       - script:
           - python -c "from polars import DataFrame"
+    about:
+      license_file: []
   - package:
       name: polars-${{ polars_variant }}
     build:
