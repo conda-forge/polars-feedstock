@@ -1,5 +1,5 @@
 context:
-  version: "1.32.0"
+  version: "1.32.2"
   python_min: "3.9"
   build_number: 1
 
@@ -13,15 +13,15 @@ source:
   - if: polars_variant == 'default'
     then:
       url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-      sha256: b01045981c0f23eeccfbfc870b782f93e73b74b29212fdfc8aae0be9024bc1fb
+      sha256: b4c5cefc7cf7a2461f8800cf2c09976c47cb1fd959c6ef3024d5618b497f05d3
   - if: polars_variant == 'lts-cpu'
     then:
       url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
-      sha256: 22553301ce57ed53cb9cb5b7e4928b4543134596cf7c1fbdcf841814e46e3f94
+      sha256: a2e22e642fe9f3bfe29e626b2156a5af197bb856e0e08b6d92a1d0e0340deaab
   - if: polars_variant == 'u64-idx'
     then:
       url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
-      sha256: eec6170a57c95e73529c56b7aaef5a84e7cdb88b0762d990a01d0619740b8443
+      sha256: a27dd49cd9061b98e2187dd7f9180d2be41f66f88c21b6af50174923089cd58d
 
 build:
   number: ${{ build_number }}
