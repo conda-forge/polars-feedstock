@@ -1,7 +1,7 @@
 context:
   version: "1.32.0"
   python_min: "3.9"
-  build_number: 0
+  build_number: 1
 
 recipe:
   name: polars
@@ -93,6 +93,18 @@ outputs:
         - pyiceberg >=0.7.1
         - altair >=5.4.0
         - great_tables >=0.8.0
+        - if: polars_variant == 'default'
+          then:
+            - polars-lts-cpu <0.0.0a0
+            - polars-u64-idx <0.0.0a0
+        - if: polars_variant == 'lts-cpu'
+          then:
+            - polars-default <0.0.0a0
+            - polars-u64-idx <0.0.0a0
+        - if: polars_variant == 'u64-idx'
+          then:
+            - polars-default <0.0.0a0
+            - polars-lts-cpu <0.0.0a0
       ignore_run_exports:
         from_package:
           - cross-python_${{ target_platform }}
