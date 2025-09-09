@@ -8,28 +8,12 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_polars_variantdefaultpython3.9.____cpython:
-        CONFIG: linux_64_polars_variantdefaultpython3.9.____cpython
+      linux_64_:
+        CONFIG: linux_64_
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_polars_variantlts-cpupython3.9.____cpython:
-        CONFIG: linux_64_polars_variantlts-cpupython3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_polars_variantu64-idxpython3.9.____cpython:
-        CONFIG: linux_64_polars_variantu64-idxpython3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_polars_variantdefaultpython3.9.____cpython:
-        CONFIG: linux_aarch64_polars_variantdefaultpython3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_polars_variantlts-cpupython3.9.____cpython:
-        CONFIG: linux_aarch64_polars_variantlts-cpupython3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_polars_variantu64-idxpython3.9.____cpython:
-        CONFIG: linux_aarch64_polars_variantu64-idxpython3.9.____cpython
+      linux_aarch64_:
+        CONFIG: linux_aarch64_
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
   timeoutInMinutes: 360
@@ -58,10 +42,17 @@ jobs:
          df -h
     displayName: Manage disk space
   - script: |
-         sudo fallocate -l 15GiB /swapfile || true
-         sudo chmod 600 /swapfile || true
-         sudo mkswap /swapfile || true
-         sudo swapon /swapfile || true
+        SWAPFILE=/swapfile
+        # If there is already a swapfile, disable it and remove it
+        if swapon --show | grep -q $SWAPFILE; then
+            echo "Disabling existing swapfile..."
+            sudo swapoff $SWAPFILE || true
+        fi
+        [ -f "$SWAPFILE" ] && sudo rm -f $SWAPFILE
+        sudo fallocate -l 15GiB $SWAPFILE
+        sudo chmod 600 $SWAPFILE
+        sudo mkswap $SWAPFILE
+        sudo swapon $SWAPFILE
     displayName: Create swap file
   # configure qemu binfmt-misc running.  This allows us to run docker containers
   # embedded qemu-static
