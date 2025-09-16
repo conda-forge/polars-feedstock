@@ -6,7 +6,6 @@ set arch=x86_64
 set cpu_check_module=py-polars\polars\_cpu_check.py
 
 @rem Remove this wrapper once https://github.com/conda-forge/rust-activation-feedstock/pull/79 is merged
-md %BUILD_PREFIX%\Library\bin
 if %ERRORLEVEL% neq 0 exit 1
 
 copy %RECIPE_DIR%\cargo-auditable-wrapper.bat %BUILD_PREFIX%\Library\bin\cargo-auditable-wrapper.bat
