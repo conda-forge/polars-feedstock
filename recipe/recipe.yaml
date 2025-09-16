@@ -66,6 +66,7 @@ outputs:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('rust') }}
+        - cargo-auditable
         - if: build_platform == 'win-64'
           then:
             - posix
