@@ -1,7 +1,6 @@
 context:
   version: "1.33.1"
-  python_min: "3.9"
-  build_number: 0
+  build_number: 1
 
 recipe:
   name: polars
