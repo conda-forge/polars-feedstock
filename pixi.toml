@@ -7,7 +7,7 @@
 
 [project]
 name = "polars-feedstock"
-version = "3.52.2"  # conda-smithy version used to generate this file
+version = "3.52.3"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/polars-feedstock"
 authors = ["@conda-forge/polars"]
 channels = ["conda-forge"]
@@ -25,96 +25,96 @@ description = "List contents of all packages found in rattler-build build direct
 [tasks.build]
 cmd = "rattler-build build --recipe recipe"
 description = "Build polars-feedstock directly (without setup scripts), no particular variant specified"
-[tasks."build-linux_64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant linux_64_polars_variantdefaultpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-linux_64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant linux_64_polars_variantdefaultpython3.10.____cpython"
-[tasks."build-linux_64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant linux_64_polars_variantlts-cpupython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-linux_64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant linux_64_polars_variantlts-cpupython3.10.____cpython"
-[tasks."build-linux_64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant linux_64_polars_variantu64-idxpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-linux_64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant linux_64_polars_variantu64-idxpython3.10.____cpython"
-[tasks."build-linux_aarch64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant linux_aarch64_polars_variantdefaultpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-linux_aarch64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant linux_aarch64_polars_variantdefaultpython3.10.____cpython"
-[tasks."build-linux_aarch64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant linux_aarch64_polars_variantlts-cpupython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-linux_aarch64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant linux_aarch64_polars_variantlts-cpupython3.10.____cpython"
-[tasks."build-linux_aarch64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant linux_aarch64_polars_variantu64-idxpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-linux_aarch64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant linux_aarch64_polars_variantu64-idxpython3.10.____cpython"
-[tasks."build-osx_64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant osx_64_polars_variantdefaultpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-osx_64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant osx_64_polars_variantdefaultpython3.10.____cpython"
-[tasks."build-osx_64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant osx_64_polars_variantlts-cpupython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-osx_64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant osx_64_polars_variantlts-cpupython3.10.____cpython"
-[tasks."build-osx_64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant osx_64_polars_variantu64-idxpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-osx_64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant osx_64_polars_variantu64-idxpython3.10.____cpython"
-[tasks."build-osx_arm64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant osx_arm64_polars_variantdefaultpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-osx_arm64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant osx_arm64_polars_variantdefaultpython3.10.____cpython"
-[tasks."build-osx_arm64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant osx_arm64_polars_variantlts-cpupython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-osx_arm64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant osx_arm64_polars_variantlts-cpupython3.10.____cpython"
-[tasks."build-osx_arm64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant osx_arm64_polars_variantu64-idxpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-osx_arm64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant osx_arm64_polars_variantu64-idxpython3.10.____cpython"
-[tasks."build-win_64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant win_64_polars_variantdefaultpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-win_64_polars_variantdefaultpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_polars_variantdefaultpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant win_64_polars_variantdefaultpython3.10.____cpython"
-[tasks."build-win_64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant win_64_polars_variantlts-cpupython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-win_64_polars_variantlts-cpupython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_polars_variantlts-cpupython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant win_64_polars_variantlts-cpupython3.10.____cpython"
-[tasks."build-win_64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "Build polars-feedstock with variant win_64_polars_variantu64-idxpython3.10.____cpython directly (without setup scripts)"
-[tasks."inspect-win_64_polars_variantu64-idxpython3.10.____cpython"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_polars_variantu64-idxpython3.10.____cpython.yaml"
-description = "List contents of polars-feedstock packages built for variant win_64_polars_variantu64-idxpython3.10.____cpython"
+[tasks."build-linux_64_polars_runtime32python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_polars_runtime32python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant linux_64_polars_runtime32python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-linux_64_polars_runtime32python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_polars_runtime32python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant linux_64_polars_runtime32python3.10.____cpython"
+[tasks."build-linux_64_polars_runtime64python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_polars_runtime64python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant linux_64_polars_runtime64python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-linux_64_polars_runtime64python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_polars_runtime64python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant linux_64_polars_runtime64python3.10.____cpython"
+[tasks."build-linux_64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant linux_64_polars_runtimecompatpython3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-linux_64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant linux_64_polars_runtimecompatpython3.10.____cpython"
+[tasks."build-linux_aarch64_polars_runtime32python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_polars_runtime32python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant linux_aarch64_polars_runtime32python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-linux_aarch64_polars_runtime32python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_polars_runtime32python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant linux_aarch64_polars_runtime32python3.10.____cpython"
+[tasks."build-linux_aarch64_polars_runtime64python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_polars_runtime64python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant linux_aarch64_polars_runtime64python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-linux_aarch64_polars_runtime64python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_polars_runtime64python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant linux_aarch64_polars_runtime64python3.10.____cpython"
+[tasks."build-linux_aarch64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant linux_aarch64_polars_runtimecompatpython3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-linux_aarch64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant linux_aarch64_polars_runtimecompatpython3.10.____cpython"
+[tasks."build-osx_64_polars_runtime32python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_polars_runtime32python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant osx_64_polars_runtime32python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-osx_64_polars_runtime32python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_polars_runtime32python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant osx_64_polars_runtime32python3.10.____cpython"
+[tasks."build-osx_64_polars_runtime64python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_polars_runtime64python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant osx_64_polars_runtime64python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-osx_64_polars_runtime64python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_polars_runtime64python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant osx_64_polars_runtime64python3.10.____cpython"
+[tasks."build-osx_64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant osx_64_polars_runtimecompatpython3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-osx_64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant osx_64_polars_runtimecompatpython3.10.____cpython"
+[tasks."build-osx_arm64_polars_runtime32python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_polars_runtime32python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant osx_arm64_polars_runtime32python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-osx_arm64_polars_runtime32python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_polars_runtime32python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant osx_arm64_polars_runtime32python3.10.____cpython"
+[tasks."build-osx_arm64_polars_runtime64python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_polars_runtime64python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant osx_arm64_polars_runtime64python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-osx_arm64_polars_runtime64python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_polars_runtime64python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant osx_arm64_polars_runtime64python3.10.____cpython"
+[tasks."build-osx_arm64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant osx_arm64_polars_runtimecompatpython3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-osx_arm64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant osx_arm64_polars_runtimecompatpython3.10.____cpython"
+[tasks."build-win_64_polars_runtime32python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_polars_runtime32python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant win_64_polars_runtime32python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-win_64_polars_runtime32python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_polars_runtime32python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant win_64_polars_runtime32python3.10.____cpython"
+[tasks."build-win_64_polars_runtime64python3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_polars_runtime64python3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant win_64_polars_runtime64python3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-win_64_polars_runtime64python3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_polars_runtime64python3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant win_64_polars_runtime64python3.10.____cpython"
+[tasks."build-win_64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "Build polars-feedstock with variant win_64_polars_runtimecompatpython3.10.____cpython directly (without setup scripts)"
+[tasks."inspect-win_64_polars_runtimecompatpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_polars_runtimecompatpython3.10.____cpython.yaml"
+description = "List contents of polars-feedstock packages built for variant win_64_polars_runtimecompatpython3.10.____cpython"
 
 [feature.smithy.dependencies]
 conda-smithy = "*"
