@@ -1,0 +1,26 @@
+c_compiler:
+- vs2022
+c_stdlib:
+- vs
+channel_sources:
+- conda-forge/label/rust_dev,conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2022
+is_abi3:
+- true
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+polars_runtime:
+- '32'
+python:
+- 3.10.* *_cpython
+python_min:
+- '3.10'
+rust_compiler:
+- rust
+target_platform:
+- win-64

@@ -8,23 +8,23 @@ jobs:
     vmImage: macOS-15
   strategy:
     matrix:
-      osx_64_polars_variantdefaultpython3.10.____cpython:
-        CONFIG: osx_64_polars_variantdefaultpython3.10.____cpython
+      osx_64_polars_runtime32python3.10.____cpython:
+        CONFIG: osx_64_polars_runtime32python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantlts-cpupython3.10.____cpython:
-        CONFIG: osx_64_polars_variantlts-cpupython3.10.____cpython
+      osx_64_polars_runtime64python3.10.____cpython:
+        CONFIG: osx_64_polars_runtime64python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_polars_variantu64-idxpython3.10.____cpython:
-        CONFIG: osx_64_polars_variantu64-idxpython3.10.____cpython
+      osx_64_polars_runtimecompatpython3.10.____cpython:
+        CONFIG: osx_64_polars_runtimecompatpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_polars_variantdefaultpython3.10.____cpython:
-        CONFIG: osx_arm64_polars_variantdefaultpython3.10.____cpython
+      osx_arm64_polars_runtime32python3.10.____cpython:
+        CONFIG: osx_arm64_polars_runtime32python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_polars_variantlts-cpupython3.10.____cpython:
-        CONFIG: osx_arm64_polars_variantlts-cpupython3.10.____cpython
+      osx_arm64_polars_runtime64python3.10.____cpython:
+        CONFIG: osx_arm64_polars_runtime64python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_polars_variantu64-idxpython3.10.____cpython:
-        CONFIG: osx_arm64_polars_variantu64-idxpython3.10.____cpython
+      osx_arm64_polars_runtimecompatpython3.10.____cpython:
+        CONFIG: osx_arm64_polars_runtimecompatpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables: {}
