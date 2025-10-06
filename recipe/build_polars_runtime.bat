@@ -50,5 +50,5 @@ if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 %PYTHON% -m pip install --find-links=target\wheels %PKG_NAME%
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
-cd py-polars
+cd .\py-polars\runtime
 cargo-bundle-licenses --format yaml --output ..\..\THIRDPARTY.yml
