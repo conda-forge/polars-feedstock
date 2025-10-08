@@ -1,9 +1,0 @@
-channel_sources:
-  - conda-forge/label/rust_dev,conda-forge
-channel_targets:
-  - conda-forge main
-
-polars_variant:
-  - default # [not ppc64le]
-  - lts-cpu
-  - u64-idx # [not ppc64le]

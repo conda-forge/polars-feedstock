@@ -1,136 +1,47 @@
 context:
-  version: "1.33.1"
-  build_number: 1
+  version: "1.34.0.deprecated"
+  build_number: 0
 
 recipe:
   name: polars
   version: ${{ version }}
-
-# Note: This recipe is specifically designed to work well with the autotick bot.
-# Also refer to https://github.com/conda-forge/rust-feedstock/blob/main/recipe/meta.yaml.
-source:
-  - if: polars_variant == 'default'
-    then:
-      url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-      sha256: fa3fdc34eab52a71498264d6ff9b0aa6955eb4b0ae8add5d3cb43e4b84644007
-  - if: polars_variant == 'lts-cpu'
-    then:
-      url: https://pypi.org/packages/source/p/polars-lts-cpu/polars_lts_cpu-${{ version }}.tar.gz
-      sha256: 0a5426d95ec9eec937a56d3e7cf7911a4b5486c42f4dbbcc9512aa706039322c
-  - if: polars_variant == 'u64-idx'
-    then:
-      url: https://pypi.org/packages/source/p/polars-u64-idx/polars_u64_idx-${{ version }}.tar.gz
-      sha256: c93f832dc3c0e8ef6877b861668f4641f271cd55295764a245ca216cb7dac755
 
 build:
   number: ${{ build_number }}
 
 outputs:
   - package:
-      name: polars
+      name: polars-lts-cpu
     build:
-      script: echo "No build step is needed"
-      string: ${{ polars_variant | replace('-', '_') }}_h${{ hash }}_${{ build_number }}
-      variant:
-        down_prioritize_variant: ${{ 0 if polars_variant == 'default' else 1 }}
-      # otherwise conda-smithy will create incorrect variant files
-      skip: not (match(python, python_min ~ ".*") and is_abi3)
+      noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage('polars-' ~ polars_variant, exact=true) }}
+        - polars >=1.34.0
+        - polars-runtime-compat >=1.34.0
     tests:
       - python:
           pip_check: true
           imports:
             - polars
-          python_version: ${{ python_min }}.*
-      - script:
-          - python -c "from polars import DataFrame"
-    about:
-      license_file: []
-  - package:
-      name: polars-${{ polars_variant }}
-    build:
-      skip: not (match(python, python_min ~ ".*") and is_abi3)
-      python:
-        version_independent: true
-    requirements:
-      build:
-        - if: build_platform != target_platform
-          then:
-            - python
-            - cross-python_${{ target_platform }}
-            - crossenv
-            - maturin >=1.3.2,<2
-        - ${{ compiler('c') }}
-        - ${{ compiler('cxx') }}
-        - ${{ stdlib('c') }}
-        - ${{ compiler('rust') }}
-        - cargo-auditable
-        - if: build_platform == 'win-64'
-          then:
-            - posix
-        - cmake
-        - if: unix
-          then:
-            - make
-        - cargo-bundle-licenses
-      host:
-        - python
-        - python-abi3
-        - pip
-        - maturin >=1.3.2,<2
-      run:
-        - python
-      run_constraints:
-        - numpy >=1.16.0
-        - pyarrow >=7.0.0
-        - fastexcel >=0.9
-        - openpyxl >=3.0.0
-        - xlsx2csv >=0.8.0
-        - connectorx >=0.3.2
-        - deltalake >=1.0.0
-        - pyiceberg >=0.7.1
-        - altair >=5.4.0
-        - great_tables >=0.8.0
-        - if: polars_variant == 'default'
-          then:
-            - polars-lts-cpu <0.0.0a0
-            - polars-u64-idx <0.0.0a0
-        - if: polars_variant == 'lts-cpu'
-          then:
-            - polars-default <0.0.0a0
-            - polars-u64-idx <0.0.0a0
-        - if: polars_variant == 'u64-idx'
-          then:
-            - polars-default <0.0.0a0
-            - polars-lts-cpu <0.0.0a0
-      ignore_run_exports:
-        from_package:
-          - cross-python_${{ target_platform }}
 
+  - package:
+      name: polars-u64-idx
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - polars >=1.34.0
+        - polars-runtime-64 >=1.34.0
     tests:
       - python:
           pip_check: true
           imports:
             - polars
-          python_version: ${{ python_min }}.*
-      - script:
-          - python -c "from polars import DataFrame"
-      - package_contents:
-          site_packages:
-            - if: unix
-              then: polars/polars.abi3.so
-              else: polars/polars.pyd
-            - polars/dataframe/__init__.py
-            - polars${{ ('_' ~ polars_variant) | replace('_default', '') | replace('-', '_') }}-${{ version }}.dist-info/*
 
 about:
   homepage: https://github.com/pola-rs/polars
   license: MIT
-  license_file:
-    - LICENSE
-    - THIRDPARTY.yml
+  license_file: []
   summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
   description: Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
   documentation: https://docs.pola.rs
