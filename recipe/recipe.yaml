@@ -6,6 +6,10 @@ recipe:
   name: polars
   version: ${{ version }}
 
+source:
+  url: https://raw.githubusercontent.com/pola-rs/polars/refs/tags/py-1.34.0/LICENSE
+  sha256: 4d20ca90c471a6f3d736055da756db1ce24038c2869a4df5c78be5668dafa15b
+
 build:
   number: ${{ build_number }}
 
@@ -41,7 +45,7 @@ outputs:
 about:
   homepage: https://github.com/pola-rs/polars
   license: MIT
-  license_file: []
+  license_file: LICENSE
   summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
   description: Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
   documentation: https://docs.pola.rs
