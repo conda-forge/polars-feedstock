@@ -1,56 +1,7 @@
-About polars-feedstock
-======================
+About polars-lts-cpu-feedstock
+==============================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/polars-feedstock/blob/main/LICENSE.txt)
-
-
-About polars
-------------
-
-Home: https://github.com/pola-rs/polars
-
-Package license: MIT
-
-Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
-
-Development: https://github.com/pola-rs/polars
-
-Documentation: https://docs.pola.rs/
-
-Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
-
-About polars-default
---------------------
-
-Home: https://github.com/pola-rs/polars
-
-Package license: MIT
-
-Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
-
-Development: https://github.com/pola-rs/polars
-
-Documentation: https://docs.pola.rs/
-
-Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
-
-About polars-lts-cpu
---------------------
-
-Home: https://github.com/pola-rs/polars
-
-Package license: MIT
-
-Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
-
-Development: https://github.com/pola-rs/polars
-
-Documentation: https://docs.pola.rs/
-
-Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
-
-About polars-u64-idx
---------------------
 
 Home: https://github.com/pola-rs/polars
 
@@ -68,128 +19,11 @@ Current build status
 ====================
 
 
-<table>
-    
-  <tr>
-    <td>Azure</td>
+<table><tr><td>All platforms:</td>
     <td>
-      <details>
-        <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main">
-          </a>
-        </summary>
-        <table>
-          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
-          <tbody><tr>
-              <td>linux_64_polars_variantdefaultpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_polars_variantdefaultpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_polars_variantlts-cpupython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_polars_variantlts-cpupython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_polars_variantu64-idxpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_polars_variantu64-idxpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_polars_variantdefaultpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_polars_variantdefaultpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_polars_variantlts-cpupython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_polars_variantlts-cpupython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_polars_variantu64-idxpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_polars_variantu64-idxpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_polars_variantdefaultpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_polars_variantdefaultpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_polars_variantlts-cpupython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_polars_variantlts-cpupython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_polars_variantu64-idxpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_polars_variantu64-idxpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_polars_variantdefaultpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_polars_variantdefaultpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_polars_variantlts-cpupython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_polars_variantlts-cpupython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_polars_variantu64-idxpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_polars_variantu64-idxpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_polars_variantdefaultpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=win&configuration=win%20win_64_polars_variantdefaultpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_polars_variantlts-cpupython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=win&configuration=win%20win_64_polars_variantlts-cpupython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_polars_variantu64-idxpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=win&configuration=win%20win_64_polars_variantu64-idxpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main">
+      </a>
     </td>
   </tr>
 </table>
@@ -199,56 +33,54 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-polars-green.svg)](https://anaconda.org/conda-forge/polars) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars.svg)](https://anaconda.org/conda-forge/polars) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars.svg)](https://anaconda.org/conda-forge/polars) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars.svg)](https://anaconda.org/conda-forge/polars) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-polars--default-green.svg)](https://anaconda.org/conda-forge/polars-default) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars-default.svg)](https://anaconda.org/conda-forge/polars-default) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars-default.svg)](https://anaconda.org/conda-forge/polars-default) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars-default.svg)](https://anaconda.org/conda-forge/polars-default) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-polars--lts--cpu-green.svg)](https://anaconda.org/conda-forge/polars-lts-cpu) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars-lts-cpu.svg)](https://anaconda.org/conda-forge/polars-lts-cpu) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars-lts-cpu.svg)](https://anaconda.org/conda-forge/polars-lts-cpu) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars-lts-cpu.svg)](https://anaconda.org/conda-forge/polars-lts-cpu) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-polars--u64--idx-green.svg)](https://anaconda.org/conda-forge/polars-u64-idx) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars-u64-idx.svg)](https://anaconda.org/conda-forge/polars-u64-idx) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars-u64-idx.svg)](https://anaconda.org/conda-forge/polars-u64-idx) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars-u64-idx.svg)](https://anaconda.org/conda-forge/polars-u64-idx) |
 
-Installing polars
-=================
+Installing polars-lts-cpu
+=========================
 
-Installing `polars` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `polars-lts-cpu` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `polars, polars-default, polars-lts-cpu, polars-u64-idx` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `polars-lts-cpu, polars-u64-idx` can be installed with `conda`:
 
 ```
-conda install polars polars-default polars-lts-cpu polars-u64-idx
-```
-
-or with `mamba`:
-
-```
-mamba install polars polars-default polars-lts-cpu polars-u64-idx
-```
-
-It is possible to list all of the versions of `polars` available on your platform with `conda`:
-
-```
-conda search polars --channel conda-forge
+conda install polars-lts-cpu polars-u64-idx
 ```
 
 or with `mamba`:
 
 ```
-mamba search polars --channel conda-forge
+mamba install polars-lts-cpu polars-u64-idx
+```
+
+It is possible to list all of the versions of `polars-lts-cpu` available on your platform with `conda`:
+
+```
+conda search polars-lts-cpu --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search polars-lts-cpu --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search polars --channel conda-forge
+mamba repoquery search polars-lts-cpu --channel conda-forge
 
-# List packages depending on `polars`:
-mamba repoquery whoneeds polars --channel conda-forge
+# List packages depending on `polars-lts-cpu`:
+mamba repoquery whoneeds polars-lts-cpu --channel conda-forge
 
-# List dependencies of `polars`:
-mamba repoquery depends polars --channel conda-forge
+# List dependencies of `polars-lts-cpu`:
+mamba repoquery depends polars-lts-cpu --channel conda-forge
 ```
 
 
@@ -273,12 +105,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -293,19 +125,19 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating polars-feedstock
-=========================
+Updating polars-lts-cpu-feedstock
+=================================
 
-If you would like to improve the polars recipe or build a new
+If you would like to improve the polars-lts-cpu recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/polars-feedstock are
+Note that all branches in the conda-forge/polars-lts-cpu-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
