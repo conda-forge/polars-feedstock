@@ -1,30 +1,30 @@
 context:
-  version: "1.34.0"
+  version: "1.35.0"
 
 recipe:
   name: polars
   version: ${{ version }}
 
 source:
-  - if: target_platform == 'linux-64' and polars_runtime == '32'
-    then:
-      - url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-        sha256: 5de5f871027db4b11bcf39215a2d6b13b4a80baf8a55c5862d4ebedfd5cd4013
-        target_directory: polars-python
   - if: polars_runtime == '32'
     then:
+      - if: target_platform == 'linux-64'
+        then:
+          - url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
+            sha256: 2e9bff26293c0b208e74d4232313d09053e49b4a04fc8fd3e48def7d3e843ba1
+            target_directory: polars-python
       - url: https://pypi.org/packages/source/p/polars-runtime-32/polars_runtime_32-${{ version }}.tar.gz
-        sha256: ebe6f865128a0d833f53a3f6828360761ad86d1698bceb22bef9fd999500dc1c
+        sha256: 4c3e494c23191e30b5da9e4e297b1b292bd3b1d2d1bd08fc5a71ad739751bc4a
         target_directory: polars-runtime-32
   - if: polars_runtime == '64'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-64/polars_runtime_64-${{ version }}.tar.gz
-      sha256: 3b1ee01f0a236a603b22577cf1d1e1d143a7f3b485550244c7a359c1e0d3849c
+      sha256: 77ce56545e2ddedd90362aff5853ba9311d87d81c358f61fd2385882286b8990
       target_directory: polars-runtime-64
   - if: polars_runtime == 'compat'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-compat/polars_runtime_compat-${{ version }}.tar.gz
-      sha256: cac32cbee980d22be75acd06fa7235ecadfc33fe0d2da26e83ce8f333e3530f5
+      sha256: 28b7c40a22ef0c6a1419911ced53ccb0d7eb600882d9394daf30bd4b66eaaa17
       target_directory: polars-runtime-compat
 
 build:
@@ -137,8 +137,8 @@ about:
   homepage: https://github.com/pola-rs/polars
   license: MIT
   license_file:
-   - polars-runtime-${{ polars_runtime }}/LICENSE
-   - polars-runtime-${{ polars_runtime }}/THIRDPARTY.yml
+    - polars-runtime-${{ polars_runtime }}/LICENSE
+    - polars-runtime-${{ polars_runtime }}/THIRDPARTY.yml
   summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
   description: Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
   documentation: https://docs.pola.rs
