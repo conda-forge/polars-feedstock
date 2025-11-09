@@ -1,5 +1,5 @@
 context:
-  version: "1.35.1"
+  version: "1.35.2"
 
 recipe:
   name: polars
@@ -14,17 +14,17 @@ source:
             sha256: 06548e6d554580151d6ca7452d74bceeec4640b5b9261836889b8e68cfd7a62e
             target_directory: polars-python
       - url: https://pypi.org/packages/source/p/polars-runtime-32/polars_runtime_32-${{ version }}.tar.gz
-        sha256: f6b4ec9cd58b31c87af1b8c110c9c986d82345f1d50d7f7595b5d447a19dc365
+        sha256: 6e6e35733ec52abe54b7d30d245e6586b027d433315d20edfb4a5d162c79fe90
         target_directory: polars-runtime-32
   - if: polars_runtime == '64'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-64/polars_runtime_64-${{ version }}.tar.gz
-      sha256: 50fa6adff602e8c6e5e376f1d2586032e9b087ed0f4a186a0b2dc1b063f5b58b
+      sha256: 8ebdc7b71e72321276419f0f5fdb10ec7a969b40172961c6a49ca50f59b3a601
       target_directory: polars-runtime-64
   - if: polars_runtime == 'compat'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-compat/polars_runtime_compat-${{ version }}.tar.gz
-      sha256: a66b5365be0f46b83382c65529c5088ef3762859ac2f3410beb1de6084e249f5
+      sha256: 1947c6ecfe0b42bb85ff1519eb2d62abb2247d52b8ce52156fff0595b4a82d8a
       target_directory: polars-runtime-compat
 
 build:
@@ -38,8 +38,7 @@ outputs:
       script: |
         cd polars-python
         $PYTHON -m pip install . -vv
-      skip:
-        not (polars_runtime == "32" and target_platform == "linux-64" and match(python, python_min ~ ".*") and is_abi3)
+      skip: not (polars_runtime == "32" and target_platform == "linux-64" and match(python, python_min ~ ".*") and is_abi3)
     requirements:
       host:
         - python ${{ python_min }}.*
@@ -126,8 +125,7 @@ outputs:
       - package_contents:
           site_packages:
             - _polars_runtime_${{ polars_runtime }}/__init__.py
-            - _polars_runtime_${{ polars_runtime }}/_polars_runtime_${{ polars_runtime }}.${{ 'abi3.so' if unix else
-              'pyd' }}
+            - _polars_runtime_${{ polars_runtime }}/_polars_runtime_${{ polars_runtime }}.${{ 'abi3.so' if unix else 'pyd' }}
             - polars_runtime_${{ polars_runtime }}-${{ version }}.dist-info/*
           strict: true
     about:
@@ -142,9 +140,7 @@ about:
     - polars-runtime-${{ polars_runtime }}/LICENSE
     - polars-runtime-${{ polars_runtime }}/THIRDPARTY.yml
   summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
-  description:
-    Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar
-    Format as the memory model.
+  description: Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
   documentation: https://docs.pola.rs
   repository: https://github.com/pola-rs/polars
 
