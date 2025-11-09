@@ -11,10 +11,10 @@ source:
       - if: target_platform == 'linux-64'
         then:
           - url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-            sha256: 06548e6d554580151d6ca7452d74bceeec4640b5b9261836889b8e68cfd7a62e
+            sha256: ae458b05ca6e7ca2c089342c70793f92f1103c502dc1b14b56f0a04f2cc1d205
             target_directory: polars-python
       - url: https://pypi.org/packages/source/p/polars-runtime-32/polars_runtime_32-${{ version }}.tar.gz
-        sha256: 6e6e35733ec52abe54b7d30d245e6586b027d433315d20edfb4a5d162c79fe90
+        sha256: ae458b05ca6e7ca2c089342c70793f92f1103c502dc1b14b56f0a04f2cc1d205
         target_directory: polars-runtime-32
   - if: polars_runtime == '64'
     then:
