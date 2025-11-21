@@ -14,7 +14,7 @@ source:
             sha256: ae458b05ca6e7ca2c089342c70793f92f1103c502dc1b14b56f0a04f2cc1d205
             target_directory: polars-python
       - url: https://pypi.org/packages/source/p/polars-runtime-32/polars_runtime_32-${{ version }}.tar.gz
-        sha256: ae458b05ca6e7ca2c089342c70793f92f1103c502dc1b14b56f0a04f2cc1d205
+        sha256: 6e6e35733ec52abe54b7d30d245e6586b027d433315d20edfb4a5d162c79fe90
         target_directory: polars-runtime-32
   - if: polars_runtime == '64'
     then:
