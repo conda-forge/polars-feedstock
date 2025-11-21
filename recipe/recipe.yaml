@@ -100,7 +100,7 @@ outputs:
         - cargo-auditable
         - if: build_platform == 'win-64'
           then:
-            - posix
+            - m2-base
         - cmake
         - if: unix
           then:
