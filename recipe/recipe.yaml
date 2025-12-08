@@ -125,7 +125,7 @@ outputs:
       - package_contents:
           site_packages:
             - _polars_runtime_${{ polars_runtime }}/__init__.py
-            - _polars_runtime_${{ polars_runtime }}/_polars_runtime_${{ polars_runtime }}.${{ 'abi3.so' if unix else 'pyd' }}
+            - _polars_runtime_${{ polars_runtime }}/_polars_runtime.${{ 'abi3.so' if unix else 'pyd' }}
             - polars_runtime_${{ polars_runtime }}-${{ version }}.dist-info/*
           strict: true
     about:
