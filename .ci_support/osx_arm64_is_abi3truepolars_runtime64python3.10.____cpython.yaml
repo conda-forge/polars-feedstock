@@ -27,7 +27,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 polars_runtime:
-- '32'
+- '64'
 python:
 - 3.10.* *_cpython
 python_min:
@@ -39,3 +39,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - is_abi3

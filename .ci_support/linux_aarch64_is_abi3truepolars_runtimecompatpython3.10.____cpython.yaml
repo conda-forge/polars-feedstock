@@ -23,7 +23,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 polars_runtime:
-- '32'
+- compat
 python:
 - 3.10.* *_cpython
 python_min:
@@ -31,7 +31,9 @@ python_min:
 rust_compiler:
 - rust
 target_platform:
-- linux-64
+- linux-aarch64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - is_abi3
