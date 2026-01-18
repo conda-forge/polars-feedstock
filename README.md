@@ -124,6 +124,27 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_ppc64le_polars_runtime32python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_polars_runtime32python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_polars_runtime64python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_polars_runtime64python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_polars_runtimecompatpython3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_polars_runtimecompatpython3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_64_polars_runtime32python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
