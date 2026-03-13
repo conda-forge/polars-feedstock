@@ -1,5 +1,5 @@
 context:
-  version: "1.38.1"
+  version: "1.39.0"
 
 recipe:
   name: polars
@@ -11,72 +11,26 @@ source:
       - if: target_platform == 'linux-64'
         then:
           - url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-            sha256: 803a2be5344ef880ad625addfb8f641995cfd777413b08a10de0897345778239
+            sha256: e63a25fb7682ae660e36067915a7c71a653b17f82308a8eb67a190a80daf0710
             target_directory: polars-python
       - url: https://pypi.org/packages/source/p/polars-runtime-32/polars_runtime_32-${{ version }}.tar.gz
-        sha256: 04f20ed1f5c58771f34296a27029dc755a9e4b1390caeaef8f317e06fdfce2ec
+        sha256: f5aabed8c7318fcad5173e83bee385445f54b5f8c83b1ec9eab78bdffa293141
         target_directory: polars-runtime-32
   - if: polars_runtime == '64'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-64/polars_runtime_64-${{ version }}.tar.gz
-      sha256: ac53eefbad39614806ee9c7ff93564983e1821fb8331dc4b2a7c53bdc0804056
+      sha256: 4e5768153a56303eb50f5c866789180f639286b7b90f2bfb57e1ec64267ae39e
       target_directory: polars-runtime-64
   - if: polars_runtime == 'compat'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-compat/polars_runtime_compat-${{ version }}.tar.gz
-      sha256: 7ae7d98fcddd309a14d194d921fcfba867e84ea792a24c37f981c27cba7d26db
+      sha256: 4b6cadd2f54c1b2dc4617a4fe7fbe9cf589edcc2c8a3bd735d6ddeae8e9f6d86
       target_directory: polars-runtime-compat
 
 build:
   number: 0
 
 outputs:
-  - package:
-      name: polars
-    build:
-      noarch: python
-      script: |
-        cd polars-python
-        $PYTHON -m pip install . -vv
-      skip: not (polars_runtime == "32" and target_platform == "linux-64" and match(python, python_min ~ ".*") and is_abi3)
-    requirements:
-      host:
-        - python ${{ python_min }}.*
-        - pip
-        - setuptools
-      run:
-        - polars-runtime-32 ==${{ version }}
-        - python >=${{ python_min }}
-      run_constraints:
-        - numpy >=1.16.0
-        - pyarrow >=7.0.0
-        - fastexcel >=0.9
-        - openpyxl >=3.0.0
-        - xlsx2csv >=0.8.0
-        - connectorx >=0.3.2
-        - deltalake >=1.0.0
-        - pyiceberg >=0.7.1
-        - altair >=5.4.0
-        - great_tables >=0.8.0
-        - polars-runtime-32 ==${{ version }}
-        - polars-runtime-64 ==${{ version }}
-        - polars-runtime-compat ==${{ version }}
-    tests:
-      - python:
-          pip_check: true
-          imports:
-            - polars
-          python_version: ${{ python_min }}.*
-      - script:
-          - python -c 'from polars import DataFrame'
-          - python -c 'import polars; polars.show_versions()'
-      - package_contents:
-          site_packages:
-            - polars/dataframe/__init__.py
-            - polars-${{ version }}.dist-info/*
-    about:
-      license_file: polars-python/LICENSE
-
   - package:
       name: polars-runtime-${{ polars_runtime }}
     build:
@@ -132,6 +86,52 @@ outputs:
       license_file:
         - polars-runtime-${{ polars_runtime }}/LICENSE
         - polars-runtime-${{ polars_runtime }}/THIRDPARTY.yml
+
+  - package:
+      name: polars
+    build:
+      noarch: python
+      script: |
+        cd polars-python
+        $PYTHON -m pip install . -vv
+      skip: not (polars_runtime == "32" and target_platform == "linux-64" and match(python, python_min ~ ".*") and is_abi3)
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - pip
+        - setuptools
+      run:
+        - polars-runtime-32 ==${{ version }}
+        - python >=${{ python_min }}
+      run_constraints:
+        - numpy >=1.16.0
+        - pyarrow >=7.0.0
+        - fastexcel >=0.9
+        - openpyxl >=3.0.0
+        - xlsx2csv >=0.8.0
+        - connectorx >=0.3.2
+        - deltalake >=1.0.0
+        - pyiceberg >=0.7.1
+        - altair >=5.4.0
+        - great_tables >=0.8.0
+        - polars-runtime-32 ==${{ version }}
+        - polars-runtime-64 ==${{ version }}
+        - polars-runtime-compat ==${{ version }}
+    tests:
+      - python:
+          pip_check: true
+          imports:
+            - polars
+          python_version: ${{ python_min }}.*
+      - script:
+          - python -c 'from polars import DataFrame'
+          - python -c 'import polars; polars.show_versions()'
+      - package_contents:
+          site_packages:
+            - polars/dataframe/__init__.py
+            - polars-${{ version }}.dist-info/*
+    about:
+      license_file: polars-python/LICENSE
 
 about:
   homepage: https://github.com/pola-rs/polars

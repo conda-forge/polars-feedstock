@@ -8,16 +8,16 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_polars_runtime32python3.10.____cpython:
-        CONFIG: linux_64_polars_runtime32python3.10.____cpython
+      linux_64_polars_runtime32:
+        CONFIG: linux_64_polars_runtime32
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_polars_runtime64python3.10.____cpython:
-        CONFIG: linux_64_polars_runtime64python3.10.____cpython
+      linux_64_polars_runtime64:
+        CONFIG: linux_64_polars_runtime64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_polars_runtimecompatpython3.10.____cpython:
-        CONFIG: linux_64_polars_runtimecompatpython3.10.____cpython
+      linux_64_polars_runtimecompat:
+        CONFIG: linux_64_polars_runtimecompat
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_aarch64_polars_runtime32python3.10.____cpython:
