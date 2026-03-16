@@ -32,52 +32,6 @@ build:
 
 outputs:
   - package:
-      name: polars
-    build:
-      noarch: python
-      script: |
-        cd polars-python
-        $PYTHON -m pip install . -vv
-      skip: not (polars_runtime == "32" and target_platform == "linux-64" and match(python, python_min ~ ".*") and is_abi3)
-    requirements:
-      host:
-        - python ${{ python_min }}.*
-        - pip
-        - setuptools
-      run:
-        - polars-runtime-32 ==${{ version }}
-        - python >=${{ python_min }}
-      run_constraints:
-        - numpy >=1.16.0
-        - pyarrow >=7.0.0
-        - fastexcel >=0.9
-        - openpyxl >=3.0.0
-        - xlsx2csv >=0.8.0
-        - connectorx >=0.3.2
-        - deltalake >=1.0.0
-        - pyiceberg >=0.7.1
-        - altair >=5.4.0
-        - great_tables >=0.8.0
-        - polars-runtime-32 ==${{ version }}
-        - polars-runtime-64 ==${{ version }}
-        - polars-runtime-compat ==${{ version }}
-    tests:
-      - python:
-          pip_check: true
-          imports:
-            - polars
-          python_version: ${{ python_min }}.*
-      - script:
-          - python -c 'from polars import DataFrame'
-          - python -c 'import polars; polars.show_versions()'
-      - package_contents:
-          site_packages:
-            - polars/dataframe/__init__.py
-            - polars-${{ version }}.dist-info/*
-    about:
-      license_file: polars-python/LICENSE
-
-  - package:
       name: polars-runtime-${{ polars_runtime }}
     build:
       script:
@@ -132,6 +86,52 @@ outputs:
       license_file:
         - polars-runtime-${{ polars_runtime }}/LICENSE
         - polars-runtime-${{ polars_runtime }}/THIRDPARTY.yml
+
+  - package:
+      name: polars
+    build:
+      noarch: python
+      script: |
+        cd polars-python
+        $PYTHON -m pip install . -vv
+      skip: not (polars_runtime == "32" and target_platform == "linux-64" and match(python, python_min ~ ".*") and is_abi3)
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - pip
+        - setuptools
+      run:
+        - polars-runtime-32 ==${{ version }}
+        - python >=${{ python_min }}
+      run_constraints:
+        - numpy >=1.16.0
+        - pyarrow >=7.0.0
+        - fastexcel >=0.9
+        - openpyxl >=3.0.0
+        - xlsx2csv >=0.8.0
+        - connectorx >=0.3.2
+        - deltalake >=1.0.0
+        - pyiceberg >=0.7.1
+        - altair >=5.4.0
+        - great_tables >=0.8.0
+        - polars-runtime-32 ==${{ version }}
+        - polars-runtime-64 ==${{ version }}
+        - polars-runtime-compat ==${{ version }}
+    tests:
+      - python:
+          pip_check: true
+          imports:
+            - polars
+          python_version: ${{ python_min }}.*
+      - script:
+          - python -c 'from polars import DataFrame'
+          - python -c 'import polars; polars.show_versions()'
+      - package_contents:
+          site_packages:
+            - polars/dataframe/__init__.py
+            - polars-${{ version }}.dist-info/*
+    about:
+      license_file: polars-python/LICENSE
 
 about:
   homepage: https://github.com/pola-rs/polars
