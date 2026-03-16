@@ -23,15 +23,15 @@ jobs:
       osx_arm64_polars_runtime32python3.10.____cpython:
         CONFIG: osx_arm64_polars_runtime32python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15
+        VMIMAGE: macOS-15-arm64
       osx_arm64_polars_runtime64python3.10.____cpython:
         CONFIG: osx_arm64_polars_runtime64python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15
+        VMIMAGE: macOS-15-arm64
       osx_arm64_polars_runtimecompatpython3.10.____cpython:
         CONFIG: osx_arm64_polars_runtimecompatpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15
+        VMIMAGE: macOS-15-arm64
   timeoutInMinutes: 360
   variables: {}
 
