@@ -1,8 +1,5 @@
 channel_sources:
   - conda-forge/label/rust_dev,conda-forge
-channel_targets:
-  - conda-forge main
-
 polars_runtime:
   - "32"
   - "64"
