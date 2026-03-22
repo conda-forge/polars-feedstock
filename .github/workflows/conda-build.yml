@@ -22,32 +22,32 @@ jobs:
       max-parallel: 50
       matrix:
         include:
-          - CONFIG: linux_64_polars_runtime32
+          - CONFIG: linux_64_is_abi3truepolars_runtime32
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-          - CONFIG: linux_64_polars_runtime64
+          - CONFIG: linux_64_is_abi3truepolars_runtime64
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-          - CONFIG: linux_64_polars_runtimecompat
+          - CONFIG: linux_64_is_abi3truepolars_runtimecompat
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-          - CONFIG: linux_aarch64_polars_runtime32python3.10.____cpython
+          - CONFIG: linux_aarch64_is_abi3truepolars_runtime32python3.10.____cpython
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-          - CONFIG: linux_aarch64_polars_runtime64python3.10.____cpython
+          - CONFIG: linux_aarch64_is_abi3truepolars_runtime64python3.10.____cpython
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-          - CONFIG: linux_aarch64_polars_runtimecompatpython3.10.____cpython
+          - CONFIG: linux_aarch64_is_abi3truepolars_runtimecompatpython3.10.____cpython
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']
