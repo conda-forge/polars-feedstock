@@ -1,8 +1,23 @@
-About polars-runtime-32-feedstock
-=================================
+About polars-feedstock
+======================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/polars-feedstock/blob/main/LICENSE.txt)
 
+
+About polars
+------------
+
+Home: https://github.com/pola-rs/polars
+
+Package license: MIT
+
+Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
+
+Development: https://github.com/pola-rs/polars
+
+Documentation: https://docs.pola.rs/
+
+Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
 
 About polars-runtime-32
 -----------------------
@@ -36,21 +51,6 @@ Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Ru
 
 About polars-runtime-compat
 ---------------------------
-
-Home: https://github.com/pola-rs/polars
-
-Package license: MIT
-
-Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
-
-Development: https://github.com/pola-rs/polars
-
-Documentation: https://docs.pola.rs/
-
-Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
-
-About polars
-------------
 
 Home: https://github.com/pola-rs/polars
 
@@ -204,10 +204,10 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-polars--runtime--64-green.svg)](https://anaconda.org/conda-forge/polars-runtime-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars-runtime-64.svg)](https://anaconda.org/conda-forge/polars-runtime-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars-runtime-64.svg)](https://anaconda.org/conda-forge/polars-runtime-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars-runtime-64.svg)](https://anaconda.org/conda-forge/polars-runtime-64) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-polars--runtime--compat-green.svg)](https://anaconda.org/conda-forge/polars-runtime-compat) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars-runtime-compat.svg)](https://anaconda.org/conda-forge/polars-runtime-compat) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars-runtime-compat.svg)](https://anaconda.org/conda-forge/polars-runtime-compat) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars-runtime-compat.svg)](https://anaconda.org/conda-forge/polars-runtime-compat) |
 
-Installing polars-runtime-32
-============================
+Installing polars
+=================
 
-Installing `polars-runtime-32` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `polars` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
@@ -293,17 +293,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating polars-runtime-32-feedstock
-====================================
+Updating polars-feedstock
+=========================
 
-If you would like to improve the polars-runtime-32 recipe or build a new
+If you would like to improve the polars recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/polars-runtime-32-feedstock are
+Note that all branches in the conda-forge/polars-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
