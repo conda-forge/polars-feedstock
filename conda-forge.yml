@@ -21,4 +21,6 @@ github:
   tooling_branch_name: main
 provider:
   osx_arm64: default
+  linux_64: azure
+  linux_aarch64: azure
 test: native_and_emulated
