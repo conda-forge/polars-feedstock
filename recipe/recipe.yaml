@@ -1,5 +1,5 @@
 context:
-  version: "1.39.3"
+  version: "1.40.0"
 
 recipe:
   name: polars
@@ -11,24 +11,24 @@ source:
       - if: target_platform == 'linux-64'
         then:
           - url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-            sha256: 2e016c7f3e8d14fa777ef86fe0477cec6c67023a20ba4c94d6e8431eefe4a63c
+            sha256: 711dd50dcbc35ba42a2625fcadc2a1349e2e9abf48e35631bdabafb90d89874b
             target_directory: polars-python
       - url: https://pypi.org/packages/source/p/polars-runtime-32/polars_runtime_32-${{ version }}.tar.gz
-        sha256: c728e4f469cafab501947585f36311b8fb222d3e934c6209e83791e0df20b29d
+        sha256: e31bff8bd37492c714e155e2e1429ac2d9ddf2dd6ec6474cc1cc70ac0b2bd6af
         target_directory: polars-runtime-32
   - if: polars_runtime == '64'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-64/polars_runtime_64-${{ version }}.tar.gz
-      sha256: 419868eada8b9303ce752c6c6fef1ff0ef655abba725509c00c3f6ac3172fb7a
+      sha256: efb64110a4282efa2fcf3f8ea7bfafea83bbc294f17fc37be9b2435fa849b256
       target_directory: polars-runtime-64
   - if: polars_runtime == 'compat'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-compat/polars_runtime_compat-${{ version }}.tar.gz
-      sha256: 8fc1f40f44d9f3c4b9da86469e25636dd28ac212250eaf5da2c13613612277cc
+      sha256: 5df7582047b1847e2e5710a558af21a342c8b64ca1f6802c927a88cc498a0f52
       target_directory: polars-runtime-compat
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - package:
