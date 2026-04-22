@@ -11,12 +11,15 @@ jobs:
       win_64_is_abi3truepolars_runtime32python3.10.____cpython:
         CONFIG: win_64_is_abi3truepolars_runtime32python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
+        store_build_artifacts: false
       win_64_is_abi3truepolars_runtime64python3.10.____cpython:
         CONFIG: win_64_is_abi3truepolars_runtime64python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
+        store_build_artifacts: false
       win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython:
         CONFIG: win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
+        store_build_artifacts: false
   timeoutInMinutes: 360
   variables:
     CONDA_BLD_PATH: C:\\bld\\
