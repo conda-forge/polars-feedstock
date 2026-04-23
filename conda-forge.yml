@@ -23,5 +23,4 @@ provider:
   osx_arm64: default
   linux_64: azure
   linux_aarch64: azure
-  win_64: github_actions
 test: native_and_emulated
