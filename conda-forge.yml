@@ -23,4 +23,8 @@ provider:
   osx_arm64: default
   linux_64: azure
   linux_aarch64: azure
+  win_64: github_actions
+github_actions:
+  resize_win_partitions: true
+  self_hosted: true
 test: native_and_emulated
