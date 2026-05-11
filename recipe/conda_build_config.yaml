@@ -4,3 +4,5 @@ polars_runtime:
   - "32"
   - "64"
   - "compat"
+github_actions_labels:               # [win]
+  - namespace-profile-8cpu-on-win-64 # [win]
