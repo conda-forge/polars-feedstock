@@ -6,3 +6,5 @@ polars_runtime:
   - "compat"
 github_actions_labels:               # [win]
   - namespace-profile-8cpu-on-win-64 # [win]
+rust_compiler_version:
+  - 1.96.0
