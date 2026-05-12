@@ -34,6 +34,8 @@ python_min:
 - '3.10'
 rust_compiler:
 - rust
+rust_compiler_version:
+- 1.96.0
 target_platform:
 - osx-64
 zip_keys:
