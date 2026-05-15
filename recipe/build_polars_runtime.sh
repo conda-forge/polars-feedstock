@@ -8,7 +8,7 @@ cd $PKG_NAME
 mkdir -p ${BUILD_PREFIX}/bin
 cp ${RECIPE_DIR}/cargo-auditable-wrapper.sh ${BUILD_PREFIX}/bin/cargo-auditable-wrapper
 export CARGO="cargo-auditable-wrapper"
-export CARGO_PROFILE_RELEASE_STRIP=symbols
+export CARGO_PROFILE_DIST_RELEASE_STRIP=symbols
 
 # see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 COMPAT_TUNE_CPU=''
@@ -59,7 +59,7 @@ if [[ $target_platform == "linux-aarch64" ]]; then
   export JEMALLOC_SYS_WITH_LG_PAGE=16
 fi
 
-$PYTHON -m pip install . -vv
+$PYTHON -m pip install . -vv --config-settings="maturin.build-args=--profile dist-release"
 
 # The root level Cargo.toml is part of an incomplete workspace
 # we need to use the manifest inside the py-polars
