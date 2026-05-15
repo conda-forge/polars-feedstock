@@ -16,19 +16,25 @@ source:
       - url: https://pypi.org/packages/source/p/polars-runtime-32/polars_runtime_32-${{ version }}.tar.gz
         sha256: 37f3065615d1bf90d03b5326222df4c5c1f8a5d33e50470aa588e3465e6eb814
         target_directory: polars-runtime-32
+        patches:
+          - 0001-bump-rustls-webpki.patch
   - if: polars_runtime == '64'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-64/polars_runtime_64-${{ version }}.tar.gz
       sha256: 7c05b5f3a11cfc2be7d12d0664664182381766b3a530f614b08fa01e19a83b25
       target_directory: polars-runtime-64
+      patches:
+        - 0001-bump-rustls-webpki.patch
   - if: polars_runtime == 'compat'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-compat/polars_runtime_compat-${{ version }}.tar.gz
       sha256: 6149aa764439cec26a5f883fb9921a50f61a0f6c4549df51c735626701a73a18
       target_directory: polars-runtime-compat
+      patches:
+        - 0001-bump-rustls-webpki.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - package:
