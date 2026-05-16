@@ -8,7 +8,6 @@ cd $PKG_NAME
 mkdir -p ${BUILD_PREFIX}/bin
 cp ${RECIPE_DIR}/cargo-auditable-wrapper.sh ${BUILD_PREFIX}/bin/cargo-auditable-wrapper
 export CARGO="cargo-auditable-wrapper"
-export CARGO_PROFILE_DIST_RELEASE_STRIP=symbols
 
 # see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 COMPAT_TUNE_CPU=''
