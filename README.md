@@ -89,48 +89,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_is_abi3truepolars_runtime32</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_is_abi3truepolars_runtime32" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_is_abi3truepolars_runtime64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_is_abi3truepolars_runtime64" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_is_abi3truepolars_runtimecompat</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_is_abi3truepolars_runtimecompat" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_is_abi3truepolars_runtime32python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_is_abi3truepolars_runtime32python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_is_abi3truepolars_runtime64python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_is_abi3truepolars_runtime64python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_is_abi3truepolars_runtimecompatpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_is_abi3truepolars_runtimecompatpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_64_is_abi3truepolars_runtime32python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">

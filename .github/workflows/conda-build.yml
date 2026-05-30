@@ -28,36 +28,54 @@ jobs:
             os: ubuntu
             runs_on: ['namespace-profile-8cpu-on-linux-64']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
           - CONFIG: linux_64_is_abi3truepolars_runtime64
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['namespace-profile-8cpu-on-linux-64']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
           - CONFIG: linux_64_is_abi3truepolars_runtimecompat
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['namespace-profile-8cpu-on-linux-64']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
           - CONFIG: linux_aarch64_is_abi3truepolars_runtime32python3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['namespace-profile-8cpu-on-linux-64']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
           - CONFIG: linux_aarch64_is_abi3truepolars_runtime64python3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['namespace-profile-8cpu-on-linux-64']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
           - CONFIG: linux_aarch64_is_abi3truepolars_runtimecompatpython3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['namespace-profile-8cpu-on-linux-64']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
           - CONFIG: win_64_is_abi3truepolars_runtime32python3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
