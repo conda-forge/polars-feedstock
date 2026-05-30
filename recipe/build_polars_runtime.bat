@@ -45,7 +45,7 @@ if "%tune_cpu%"=="" (
     set CFLAGS=%CFLAGS% %cc_features% -mtune=%tune_cpu%
 )
 
-maturin build --release
+maturin build --profile dist-release
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 %PYTHON% -m pip install --find-links=target\wheels %PKG_NAME%
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
