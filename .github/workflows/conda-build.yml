@@ -31,7 +31,7 @@ jobs:
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
             pagefile_size: 0
-            free_disk_space: start,,end
+            free_disk_space: 
           - CONFIG: win_64_is_abi3truepolars_runtime64python3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -41,7 +41,7 @@ jobs:
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
             pagefile_size: 0
-            free_disk_space: start,,end
+            free_disk_space: 
           - CONFIG: win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -51,7 +51,7 @@ jobs:
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
             pagefile_size: 0
-            free_disk_space: start,,end
+            free_disk_space: 
     steps:
 
     - name: Checkout code
