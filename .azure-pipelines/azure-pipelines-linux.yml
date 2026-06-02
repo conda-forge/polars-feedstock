@@ -14,6 +14,10 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
+        free_disk_space: &id001
+        - apt
+        - cache
+        pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
       linux_64_is_abi3truepolars_runtime64:
@@ -22,6 +26,8 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
+        free_disk_space: *id001
+        pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
       linux_64_is_abi3truepolars_runtimecompat:
@@ -30,6 +36,8 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
+        free_disk_space: *id001
+        pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
       linux_aarch64_is_abi3truepolars_runtime32python3.10.____cpython:
@@ -38,6 +46,8 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
+        free_disk_space: *id001
+        pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
       linux_aarch64_is_abi3truepolars_runtime64python3.10.____cpython:
@@ -46,6 +56,8 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
+        free_disk_space: *id001
+        pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
       linux_aarch64_is_abi3truepolars_runtimecompatpython3.10.____cpython:
@@ -54,6 +66,8 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
+        free_disk_space: *id001
+        pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
   timeoutInMinutes: 360
@@ -61,39 +75,11 @@ jobs:
 
   steps:
   - script: |
-         sudo mkdir -p /opt/empty_dir || true
-         for d in \
-                  /opt/ghc \
-                  /opt/hostedtoolcache \
-                  /usr/lib/jvm \
-                  /usr/local/.ghcup \
-                  /usr/local/lib/android \
-                  /usr/local/share/powershell \
-                  /usr/share/dotnet \
-                  /usr/share/swift \
-                  ; do
-           sudo rsync --stats -a --delete /opt/empty_dir/ $d || true
-         done
-         sudo apt-get purge -y -f firefox \
-                                  google-chrome-stable \
-                                  microsoft-edge-stable
-         sudo apt-get autoremove -y >& /dev/null
-         sudo apt-get autoclean -y >& /dev/null
-         df -h
+        .scripts/free_disk_space.sh "$(free_disk_space)"
     displayName: Manage disk space
   - script: |
-        SWAPFILE=/swapfile
-        # If there is already a swapfile, disable it and remove it
-        if swapon --show | grep -q $SWAPFILE; then
-            echo "Disabling existing swapfile..."
-            sudo swapoff $SWAPFILE || true
-        fi
-        [ -f "$SWAPFILE" ] && sudo rm -f $SWAPFILE
-        sudo fallocate -l 15GiB $SWAPFILE
-        sudo chmod 600 $SWAPFILE
-        sudo mkswap $SWAPFILE
-        sudo swapon $SWAPFILE
-    displayName: Create swap file
+        .scripts/create_pagefile.sh "$(pagefile_size)"
+    displayName: Create page file
   # configure qemu binfmt-misc running.  This allows us to run docker containers
   # embedded qemu-static
   - script: |
