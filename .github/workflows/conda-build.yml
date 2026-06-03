@@ -26,7 +26,7 @@ jobs:
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: windows
-            runs_on: ['namespace-profile-8cpu-on-win-64']
+            runs_on: ['windows-2022']
             tools_install_dir: D:\Miniforge
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
@@ -36,7 +36,7 @@ jobs:
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: windows
-            runs_on: ['namespace-profile-8cpu-on-win-64']
+            runs_on: ['windows-2022']
             tools_install_dir: D:\Miniforge
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
@@ -46,7 +46,7 @@ jobs:
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: windows
-            runs_on: ['namespace-profile-8cpu-on-win-64']
+            runs_on: ['windows-2022']
             tools_install_dir: D:\Miniforge
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
