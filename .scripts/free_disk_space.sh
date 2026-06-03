@@ -5,8 +5,7 @@ set -ex
 FREE_DISK_SPACE=${1}
 
 if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
-  sudo mkdir -p /opt/empty_dir || true
-  for d in \
+  sudo rm -rf \
            /opt/ghc \
            /opt/hostedtoolcache \
            /usr/lib/jvm \
@@ -14,10 +13,7 @@ if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
            /usr/local/lib/android \
            /usr/local/share/powershell \
            /usr/share/dotnet \
-           /usr/share/swift \
-           ; do
-    sudo rsync --stats -a --delete /opt/empty_dir/ $d || true
-  done
+           /usr/share/swift
 fi
 
 if [[ ${FREE_DISK_SPACE} == *,apt,* ]]; then
