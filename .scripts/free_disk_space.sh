@@ -17,20 +17,21 @@ if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
         /usr/share/dotnet
         /usr/share/swift
       )
+
+      sudo rm -rf "${DIRS_TO_REMOVE[@]}"
       ;;
     macos)
       # TODO
-      DIRS_TO_REMOVE=(
-      )
       ;;
     windows)
       DIRS_TO_REMOVE=(
         C:/hostedtoolcache/windows
       )
+
+      # rm is one of the fastest methods to remove files on Windows
+      rm -rf "${DIRS_TO_REMOVE[@]}"
       ;;
   esac
-
-  sudo rm -rf "${DIRS_TO_REMOVE[@]}"
 fi
 
 if [[ ${FREE_DISK_SPACE} == *,apt,* && ${OS} == ubuntu ]]; then
