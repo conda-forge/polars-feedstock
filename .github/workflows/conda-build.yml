@@ -88,6 +88,36 @@ jobs:
             docker_run_args: 
             pagefile_size: 0
             free_disk_space: apt,cache
+          - CONFIG: win_64_is_abi3truepolars_runtime32python3.10.____cpython
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            os: windows
+            runs_on: ['namespace-profile-8cpu-on-win-64']
+            tools_install_dir: D:\Miniforge
+            build_workspace_dir: D:\\bld\\
+            docker_run_args: 
+            pagefile_size: 0
+            free_disk_space: apt,cache
+          - CONFIG: win_64_is_abi3truepolars_runtime64python3.10.____cpython
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            os: windows
+            runs_on: ['namespace-profile-8cpu-on-win-64']
+            tools_install_dir: D:\Miniforge
+            build_workspace_dir: D:\\bld\\
+            docker_run_args: 
+            pagefile_size: 0
+            free_disk_space: apt,cache
+          - CONFIG: win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            os: windows
+            runs_on: ['namespace-profile-8cpu-on-win-64']
+            tools_install_dir: D:\Miniforge
+            build_workspace_dir: D:\\bld\\
+            docker_run_args: 
+            pagefile_size: 0
+            free_disk_space: apt,cache
     steps:
 
     - name: Checkout code
@@ -99,6 +129,12 @@ jobs:
         FREE_DISK_SPACE: ${{ matrix.free_disk_space }}
       run: |
         .scripts/free_disk_space.sh ",${FREE_DISK_SPACE},"
+
+    - name: Manage disk space
+      if: matrix.os == 'windows'
+      shell: cmd
+      run: |
+        call ".scripts\free_disk_space.bat" %FREE_DISK_SPACE%
 
     - name: Build on Linux
       id: build-linux
