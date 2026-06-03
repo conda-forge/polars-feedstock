@@ -5,23 +5,35 @@ set -ex
 FREE_DISK_SPACE=${1}
 
 if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
-  echo $OS
-  exit 1
-  DIRS_TO_REMOVE=(
-    /opt/ghc
-    /opt/hostedtoolcache
-    /usr/lib/jvm
-    /usr/local/.ghcup
-    /usr/local/lib/android
-    /usr/local/share/powershell
-    /usr/share/dotnet
-    /usr/share/swift
-  )
+  case ${OS} in
+    ubuntu)
+      DIRS_TO_REMOVE=(
+        /opt/ghc
+        /opt/hostedtoolcache
+        /usr/lib/jvm
+        /usr/local/.ghcup
+        /usr/local/lib/android
+        /usr/local/share/powershell
+        /usr/share/dotnet
+        /usr/share/swift
+      )
+      ;;
+    macos)
+      # TODO
+      DIRS_TO_REMOVE=(
+      )
+      ;;
+    windows)
+      DIRS_TO_REMOVE=(
+        C:/hostedtoolcache/windows
+      )
+      ;;
+  esac
 
   sudo rm -rf "${DIRS_TO_REMOVE[@]}"
 fi
 
-if [[ ${FREE_DISK_SPACE} == *,apt,* ]]; then
+if [[ ${FREE_DISK_SPACE} == *,apt,* && ${OS} == ubuntu ]]; then
   BROWSERS="firefox google-chrome-stable microsoft-edge-stable"
   BROWSERS_TO_REMOVE=$(dpkg --get-selections $BROWSERS 2>/dev/null | awk '{print $1}')
   sudo apt-get remove --purge -y $BROWSERS_TO_REMOVE
@@ -30,7 +42,7 @@ if [[ ${FREE_DISK_SPACE} == *,apt,* ]]; then
   sudo apt-get autoclean -y >& /dev/null
 fi
 
-if [[ ${FREE_DISK_SPACE} == *,docker,* ]]; then
+if [[ ${FREE_DISK_SPACE} == *,docker,* && ${OS} == ubuntu ]]; then
   sudo docker image prune --all --force
 fi
 
