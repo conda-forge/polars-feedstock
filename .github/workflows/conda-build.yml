@@ -68,7 +68,7 @@ jobs:
       if: matrix.os == 'windows'
       shell: bash
       run: |
-        rm -rf C:\hostedtoolcache\windows
+        rm -r C:/hostedtoolcache/windows
 
     - name: Build on Linux
       id: build-linux
