@@ -66,9 +66,9 @@ jobs:
 
     - name: Manage disk space
       if: matrix.os == 'windows'
-      shell: bash
+      shell: cmd
       run: |
-        rm -r C:/hostedtoolcache/windows
+        call ".scripts\free_disk_space.bat" %FREE_DISK_SPACE%
 
     - name: Build on Linux
       id: build-linux

@@ -1,6 +1,6 @@
 setlocal enableextensions enabledelayedexpansion
 
-bash -c "rm -rf C:\hostedtoolcache\windows"
+powershell -Command "Remove-Item -LiteralPath 'C:\hostedtoolcache\windows' -Force -Recurse"
 
 wmic logicaldisk get size,freespace,caption
 exit /b
