@@ -74,6 +74,8 @@ jobs:
   steps:
   - script: |
         .scripts/free_disk_space.sh ",$(free_disk_space),"
+    env:
+      OS: ubuntu
     displayName: Manage disk space
   - script: |
         .scripts/create_pagefile.sh "$(pagefile_size)"

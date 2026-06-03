@@ -41,6 +41,8 @@ jobs:
     - bash: |
         .scripts/free_disk_space.sh ",$(free_disk_space),"
       displayName: Manage disk space
+      env:
+        OS: windows
     - script: |
         call ".scripts\create_pagefile.bat" $(pagefile_size)
       env:
