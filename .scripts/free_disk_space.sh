@@ -5,7 +5,7 @@ set -ex
 FREE_DISK_SPACE=${1}
 
 if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
-  sudo rm -rf \
+  sudo find -prune \
            /opt/ghc \
            /opt/hostedtoolcache \
            /usr/lib/jvm \
@@ -13,7 +13,7 @@ if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
            /usr/local/lib/android \
            /usr/local/share/powershell \
            /usr/share/dotnet \
-           /usr/share/swift
+           /usr/share/swift -delete
 fi
 
 if [[ ${FREE_DISK_SPACE} == *,apt,* ]]; then
