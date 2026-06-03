@@ -49,21 +49,6 @@ Documentation: https://docs.pola.rs/
 
 Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
 
-About polars
-------------
-
-Home: https://github.com/pola-rs/polars
-
-Package license: MIT
-
-Summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
-
-Development: https://github.com/pola-rs/polars
-
-Documentation: https://docs.pola.rs/
-
-Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
-
 Current build status
 ====================
 
@@ -76,45 +61,6 @@ Current build status
       </a>
     </td>
   </tr>
-    
-  <tr>
-    <td>Azure</td>
-    <td>
-      <details>
-        <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main">
-          </a>
-        </summary>
-        <table>
-          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
-          <tbody><tr>
-              <td>osx_64_is_abi3truepolars_runtime32python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_is_abi3truepolars_runtime32python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_is_abi3truepolars_runtime64python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_is_abi3truepolars_runtime64python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_is_abi3truepolars_runtimecompatpython3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16367&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/polars-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_is_abi3truepolars_runtimecompatpython3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
-    </td>
-  </tr>
 </table>
 
 Current release info
@@ -122,7 +68,6 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-polars-green.svg)](https://anaconda.org/conda-forge/polars) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars.svg)](https://anaconda.org/conda-forge/polars) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars.svg)](https://anaconda.org/conda-forge/polars) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars.svg)](https://anaconda.org/conda-forge/polars) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-polars--runtime--32-green.svg)](https://anaconda.org/conda-forge/polars-runtime-32) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars-runtime-32.svg)](https://anaconda.org/conda-forge/polars-runtime-32) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars-runtime-32.svg)](https://anaconda.org/conda-forge/polars-runtime-32) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars-runtime-32.svg)](https://anaconda.org/conda-forge/polars-runtime-32) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-polars--runtime--64-green.svg)](https://anaconda.org/conda-forge/polars-runtime-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars-runtime-64.svg)](https://anaconda.org/conda-forge/polars-runtime-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars-runtime-64.svg)](https://anaconda.org/conda-forge/polars-runtime-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars-runtime-64.svg)](https://anaconda.org/conda-forge/polars-runtime-64) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-polars--runtime--compat-green.svg)](https://anaconda.org/conda-forge/polars-runtime-compat) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/polars-runtime-compat.svg)](https://anaconda.org/conda-forge/polars-runtime-compat) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/polars-runtime-compat.svg)](https://anaconda.org/conda-forge/polars-runtime-compat) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/polars-runtime-compat.svg)](https://anaconda.org/conda-forge/polars-runtime-compat) |
@@ -137,41 +82,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `polars, polars-runtime-32, polars-runtime-64, polars-runtime-compat` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `polars-runtime-32, polars-runtime-64, polars-runtime-compat` can be installed with `conda`:
 
 ```
-conda install polars polars-runtime-32 polars-runtime-64 polars-runtime-compat
-```
-
-or with `mamba`:
-
-```
-mamba install polars polars-runtime-32 polars-runtime-64 polars-runtime-compat
-```
-
-It is possible to list all of the versions of `polars` available on your platform with `conda`:
-
-```
-conda search polars --channel conda-forge
+conda install polars-runtime-32 polars-runtime-64 polars-runtime-compat
 ```
 
 or with `mamba`:
 
 ```
-mamba search polars --channel conda-forge
+mamba install polars-runtime-32 polars-runtime-64 polars-runtime-compat
+```
+
+It is possible to list all of the versions of `polars-runtime-32` available on your platform with `conda`:
+
+```
+conda search polars-runtime-32 --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search polars-runtime-32 --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search polars --channel conda-forge
+mamba repoquery search polars-runtime-32 --channel conda-forge
 
-# List packages depending on `polars`:
-mamba repoquery whoneeds polars --channel conda-forge
+# List packages depending on `polars-runtime-32`:
+mamba repoquery whoneeds polars-runtime-32 --channel conda-forge
 
-# List dependencies of `polars`:
-mamba repoquery depends polars --channel conda-forge
+# List dependencies of `polars-runtime-32`:
+mamba repoquery depends polars-runtime-32 --channel conda-forge
 ```
 
 
