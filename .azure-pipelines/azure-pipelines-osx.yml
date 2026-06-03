@@ -68,7 +68,7 @@ jobs:
   steps:
   # TODO: Fast finish on azure pipelines?
   - script: |
-        .scripts/free_disk_space.sh ",$(free_disk_space),"
+      .scripts/free_disk_space.sh ",$(free_disk_space),"
     displayName: Manage disk space
   - script: |
       export MINIFORGE_HOME=$(tools_install_dir)

@@ -38,9 +38,9 @@ jobs:
     UPLOAD_TEMP: D:\\tmp
 
   steps:
-  - bash: |
+    - bash: |
         .scripts/free_disk_space.sh ",$(free_disk_space),"
-    displayName: Manage disk space
+      displayName: Manage disk space
     - script: |
         call ".scripts\create_pagefile.bat" $(pagefile_size)
       env:
