@@ -5,7 +5,7 @@ set -ex
 FREE_DISK_SPACE=${1}
 
 if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
-  sudo find -prune \
+  sudo find -depth \
            /opt/ghc \
            /opt/hostedtoolcache \
            /usr/lib/jvm \
