@@ -65,7 +65,7 @@ jobs:
             build_workspace_dir: build_artifacts
             docker_run_args: 
             pagefile_size: 0
-            free_disk_space: None
+            free_disk_space: apt,cache
           - CONFIG: linux_aarch64_is_abi3truepolars_runtime64python3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -76,7 +76,7 @@ jobs:
             build_workspace_dir: build_artifacts
             docker_run_args: 
             pagefile_size: 0
-            free_disk_space: None
+            free_disk_space: apt,cache
           - CONFIG: linux_aarch64_is_abi3truepolars_runtimecompatpython3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -87,7 +87,7 @@ jobs:
             build_workspace_dir: build_artifacts
             docker_run_args: 
             pagefile_size: 0
-            free_disk_space: None
+            free_disk_space: apt,cache
     steps:
 
     - name: Checkout code
