@@ -2,7 +2,11 @@
 
 set -ex
 
-FREE_DISK_SPACE=${1}
+# Commas added to facilitate poor man's list membership matching.
+# This ensures that we can match any member without accidentally matching substrings.
+FREE_DISK_SPACE=,${1},
+
+df -h
 
 if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
   case ${OS} in
@@ -21,11 +25,17 @@ if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
       sudo rm -rf "${DIRS_TO_REMOVE[@]}"
       ;;
     macos)
-      # TODO
+      DIRS_TO_REMOVE=(
+        /Users/runner/Library/Android
+        /Users/runner/.dotnet
+        /Users/runner/hostedtoolcache
+      )
+      rm -rf "${DIRS_TO_REMOVE[@]}"
       ;;
     windows)
       DIRS_TO_REMOVE=(
         C:/hostedtoolcache/windows
+        C:/Android
       )
 
       # rm is one of the fastest methods to remove files on Windows
@@ -34,7 +44,7 @@ if [[ ${FREE_DISK_SPACE} == *,cache,* ]]; then
   esac
 fi
 
-if [[ ${FREE_DISK_SPACE} == *,apt,* && ${OS} == ubuntu ]]; then
+if [[ ${FREE_DISK_SPACE} == *,apt,* && ${OS} == ubuntu ]] && type apt-get; then
   BROWSERS="firefox google-chrome-stable microsoft-edge-stable"
   BROWSERS_TO_REMOVE=$(dpkg --get-selections $BROWSERS 2>/dev/null | awk '{print $1}')
   sudo apt-get remove --purge -y $BROWSERS_TO_REMOVE
@@ -43,7 +53,7 @@ if [[ ${FREE_DISK_SPACE} == *,apt,* && ${OS} == ubuntu ]]; then
   sudo apt-get autoclean -y >& /dev/null
 fi
 
-if [[ ${FREE_DISK_SPACE} == *,docker,* && ${OS} == ubuntu ]]; then
+if [[ ${FREE_DISK_SPACE} == *,docker,* && ${OS} == ubuntu ]] && type docker; then
   sudo docker image prune --all --force
 fi
 
