@@ -47,6 +47,7 @@ fi
 if [[ ${FREE_DISK_SPACE} == *,apt,* && ${OS} == ubuntu ]] && type apt-get; then
   BROWSERS="firefox google-chrome-stable microsoft-edge-stable"
   BROWSERS_TO_REMOVE=$(dpkg --get-selections $BROWSERS 2>/dev/null | awk '{print $1}')
+  BROWSERS_TO_REMOVE=
   sudo apt-get remove --purge -y $BROWSERS_TO_REMOVE
 
   sudo apt-get autoremove -y >& /dev/null
