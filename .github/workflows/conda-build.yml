@@ -88,6 +88,39 @@ jobs:
             pagefile_size: 0
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
+          - CONFIG: linux_ppc64le_is_abi3truepolars_runtime32python3.10.____cpython
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le:alma9
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
+            free_disk_space: apt,cache
+            os: ubuntu
+            pagefile_size: 0
+            runs_on: ['ubuntu-latest']
+            tools_install_dir: ~/miniforge3
+          - CONFIG: linux_ppc64le_is_abi3truepolars_runtime64python3.10.____cpython
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le:alma9
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
+            free_disk_space: apt,cache
+            os: ubuntu
+            pagefile_size: 0
+            runs_on: ['ubuntu-latest']
+            tools_install_dir: ~/miniforge3
+          - CONFIG: linux_ppc64le_is_abi3truepolars_runtimecompatpython3.10.____cpython
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le:alma9
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
+            free_disk_space: apt,cache
+            os: ubuntu
+            pagefile_size: 0
+            runs_on: ['ubuntu-latest']
+            tools_install_dir: ~/miniforge3
           - CONFIG: osx_64_is_abi3truepolars_runtime32python3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -178,6 +211,36 @@ jobs:
             pagefile_size: 0
             runs_on: ['windows-2022']
             tools_install_dir: D:\Miniforge
+          - CONFIG: win_arm64_is_abi3truepolars_runtime32python3.14.____cp314
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            build_workspace_dir: C:\\bld\\
+            docker_run_args: 
+            free_disk_space: apt,cache
+            os: windows
+            pagefile_size: 0
+            runs_on: ['windows-11-arm']
+            tools_install_dir: C:\Miniforge
+          - CONFIG: win_arm64_is_abi3truepolars_runtime64python3.14.____cp314
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            build_workspace_dir: C:\\bld\\
+            docker_run_args: 
+            free_disk_space: apt,cache
+            os: windows
+            pagefile_size: 0
+            runs_on: ['windows-11-arm']
+            tools_install_dir: C:\Miniforge
+          - CONFIG: win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            build_workspace_dir: C:\\bld\\
+            docker_run_args: 
+            free_disk_space: apt,cache
+            os: windows
+            pagefile_size: 0
+            runs_on: ['windows-11-arm']
+            tools_install_dir: C:\Miniforge
     steps:
 
     - name: Checkout code
