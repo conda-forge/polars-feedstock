@@ -12,7 +12,7 @@ jobs:
         CONFIG: win_64_is_abi3truepolars_runtime32python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         build_workspace_dir: C:\\bld\\
-        free_disk_space: max
+        free_disk_space: 'no'
         pagefile_size: 16
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
@@ -20,7 +20,7 @@ jobs:
         CONFIG: win_64_is_abi3truepolars_runtime64python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         build_workspace_dir: C:\\bld\\
-        free_disk_space: max
+        free_disk_space: 'no'
         pagefile_size: 16
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
@@ -28,7 +28,7 @@ jobs:
         CONFIG: win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         build_workspace_dir: C:\\bld\\
-        free_disk_space: max
+        free_disk_space: 'no'
         pagefile_size: 16
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
@@ -38,11 +38,6 @@ jobs:
     UPLOAD_TEMP: D:\\tmp
 
   steps:
-    - bash: |
-        .scripts/free_disk_space.sh "$(free_disk_space)"
-      displayName: Manage disk space
-      env:
-        OS: windows
     - script: |
         call ".scripts\create_pagefile.bat" $(pagefile_size)
       env:
