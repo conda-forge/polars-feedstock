@@ -68,6 +68,36 @@ jobs:
         pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+      linux_ppc64le_is_abi3truepolars_runtime32python3.10.____cpython:
+        CONFIG: linux_ppc64le_is_abi3truepolars_runtime32python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le:alma9
+        docker_run_args: ''
+        build_workspace_dir: build_artifacts
+        free_disk_space: skip
+        pagefile_size: 15
+        store_build_artifacts: false
+        tools_install_dir: ~/miniforge3
+      linux_ppc64le_is_abi3truepolars_runtime64python3.10.____cpython:
+        CONFIG: linux_ppc64le_is_abi3truepolars_runtime64python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le:alma9
+        docker_run_args: ''
+        build_workspace_dir: build_artifacts
+        free_disk_space: skip
+        pagefile_size: 15
+        store_build_artifacts: false
+        tools_install_dir: ~/miniforge3
+      linux_ppc64le_is_abi3truepolars_runtimecompatpython3.10.____cpython:
+        CONFIG: linux_ppc64le_is_abi3truepolars_runtimecompatpython3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le:alma9
+        docker_run_args: ''
+        build_workspace_dir: build_artifacts
+        free_disk_space: skip
+        pagefile_size: 15
+        store_build_artifacts: false
+        tools_install_dir: ~/miniforge3
   timeoutInMinutes: 360
   variables: {}
 
