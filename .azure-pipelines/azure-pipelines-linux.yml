@@ -44,7 +44,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: skip
+        free_disk_space: quick
         pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
@@ -54,7 +54,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: skip
+        free_disk_space: quick
         pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
@@ -64,7 +64,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: skip
+        free_disk_space: quick
         pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
@@ -74,7 +74,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: skip
+        free_disk_space: quick
         pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
@@ -84,7 +84,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: skip
+        free_disk_space: quick
         pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
@@ -94,7 +94,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-ppc64le:alma9
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: skip
+        free_disk_space: quick
         pagefile_size: 15
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
