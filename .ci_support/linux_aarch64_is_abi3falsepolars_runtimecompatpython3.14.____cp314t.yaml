@@ -17,9 +17,9 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma10
 is_abi3:
-- true
+- false
 is_python_min:
-- true
+- false
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -27,7 +27,7 @@ pin_run_as_build:
 polars_runtime:
 - compat
 python:
-- 3.10.* *_cpython
+- 3.14.* *_cp314t
 python_min:
 - '3.10'
 rust_compiler:

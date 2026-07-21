@@ -21,6 +21,11 @@ is_abi3:
 - true
 - true
 - true
+is_python_min:
+- true
+- false
+- false
+- false
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -44,4 +49,5 @@ zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
 - - python
+  - is_python_min
   - is_abi3

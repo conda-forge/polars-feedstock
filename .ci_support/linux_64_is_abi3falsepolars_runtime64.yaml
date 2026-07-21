@@ -17,17 +17,17 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma10
 is_abi3:
-- true
+- false
 is_python_min:
-- true
+- false
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 polars_runtime:
-- compat
+- '64'
 python:
-- 3.10.* *_cpython
+- 3.14.* *_cp314t
 python_min:
 - '3.10'
 rust_compiler:
@@ -35,7 +35,7 @@ rust_compiler:
 rust_compiler_version:
 - 1.96.0
 target_platform:
-- linux-aarch64
+- linux-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

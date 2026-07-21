@@ -18,6 +18,8 @@ docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma10
 is_abi3:
 - true
+is_python_min:
+- true
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -38,4 +40,5 @@ zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
 - - python
+  - is_python_min
   - is_abi3
