@@ -11,7 +11,7 @@ jobs:
       linux_64_is_abi3truepolars_runtime32:
         CONFIG: linux_64_is_abi3truepolars_runtime32
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
         free_disk_space: quick
@@ -22,7 +22,7 @@ jobs:
       linux_64_is_abi3truepolars_runtime64:
         CONFIG: linux_64_is_abi3truepolars_runtime64
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
         free_disk_space: quick
@@ -33,7 +33,7 @@ jobs:
       linux_64_is_abi3truepolars_runtimecompat:
         CONFIG: linux_64_is_abi3truepolars_runtimecompat
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
         free_disk_space: quick
@@ -44,7 +44,7 @@ jobs:
       linux_aarch64_is_abi3truepolars_runtime32python3.10.____cpython:
         CONFIG: linux_aarch64_is_abi3truepolars_runtime32python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
         free_disk_space: quick
@@ -55,7 +55,7 @@ jobs:
       linux_aarch64_is_abi3truepolars_runtime64python3.10.____cpython:
         CONFIG: linux_aarch64_is_abi3truepolars_runtime64python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
         free_disk_space: quick
@@ -66,7 +66,7 @@ jobs:
       linux_aarch64_is_abi3truepolars_runtimecompatpython3.10.____cpython:
         CONFIG: linux_aarch64_is_abi3truepolars_runtimecompatpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
         free_disk_space: quick
