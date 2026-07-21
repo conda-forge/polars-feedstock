@@ -77,7 +77,10 @@ outputs:
           pip_check: true
           imports:
             - _polars_runtime_${{ polars_runtime }}
-          python_version: ${{ python_min }}.*
+          python_version:
+            - if: is_abi3
+              then: ${{ python_min }}.*
+            - "*"
       - package_contents:
           site_packages:
             - _polars_runtime_${{ polars_runtime }}/__init__.py
