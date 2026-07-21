@@ -81,7 +81,9 @@ outputs:
       - package_contents:
           site_packages:
             - _polars_runtime_${{ polars_runtime }}/__init__.py
-            - _polars_runtime_${{ polars_runtime }}/_polars_runtime.${{ '*.so' if unix else 'pyd' }}
+            - if: is_abi3
+              then: _polars_runtime_${{ polars_runtime }}/_polars_runtime.${{ 'abi3.so' if unix else 'pyd' }}
+              else: _polars_runtime_${{ polars_runtime }}/_polars_runtime.${{ '*.so' if unix else '*.pyd' }}
             - polars_runtime_${{ polars_runtime }}-${{ version }}.dist-info/*
       - if: is_abi3
         then:
