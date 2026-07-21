@@ -1,12 +1,9 @@
+workflow_settings:
+  free_disk_space: quick
 azure:
-  free_disk_space: true
   max_parallel: 25
   settings_linux:
     swapfile_size: 15GiB
-  settings_win:
-    variables:
-      CONDA_BLD_PATH: C:\\bld\\
-      SET_PAGEFILE: 'True'
 bot:
   automerge: true
 build_platform:

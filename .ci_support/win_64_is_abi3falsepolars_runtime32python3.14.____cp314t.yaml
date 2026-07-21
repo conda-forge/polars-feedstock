@@ -1,33 +1,27 @@
 c_compiler:
-- gcc
-c_compiler_version:
-- '14'
+- vs2022
 c_stdlib:
-- sysroot
-c_stdlib_version:
-- '2.17'
+- vs
 channel_sources:
 - conda-forge/label/rust_dev,conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
-cxx_compiler_version:
-- '14'
-docker_image:
-- quay.io/condaforge/linux-anvil-x86_64:alma10
+- vs2022
+github_actions_labels:
+- namespace-profile-8cpu-on-win-64
 is_abi3:
-- true
+- false
 is_python_min:
-- true
+- false
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 polars_runtime:
-- compat
+- '32'
 python:
-- 3.10.* *_cpython
+- 3.14.* *_cp314t
 python_min:
 - '3.10'
 rust_compiler:
@@ -35,10 +29,8 @@ rust_compiler:
 rust_compiler_version:
 - 1.96.0
 target_platform:
-- linux-aarch64
+- win-64
 zip_keys:
-- - c_compiler_version
-  - cxx_compiler_version
 - - python
   - is_python_min
   - is_abi3

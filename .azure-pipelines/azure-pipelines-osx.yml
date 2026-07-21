@@ -8,6 +8,36 @@ jobs:
     vmImage: $(VMIMAGE)
   strategy:
     matrix:
+      osx_64_is_abi3falsepolars_runtime32python3.14.____cp314t:
+        CONFIG: osx_64_is_abi3falsepolars_runtime32python3.14.____cp314t
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: false
+        tools_install_dir: ~/miniforge3
+      osx_64_is_abi3falsepolars_runtime64python3.14.____cp314t:
+        CONFIG: osx_64_is_abi3falsepolars_runtime64python3.14.____cp314t
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: false
+        tools_install_dir: ~/miniforge3
+      osx_64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t:
+        CONFIG: osx_64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: false
+        tools_install_dir: ~/miniforge3
       osx_64_is_abi3truepolars_runtime32python3.10.____cpython:
         CONFIG: osx_64_is_abi3truepolars_runtime32python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -32,6 +62,36 @@ jobs:
         CONFIG: osx_64_is_abi3truepolars_runtimecompatpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: false
+        tools_install_dir: ~/miniforge3
+      osx_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t:
+        CONFIG: osx_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15-arm64
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: false
+        tools_install_dir: ~/miniforge3
+      osx_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t:
+        CONFIG: osx_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15-arm64
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: false
+        tools_install_dir: ~/miniforge3
+      osx_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t:
+        CONFIG: osx_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld
         free_disk_space: quick
         pagefile_size: 0
