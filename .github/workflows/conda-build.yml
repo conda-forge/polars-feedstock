@@ -27,7 +27,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
-            free_disk_space: True
+            free_disk_space: quick
             os: windows
             pagefile_size: 0
             resize_partitions: False
@@ -38,7 +38,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
-            free_disk_space: True
+            free_disk_space: quick
             os: windows
             pagefile_size: 0
             resize_partitions: False
@@ -49,7 +49,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
-            free_disk_space: True
+            free_disk_space: quick
             os: windows
             pagefile_size: 0
             resize_partitions: False
@@ -60,7 +60,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
-            free_disk_space: True
+            free_disk_space: quick
             os: windows
             pagefile_size: 0
             resize_partitions: False
@@ -71,7 +71,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
-            free_disk_space: True
+            free_disk_space: quick
             os: windows
             pagefile_size: 0
             resize_partitions: False
@@ -82,7 +82,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
-            free_disk_space: True
+            free_disk_space: quick
             os: windows
             pagefile_size: 0
             resize_partitions: False

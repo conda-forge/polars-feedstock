@@ -14,7 +14,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -25,7 +25,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -36,7 +36,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -47,7 +47,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -58,7 +58,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -69,7 +69,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -80,7 +80,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -91,7 +91,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -102,7 +102,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -113,7 +113,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -124,7 +124,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
@@ -135,7 +135,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: true
+        free_disk_space: quick
         pagefile_size: 15
         resize_partitions: false
         store_build_artifacts: false
