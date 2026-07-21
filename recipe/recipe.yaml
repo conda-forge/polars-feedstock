@@ -109,7 +109,7 @@ outputs:
       script: |
         cd polars-python
         $PYTHON -m pip install . -vv
-      skip: not (polars_runtime == "32" and target_platform == "linux-64" and match(python, python_min ~ ".*") and is_abi3)
+      skip: not (polars_runtime == "32" and target_platform == "linux-64" and is_abi3 and is_python_min)
     requirements:
       host:
         - python ${{ python_min }}.*
