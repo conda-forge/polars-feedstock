@@ -95,12 +95,8 @@ outputs:
               - abi3audit
           script:
             - if: unix
-              then:
-                abi3audit $SP_DIR/_polars_runtime_${{ polars_runtime }}/_polars_runtime.abi3.so -s -v
-                --assume-minimum-abi3 ${{ python_min }}
-              else:
-                abi3audit %SP_DIR%\_polars_runtime_${{ polars_runtime }}\_polars_runtime.pyd -s -v
-                --assume-minimum-abi3 ${{ python_min }}
+              then: abi3audit $SP_DIR/_polars_runtime_${{ polars_runtime }}/_polars_runtime.abi3.so -s -v --assume-minimum-abi3 ${{ python_min }}
+              else: abi3audit %SP_DIR%\_polars_runtime_${{ polars_runtime }}\_polars_runtime.pyd -s -v --assume-minimum-abi3 ${{ python_min }}
     about:
       license_file:
         - polars-runtime-${{ polars_runtime }}/LICENSE
@@ -159,9 +155,7 @@ about:
     - polars-runtime-${{ polars_runtime }}/LICENSE
     - polars-runtime-${{ polars_runtime }}/THIRDPARTY.yml
   summary: Dataframes powered by a multithreaded, vectorized query engine, written in Rust
-  description:
-    Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar
-    Format as the memory model.
+  description: Polars is a DataFrame interface on top of an OLAP Query Engine implemented in Rust using Apache Arrow Columnar Format as the memory model.
   documentation: https://docs.pola.rs
   repository: https://github.com/pola-rs/polars
 
