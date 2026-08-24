@@ -25,6 +25,7 @@ jobs:
           - CONFIG: win_64_is_abi3falsepolars_runtime32python3.14.____cp314t
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
+            build_platform: win-64
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
             free_disk_space: quick
@@ -36,6 +37,7 @@ jobs:
           - CONFIG: win_64_is_abi3falsepolars_runtime64python3.14.____cp314t
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
+            build_platform: win-64
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
             free_disk_space: quick
@@ -47,6 +49,7 @@ jobs:
           - CONFIG: win_64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
+            build_platform: win-64
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
             free_disk_space: quick
@@ -58,6 +61,7 @@ jobs:
           - CONFIG: win_64_is_abi3truepolars_runtime32python3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
+            build_platform: win-64
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
             free_disk_space: quick
@@ -69,6 +73,7 @@ jobs:
           - CONFIG: win_64_is_abi3truepolars_runtime64python3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
+            build_platform: win-64
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
             free_disk_space: quick
@@ -80,6 +85,7 @@ jobs:
           - CONFIG: win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
+            build_platform: win-64
             build_workspace_dir: D:\\bld\\
             docker_run_args: 
             free_disk_space: quick
@@ -91,7 +97,7 @@ jobs:
     steps:
 
     - name: Checkout code
-      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
     - name: Manage disk space
       env:
@@ -128,7 +134,7 @@ jobs:
       run: |
         export CONDA_BLD_PATH="${CONDA_BLD_PATH/#~/${HOME}}"
         export FEEDSTOCK_NAME="$(basename $GITHUB_REPOSITORY)"
-        export GIT_BRANCH="$(basename $GITHUB_REF)"
+        export GIT_BRANCH="${GITHUB_REF_NAME}"
         export MINIFORGE_HOME="${MINIFORGE_HOME/#~/${HOME}}"
         export flow_run_id="github_$GITHUB_RUN_ID"
         export remote_url="https://github.com/$GITHUB_REPOSITORY"
@@ -158,7 +164,7 @@ jobs:
       run: |
         export CONDA_BLD_PATH="${CONDA_BLD_PATH/#~/${HOME}}"
         export FEEDSTOCK_NAME="$(basename $GITHUB_REPOSITORY)"
-        export GIT_BRANCH="$(basename $GITHUB_REF)"
+        export GIT_BRANCH="${GITHUB_REF_NAME}"
         export MINIFORGE_HOME="${MINIFORGE_HOME/#~/${HOME}}"
         export flow_run_id="github_$GITHUB_RUN_ID"
         export remote_url="https://github.com/$GITHUB_REPOSITORY"
@@ -180,6 +186,7 @@ jobs:
         set "sha=%GITHUB_SHA%"
         call ".scripts\run_win_build.bat"
       env:
+        BUILD_PLATFORM: ${{ matrix.build_platform }}
         CI: github_actions
         CONDA_BLD_PATH: ${{ matrix.build_workspace_dir }}
         CONFIG: ${{ matrix.CONFIG }}
