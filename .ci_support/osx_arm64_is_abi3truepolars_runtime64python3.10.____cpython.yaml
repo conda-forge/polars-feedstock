@@ -5,7 +5,7 @@ MACOSX_SDK_VERSION:
 c_compiler:
 - clang
 c_compiler_version:
-- '19'
+- '21'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -17,7 +17,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '19'
+- '21'
 is_abi3:
 - true
 is_python_min:
@@ -36,8 +36,6 @@ python_min:
 - '3.10'
 rust_compiler:
 - rust
-rust_compiler_version:
-- 1.96.0
 target_platform:
 - osx-arm64
 zip_keys:
