@@ -21,4 +21,5 @@ provider:
   linux_64: azure
   linux_aarch64: azure
   win_64: github_actions
+  win_arm64: default
 test: native_and_emulated
