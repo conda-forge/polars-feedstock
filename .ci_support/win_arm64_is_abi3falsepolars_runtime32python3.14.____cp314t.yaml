@@ -1,0 +1,34 @@
+c_compiler:
+- vs2022
+c_stdlib:
+- vs
+channel_sources:
+- conda-forge/label/rust_dev,conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2022
+github_actions_labels:
+- namespace-profile-8cpu-on-win-64
+is_abi3:
+- false
+is_python_min:
+- false
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+polars_runtime:
+- '32'
+python:
+- 3.14.* *_cp314t
+python_min:
+- '3.14'
+rust_compiler:
+- rust
+target_platform:
+- win-arm64
+zip_keys:
+- - python
+  - is_python_min
+  - is_abi3
