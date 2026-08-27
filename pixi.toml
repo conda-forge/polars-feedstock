@@ -9,7 +9,7 @@ version = "2026.8.9"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/polars-feedstock"
 authors = ["@conda-forge/polars"]
 channels = ["conda-forge"]
-platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64", "win-64"]
+platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64", "win-64", "win-arm64"]
 requires-pixi = ">=0.59.0"
 
 [tasks.build-locally]
@@ -307,6 +307,60 @@ description = "Build polars-feedstock with variant win_64_is_abi3truepolars_runt
 [feature.build.tasks."inspect-win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython.yaml"
 description = "List contents of polars-feedstock packages built for variant win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython"
+[feature.build.tasks."build-win_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/win_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."debug-win_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/win_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."inspect-win_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t.yaml"
+description = "List contents of polars-feedstock packages built for variant win_arm64_is_abi3falsepolars_runtime32python3.14.____cp314t"
+[feature.build.tasks."build-win_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/win_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."debug-win_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/win_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."inspect-win_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t.yaml"
+description = "List contents of polars-feedstock packages built for variant win_arm64_is_abi3falsepolars_runtime64python3.14.____cp314t"
+[feature.build.tasks."build-win_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/win_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."debug-win_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/win_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."inspect-win_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t.yaml"
+description = "List contents of polars-feedstock packages built for variant win_arm64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t"
+[feature.build.tasks."build-win_arm64_is_abi3truepolars_runtime32python3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/win_arm64_is_abi3truepolars_runtime32python3.14.____cp314.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3truepolars_runtime32python3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-win_arm64_is_abi3truepolars_runtime32python3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/win_arm64_is_abi3truepolars_runtime32python3.14.____cp314.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3truepolars_runtime32python3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-win_arm64_is_abi3truepolars_runtime32python3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_arm64_is_abi3truepolars_runtime32python3.14.____cp314.yaml"
+description = "List contents of polars-feedstock packages built for variant win_arm64_is_abi3truepolars_runtime32python3.14.____cp314"
+[feature.build.tasks."build-win_arm64_is_abi3truepolars_runtime64python3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/win_arm64_is_abi3truepolars_runtime64python3.14.____cp314.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3truepolars_runtime64python3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-win_arm64_is_abi3truepolars_runtime64python3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/win_arm64_is_abi3truepolars_runtime64python3.14.____cp314.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3truepolars_runtime64python3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-win_arm64_is_abi3truepolars_runtime64python3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_arm64_is_abi3truepolars_runtime64python3.14.____cp314.yaml"
+description = "List contents of polars-feedstock packages built for variant win_arm64_is_abi3truepolars_runtime64python3.14.____cp314"
+[feature.build.tasks."build-win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314.yaml"
+description = "Build polars-feedstock with variant win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314.yaml"
+description = "List contents of polars-feedstock packages built for variant win_arm64_is_abi3truepolars_runtimecompatpython3.14.____cp314"
 
 [environments]
 build = ["build"]

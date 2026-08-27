@@ -1,11 +1,15 @@
 cd %PKG_NAME%
+if %ERRORLEVEL% neq 0 exit 1
 
-wmic logicaldisk get deviceid,size,freespace,caption
+powershell -NoProfile -Command "Get-CimInstance Win32_LogicalDisk | Select-Object DeviceID, Size, FreeSpace | Format-Table -AutoSize"
 
-set arch=x86_64
+if "%target_platform%"=="win-arm64" (
+    set arch=aarch64
+) else (
+    set arch=x86_64
+)
 
 @rem Remove this wrapper once https://github.com/conda-forge/rust-activation-feedstock/pull/79 is merged
-if %ERRORLEVEL% neq 0 exit 1
 copy %RECIPE_DIR%\cargo-auditable-wrapper.bat %BUILD_PREFIX%\Library\bin\cargo-auditable-wrapper.bat
 if %ERRORLEVEL% neq 0 exit 1
 set "CARGO=cargo-auditable-wrapper.bat"
@@ -19,22 +23,23 @@ set NONCOMPAT_TUNE_CPU=skylake
 set NONCOMPAT_FEATURES=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+cmpxchg16b,+avx,+avx2,+fma,+bmi1,+bmi2,+lzcnt,+pclmulqdq,+movbe
 set NONCOMPAT_CC_FEATURES=-msse3 -mssse3 -msse4.1 -msse4.2 -mpopcnt -mcx16 -mavx -mavx2 -mfma -mbmi -mbmi2 -mlzcnt -mpclmul -mmovbe
 
-if "%arch%"=="x86_64" (
-    if "%PKG_NAME%"=="polars-runtime-compat" (
-        set tune_cpu=%COMPAT_TUNE_CPU%
-        set features=%COMPAT_FEATURES%
-        set cc_features=%COMPAT_CC_FEATURES%
-    ) else (
-        set tune_cpu=%NONCOMPAT_TUNE_CPU%
-        set features=%NONCOMPAT_FEATURES%
-        set cc_features=%NONCOMPAT_CC_FEATURES%
-    )
-)
+set tune_cpu=
+set features=
+set cc_features=
+set cfg=
+
+rem aarch64 has no baseline feature/tuning split, leave RUSTFLAGS and CFLAGS as they are
+if not "%arch%"=="x86_64" goto :build
 
 if "%PKG_NAME%"=="polars-runtime-compat" (
+    set tune_cpu=%COMPAT_TUNE_CPU%
+    set features=%COMPAT_FEATURES%
+    set cc_features=%COMPAT_CC_FEATURES%
     set cfg=--cfg allocator="default"
 ) else (
-    set cfg=
+    set tune_cpu=%NONCOMPAT_TUNE_CPU%
+    set features=%NONCOMPAT_FEATURES%
+    set cc_features=%NONCOMPAT_CC_FEATURES%
 )
 
 if "%tune_cpu%"=="" (
@@ -45,6 +50,7 @@ if "%tune_cpu%"=="" (
     set CFLAGS=%CFLAGS% %cc_features% -mtune=%tune_cpu%
 )
 
+:build
 %PYTHON% -m pip install . -vv
 if %ERRORLEVEL% neq 0 exit %ERRORLEVEL%
 
