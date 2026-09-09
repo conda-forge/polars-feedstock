@@ -38,8 +38,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_64_is_abi3truepolars_runtime32python3.10.____cpython:
-        CONFIG: osx_64_is_abi3truepolars_runtime32python3.10.____cpython
+      osx_64_is_abi3truepolars_runtime32python3.11.____cpython:
+        CONFIG: osx_64_is_abi3truepolars_runtime32python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -48,8 +48,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_64_is_abi3truepolars_runtime64python3.10.____cpython:
-        CONFIG: osx_64_is_abi3truepolars_runtime64python3.10.____cpython
+      osx_64_is_abi3truepolars_runtime64python3.11.____cpython:
+        CONFIG: osx_64_is_abi3truepolars_runtime64python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -58,8 +58,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_64_is_abi3truepolars_runtimecompatpython3.10.____cpython:
-        CONFIG: osx_64_is_abi3truepolars_runtimecompatpython3.10.____cpython
+      osx_64_is_abi3truepolars_runtimecompatpython3.11.____cpython:
+        CONFIG: osx_64_is_abi3truepolars_runtimecompatpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -98,8 +98,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_arm64_is_abi3truepolars_runtime32python3.10.____cpython:
-        CONFIG: osx_arm64_is_abi3truepolars_runtime32python3.10.____cpython
+      osx_arm64_is_abi3truepolars_runtime32python3.11.____cpython:
+        CONFIG: osx_arm64_is_abi3truepolars_runtime32python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -108,8 +108,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_arm64_is_abi3truepolars_runtime64python3.10.____cpython:
-        CONFIG: osx_arm64_is_abi3truepolars_runtime64python3.10.____cpython
+      osx_arm64_is_abi3truepolars_runtime64python3.11.____cpython:
+        CONFIG: osx_arm64_is_abi3truepolars_runtime64python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -118,8 +118,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_arm64_is_abi3truepolars_runtimecompatpython3.10.____cpython:
-        CONFIG: osx_arm64_is_abi3truepolars_runtimecompatpython3.10.____cpython
+      osx_arm64_is_abi3truepolars_runtimecompatpython3.11.____cpython:
+        CONFIG: osx_arm64_is_abi3truepolars_runtimecompatpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld

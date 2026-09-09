@@ -21,9 +21,9 @@ pin_run_as_build:
 polars_runtime:
 - '64'
 python:
-- 3.10.* *_cpython
+- 3.11.* *_cpython
 python_min:
-- '3.10'
+- '3.11'
 rust_compiler:
 - rust
 target_platform:

@@ -29,11 +29,11 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 polars_runtime:
-- '64'
+- compat
 python:
-- 3.10.* *_cpython
+- 3.11.* *_cpython
 python_min:
-- '3.10'
+- '3.11'
 rust_compiler:
 - rust
 target_platform:
