@@ -1,9 +1,10 @@
 workflow_settings:
   free_disk_space: quick
+  pagefile_size:
+    - os: linux
+      value: 15
 azure:
   max_parallel: 25
-  settings_linux:
-    swapfile_size: 15GiB
 bot:
   automerge: true
 build_platform:
