@@ -55,6 +55,10 @@ outputs:
         - if: build_platform == 'win-64'
           then:
             - m2-base
+        - if: target_platform == 'win-arm64'
+          then:
+            # provides clang-cl, needed to assemble the aarch64 sources of aws-lc-sys
+            - clang
         - cmake
         - if: unix
           then:
