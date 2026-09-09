@@ -58,7 +58,7 @@ jobs:
             resize_partitions: False
             runs_on: ['namespace-profile-8cpu-on-win-64']
             tools_install_dir: D:\Miniforge
-          - CONFIG: win_64_is_abi3truepolars_runtime32python3.10.____cpython
+          - CONFIG: win_64_is_abi3truepolars_runtime32python3.11.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_platform: win-64
@@ -70,7 +70,7 @@ jobs:
             resize_partitions: False
             runs_on: ['namespace-profile-8cpu-on-win-64']
             tools_install_dir: D:\Miniforge
-          - CONFIG: win_64_is_abi3truepolars_runtime64python3.10.____cpython
+          - CONFIG: win_64_is_abi3truepolars_runtime64python3.11.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_platform: win-64
@@ -82,7 +82,7 @@ jobs:
             resize_partitions: False
             runs_on: ['namespace-profile-8cpu-on-win-64']
             tools_install_dir: D:\Miniforge
-          - CONFIG: win_64_is_abi3truepolars_runtimecompatpython3.10.____cpython
+          - CONFIG: win_64_is_abi3truepolars_runtimecompatpython3.11.____cpython
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_platform: win-64

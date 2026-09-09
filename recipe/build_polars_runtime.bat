@@ -5,6 +5,10 @@ powershell -NoProfile -Command "Get-CimInstance Win32_LogicalDisk | Select-Objec
 
 if "%target_platform%"=="win-arm64" (
     set arch=aarch64
+    rem aws-lc-sys only assembles its aarch64 .S sources with clang-cl. It falls back to
+    rem clang-cl on its own, but only when CC is unset -- and the vs2022 activation sets
+    rem CC=cl.exe, which silently drops the .S files and then fails to link them.
+    set AWS_LC_SYS_CC=clang-cl
 ) else (
     set arch=x86_64
 )

@@ -23,21 +23,21 @@ is_abi3:
 is_python_min:
 - true
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 polars_runtime:
-- '64'
+- '32'
 python:
-- 3.10.* *_cpython
+- 3.11.* *_cpython
 python_min:
-- '3.10'
+- '3.11'
 rust_compiler:
 - rust
 target_platform:
-- osx-64
+- osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

@@ -33,7 +33,7 @@ polars_runtime:
 python:
 - 3.14.* *_cp314t
 python_min:
-- '3.10'
+- '3.11'
 rust_compiler:
 - rust
 target_platform:
