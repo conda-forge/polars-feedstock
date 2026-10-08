@@ -6,3 +6,7 @@ polars_runtime:
   - "compat"
 github_actions_labels:               # [win and x86_64]
   - namespace-profile-8cpu-on-win-64 # [win and x86_64]
+# polars 2.0.0 calls statx without a weak fallback, which needs glibc >=2.28
+# https://github.com/pola-rs/polars/issues/29800
+c_stdlib_version:  # [linux]
+  - "2.28"         # [linux]
