@@ -16,19 +16,28 @@ source:
       - url: https://pypi.org/packages/source/p/polars-runtime-32/polars_runtime_32-${{ version }}.tar.gz
         sha256: b5f9afcc742b4a67eabd2c680ff0f12eb02ede9b4bf807bffabd6dbb9a58d5c7
         target_directory: polars-runtime-32
+        # TODO: remove in the next release, backport of https://github.com/pola-rs/polars/pull/29828
+        patches:
+          - patches/0001-Call-statx-via-raw-syscall.patch
   - if: polars_runtime == '64'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-64/polars_runtime_64-${{ version }}.tar.gz
       sha256: 9d0aa1ba0ed4521203c1c2aa44c279809427305577583d57715f06c708011122
       target_directory: polars-runtime-64
+      # TODO: remove in the next release, backport of https://github.com/pola-rs/polars/pull/29828
+      patches:
+        - patches/0001-Call-statx-via-raw-syscall.patch
   - if: polars_runtime == 'compat'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-compat/polars_runtime_compat-${{ version }}.tar.gz
       sha256: 040449ad38e9a08c0a0159a142860a9b15b73ff24bb694846cb3dde94bbce55b
       target_directory: polars-runtime-compat
+      # TODO: remove in the next release, backport of https://github.com/pola-rs/polars/pull/29828
+      patches:
+        - patches/0001-Call-statx-via-raw-syscall.patch
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - package:

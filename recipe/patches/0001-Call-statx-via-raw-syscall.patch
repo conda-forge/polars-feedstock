@@ -1,0 +1,119 @@
+From 2f2f3221a8d2e8eda8206cfad4f1deea63385e56 Mon Sep 17 00:00:00 2001
+From: Koen Denecker <koen@polars.tech>
+Date: Fri, 9 Oct 2026 11:21:03 +0200
+Subject: [PATCH] fix: Call `statx` via raw syscall so wheels load on glibc <
+ 2.28 (#29828)
+
+Backport of https://github.com/pola-rs/polars/pull/29828 so that polars 2.0.0
+does not require glibc >=2.28 at runtime.
+TODO: remove this patch in the next release.
+
+---
+ crates/polars-io/src/utils/byte_source.rs     |  4 +-
+ .../src/utils/byte_source/dio_align.rs        | 50 ++++++++++++++-----
+ 2 files changed, 40 insertions(+), 14 deletions(-)
+
+diff --git a/crates/polars-io/src/utils/byte_source.rs b/crates/polars-io/src/utils/byte_source.rs
+index 082835657862..b1e59d3f24c8 100644
+--- a/crates/polars-io/src/utils/byte_source.rs
++++ b/crates/polars-io/src/utils/byte_source.rs
+@@ -529,10 +529,10 @@ mod cachestat {
+             let ret = unsafe {
+                 libc::syscall(
+                     SYS_CACHESTAT,
+-                    file.as_raw_fd(),
++                    file.as_raw_fd() as libc::c_long,
+                     &mut range as *mut CachestatRange,
+                     &mut cs as *mut Cachestat,
+-                    0,
++                    0 as libc::c_long,
+                 )
+             };
+             if ret != 0 {
+diff --git a/crates/polars-io/src/utils/byte_source/dio_align.rs b/crates/polars-io/src/utils/byte_source/dio_align.rs
+index 3f4d0de448d8..c02095d78920 100644
+--- a/crates/polars-io/src/utils/byte_source/dio_align.rs
++++ b/crates/polars-io/src/utils/byte_source/dio_align.rs
+@@ -7,7 +7,7 @@
+ //!  1. `statx(STATX_DIOALIGN)` (Linux 6.1+) - authoritative, per-file, and
+ //!     distinguishes memory alignment from offset/length alignment. It can
+ //!     also say *definitively* that a file does not support direct I/O.
+-//!     Only available on glibc: `libc` does not expose `statx` on musl.
++//!     glibc only for now (see comments below for musl)
+ //!  2. `/sys/dev/block/<major>:<minor>/queue/logical_block_size` - the device
+ //!     sector size. Right for most filesystems, but misses cases where the
+ //!     filesystem imposes something stricter.
+@@ -107,21 +107,34 @@ fn normalize(v: usize) -> usize {
+     }
+ }
+ 
++/// `statx(2)` on an open file, as a raw syscall: glibc's wrapper needs glibc 2.28,
++/// manylinux2014 is 2.17.
++// TODO: also probe on musl (needs our own `struct statx`, #29306); musl uses sysfs meanwhile.
+ #[cfg(all(target_os = "linux", target_env = "gnu"))]
+-fn statx_dioalign(file: &std::fs::File) -> StatxAlign {
++fn statx(file: &std::fs::File, mask: u32) -> Option<libc::statx> {
+     let mut stx: libc::statx = unsafe { std::mem::zeroed() };
++    // Safety: `stx` matches the kernel's layout and outlives the call. `syscall` reads every
++    // integer argument as a `c_long`.
+     let rc = unsafe {
+-        libc::statx(
+-            file.as_raw_fd(),
++        libc::syscall(
++            libc::SYS_statx,
++            file.as_raw_fd() as libc::c_long,
+             c"".as_ptr(),
+-            libc::AT_EMPTY_PATH,
+-            libc::STATX_DIOALIGN,
+-            &mut stx,
++            libc::AT_EMPTY_PATH as libc::c_long,
++            mask as libc::c_long,
++            &mut stx as *mut libc::statx,
+         )
+     };
+-    if rc != 0 || stx.stx_mask & libc::STATX_DIOALIGN == 0 {
++    (rc == 0).then_some(stx)
++}
++
++#[cfg(all(target_os = "linux", target_env = "gnu"))]
++fn statx_dioalign(file: &std::fs::File) -> StatxAlign {
++    let Some(stx) =
++        statx(file, libc::STATX_DIOALIGN).filter(|stx| stx.stx_mask & libc::STATX_DIOALIGN != 0)
++    else {
+         return StatxAlign::Unknown;
+-    }
++    };
+ 
+     let offset = stx.stx_dio_offset_align as usize;
+     let memory = stx.stx_dio_mem_align as usize;
+@@ -135,9 +148,9 @@ fn statx_dioalign(file: &std::fs::File) -> StatxAlign {
+ 
+ /// `/sys/dev/block/<major>:<minor>/queue/logical_block_size`.
+ ///
+-/// Keyed by device number, so this needs no device-name lookup. Used when the
+-/// kernel predates `STATX_DIOALIGN`, or when `statx` is unavailable at all
+-/// (musl).
++/// Keyed by device number, so this needs no device-name lookup. Used when
++/// `statx` cannot answer: kernels before 6.1, filesystems that do not report
++/// `STATX_DIOALIGN`, and musl.
+ #[cfg(target_os = "linux")]
+ fn sysfs_logical_block_size(file: &std::fs::File) -> Option<DioAlign> {
+     use std::os::unix::fs::MetadataExt;
+@@ -175,4 +188,17 @@ mod tests {
+             }
+         }
+     }
++
++    /// A wrong argument order fails the call; a wrong struct layout misreads the size.
++    #[cfg(all(target_os = "linux", target_env = "gnu"))]
++    #[test]
++    fn statx_reads_the_file_29800() {
++        use std::io::Write;
++
++        let mut file = tempfile::tempfile().unwrap();
++        file.write_all(&[0; 1234]).unwrap();
++        let stx = statx(&file, libc::STATX_SIZE).unwrap();
++        assert_ne!(stx.stx_mask & libc::STATX_SIZE, 0);
++        assert_eq!(stx.stx_size, 1234);
++    }
+ }
