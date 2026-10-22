@@ -24,6 +24,9 @@ case "${target_platform}" in
   linux-aarch64|osx-arm64)
     arch="aarch64"
     ;;
+  linux-riscv64)
+    arch="riscv64"
+    ;;
   *)
     arch="x86_64"
     ;;
