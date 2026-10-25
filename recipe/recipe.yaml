@@ -1,5 +1,5 @@
 context:
-  version: "2.0.0"
+  version: "2.1.0"
 
 recipe:
   name: polars
@@ -11,10 +11,10 @@ source:
       - if: target_platform == 'linux-64'
         then:
           - url: https://pypi.org/packages/source/p/polars/polars-${{ version }}.tar.gz
-            sha256: 62da109e27a19a9d36657ee25dc035c9d3f87e7bd610526fe467dc37ea7dc115
+            sha256: 9eee488d6e10773c028753dfc8dac647fd60a708108dcb818a733e85d33df253
             target_directory: polars-python
       - url: https://pypi.org/packages/source/p/polars-runtime-32/polars_runtime_32-${{ version }}.tar.gz
-        sha256: b5f9afcc742b4a67eabd2c680ff0f12eb02ede9b4bf807bffabd6dbb9a58d5c7
+        sha256: c575f5f3cdb8a5f9be65477b9b4202b062593687fe62a0082add87fbd4571067
         target_directory: polars-runtime-32
         # TODO: remove in the next release, backport of https://github.com/pola-rs/polars/pull/29828
         patches:
@@ -22,7 +22,7 @@ source:
   - if: polars_runtime == '64'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-64/polars_runtime_64-${{ version }}.tar.gz
-      sha256: 9d0aa1ba0ed4521203c1c2aa44c279809427305577583d57715f06c708011122
+      sha256: 06b5cd513fd2c3943fa06271598c3df68c06e6b6dc7dbc52b75d724c8c70db63
       target_directory: polars-runtime-64
       # TODO: remove in the next release, backport of https://github.com/pola-rs/polars/pull/29828
       patches:
@@ -30,14 +30,14 @@ source:
   - if: polars_runtime == 'compat'
     then:
       url: https://pypi.org/packages/source/p/polars-runtime-compat/polars_runtime_compat-${{ version }}.tar.gz
-      sha256: 040449ad38e9a08c0a0159a142860a9b15b73ff24bb694846cb3dde94bbce55b
+      sha256: 44741fad16a6b09065330a5484cf45d9ef18de6dc4364e5b7f70ee189c3d8262
       target_directory: polars-runtime-compat
       # TODO: remove in the next release, backport of https://github.com/pola-rs/polars/pull/29828
       patches:
         - patches/0001-Call-statx-via-raw-syscall.patch
 
 build:
-  number: 2
+  number: 0
 
 outputs:
   - package:
