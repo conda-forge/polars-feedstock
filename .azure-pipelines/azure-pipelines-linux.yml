@@ -5,7 +5,7 @@
 jobs:
 - job: linux
   pool:
-    vmImage: ubuntu-latest
+    vmImage: $(vm_image)
   strategy:
     matrix:
       linux_64_is_abi3falsepolars_runtime32:
@@ -19,6 +19,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_64_is_abi3falsepolars_runtime64:
         CONFIG: linux_64_is_abi3falsepolars_runtime64
         UPLOAD_PACKAGES: 'True'
@@ -30,6 +31,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_64_is_abi3falsepolars_runtimecompat:
         CONFIG: linux_64_is_abi3falsepolars_runtimecompat
         UPLOAD_PACKAGES: 'True'
@@ -41,6 +43,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_64_is_abi3truepolars_runtime32:
         CONFIG: linux_64_is_abi3truepolars_runtime32
         UPLOAD_PACKAGES: 'True'
@@ -52,6 +55,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_64_is_abi3truepolars_runtime64:
         CONFIG: linux_64_is_abi3truepolars_runtime64
         UPLOAD_PACKAGES: 'True'
@@ -63,6 +67,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_64_is_abi3truepolars_runtimecompat:
         CONFIG: linux_64_is_abi3truepolars_runtimecompat
         UPLOAD_PACKAGES: 'True'
@@ -74,6 +79,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_aarch64_is_abi3falsepolars_runtime32python3.14.____cp314t:
         CONFIG: linux_aarch64_is_abi3falsepolars_runtime32python3.14.____cp314t
         UPLOAD_PACKAGES: 'True'
@@ -85,6 +91,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_aarch64_is_abi3falsepolars_runtime64python3.14.____cp314t:
         CONFIG: linux_aarch64_is_abi3falsepolars_runtime64python3.14.____cp314t
         UPLOAD_PACKAGES: 'True'
@@ -96,6 +103,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_aarch64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t:
         CONFIG: linux_aarch64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t
         UPLOAD_PACKAGES: 'True'
@@ -107,6 +115,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_aarch64_is_abi3truepolars_runtime32python3.11.____cpython:
         CONFIG: linux_aarch64_is_abi3truepolars_runtime32python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -118,6 +127,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_aarch64_is_abi3truepolars_runtime64python3.11.____cpython:
         CONFIG: linux_aarch64_is_abi3truepolars_runtime64python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -129,6 +139,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_aarch64_is_abi3truepolars_runtimecompatpython3.11.____cpython:
         CONFIG: linux_aarch64_is_abi3truepolars_runtimecompatpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -140,6 +151,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_riscv64_is_abi3falsepolars_runtime32python3.14.____cp314t:
         CONFIG: linux_riscv64_is_abi3falsepolars_runtime32python3.14.____cp314t
         UPLOAD_PACKAGES: 'True'
@@ -151,6 +163,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_riscv64_is_abi3falsepolars_runtime64python3.14.____cp314t:
         CONFIG: linux_riscv64_is_abi3falsepolars_runtime64python3.14.____cp314t
         UPLOAD_PACKAGES: 'True'
@@ -162,6 +175,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_riscv64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t:
         CONFIG: linux_riscv64_is_abi3falsepolars_runtimecompatpython3.14.____cp314t
         UPLOAD_PACKAGES: 'True'
@@ -173,6 +187,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_riscv64_is_abi3truepolars_runtime32python3.14.____cp314:
         CONFIG: linux_riscv64_is_abi3truepolars_runtime32python3.14.____cp314
         UPLOAD_PACKAGES: 'True'
@@ -184,6 +199,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_riscv64_is_abi3truepolars_runtime64python3.14.____cp314:
         CONFIG: linux_riscv64_is_abi3truepolars_runtime64python3.14.____cp314
         UPLOAD_PACKAGES: 'True'
@@ -195,6 +211,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
       linux_riscv64_is_abi3truepolars_runtimecompatpython3.14.____cp314:
         CONFIG: linux_riscv64_is_abi3truepolars_runtimecompatpython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
@@ -206,6 +223,7 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
+        vm_image: ubuntu-latest
     maxParallel: 15
   timeoutInMinutes: 360
   variables: {}
