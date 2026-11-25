@@ -18,6 +18,11 @@ copy %RECIPE_DIR%\cargo-auditable-wrapper.bat %BUILD_PREFIX%\Library\bin\cargo-a
 if %ERRORLEVEL% neq 0 exit 1
 set "CARGO=cargo-auditable-wrapper.bat"
 
+rem The git CLI on PATH is MSYS2's m2-git (via m2-base), whose https remote helper
+rem aborts when cargo fetches git dependencies (e.g. color-backtrace). Use cargo's
+rem built-in libgit2 fetcher instead.
+set CARGO_NET_GIT_FETCH_WITH_CLI=false
+
 rem see https://github.com/pola-rs/polars/blob/main/.github/workflows/release-python.yml
 set COMPAT_TUNE_CPU=
 set COMPAT_FEATURES=+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+cmpxchg16b
