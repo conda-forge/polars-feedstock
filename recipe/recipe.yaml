@@ -37,7 +37,7 @@ source:
         - patches/0001-Call-statx-via-raw-syscall.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - package:
